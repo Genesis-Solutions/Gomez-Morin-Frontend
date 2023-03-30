@@ -12,7 +12,7 @@ export const createUser = async (data) => {
 
   try {
     const response = await axios({
-      url: `${baseUrl}/user`,
+      url: `${baseUrl}/users/user`,
       method: "POST",
       data: formData,
       headers: {"Content-Type": "multipart/form-data" }
@@ -28,7 +28,7 @@ export const createUser = async (data) => {
 // READ
 export const readUsers = async () => {
   try {
-    const response = await axios.get(`${baseUrl}/user`)
+    const response = await axios.get(`${baseUrl}/users/user`)
 
     console.log(response)
 
@@ -39,9 +39,21 @@ export const readUsers = async () => {
   }
 }
 
-
 // UPDATE
+export const updateUser = async (id, data) => {
+  console.log(id)
+  try {
+    const response = await axios.put(
+      `${baseUrl}/users/user/${id}`,
+      data
+    )
 
+    return response.data
+
+  } catch (err) {
+    console.log(err)
+  }
+}
 
 // DELETE
 

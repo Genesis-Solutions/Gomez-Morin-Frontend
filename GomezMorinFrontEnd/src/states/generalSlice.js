@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  users: ["Miguel"],
-  text: "Default" ,
+  users: [{_id: "", nombre: "Miguel"}],
+  text: "Default",
   dark: true
 }
 
