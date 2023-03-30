@@ -12,6 +12,7 @@ export const createUser = async (data) => {
 
   try {
     const response = await axios({
+      url: `${baseUrl}/user`,
       method: "POST",
       data: formData,
       headers: {"Content-Type": "multipart/form-data" }
@@ -25,6 +26,19 @@ export const createUser = async (data) => {
 }
 
 // READ
+export const readUsers = async () => {
+  try {
+    const response = await axios.get(`${baseUrl}/user`)
+
+    console.log(response)
+
+    return response.data
+
+  } catch (error) {
+    console.log(error)
+  }
+}
+
 
 // UPDATE
 

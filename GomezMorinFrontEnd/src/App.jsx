@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { setUsers } from "./states/generalSlice"
 import Card from "./components/Card"
 import { useForm } from "react-hook-form"
-import { createUser } from "./queries/query"
+import { createUser, readUsers } from "./queries/query"
+import { useEffect } from "react"
 
 
 function App() {
@@ -15,8 +16,17 @@ function App() {
     const response = await createUser(data)
 
     dispatch(setUsers(response))
-
   }
+
+  useEffect(() => {
+    readUsers()
+    .then((response) => {
+      
+      if (response) {
+        dispatch(setUsers(response))
+      }
+    })
+  }, [])
 
   return (
     <div className="w-full h-full ">
