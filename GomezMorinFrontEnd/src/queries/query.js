@@ -30,8 +30,6 @@ export const readUsers = async () => {
   try {
     const response = await axios.get(`${baseUrl}/users/user`)
 
-    console.log(response)
-
     return response.data
 
   } catch (error) {
@@ -41,7 +39,6 @@ export const readUsers = async () => {
 
 // UPDATE
 export const updateUser = async (id, data) => {
-  console.log(id)
   try {
     const response = await axios.put(
       `${baseUrl}/users/user/${id}`,
@@ -56,4 +53,14 @@ export const updateUser = async (id, data) => {
 }
 
 // DELETE
+export const deleteUser = async (id) => {
+  try {
+    const response = await axios.delete(
+      `${baseUrl}/users/user/${id}`
+    )
 
+    return response.data
+  } catch (err) {
+    console.log(err)
+  }
+}
