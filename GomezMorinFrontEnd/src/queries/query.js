@@ -12,7 +12,7 @@ export const createUser = async (data) => {
 
   try {
     const response = await axios({
-      url: `${baseUrl}/users/user`,
+      url: `${baseUrl}/users/`,
       method: "POST",
       data: formData,
       headers: {"Content-Type": "multipart/form-data" }
@@ -28,7 +28,7 @@ export const createUser = async (data) => {
 // READ
 export const readUsers = async () => {
   try {
-    const response = await axios.get(`${baseUrl}/users/user`)
+    const response = await axios.get(`${baseUrl}/users/`)
 
     return response.data
 
@@ -41,7 +41,7 @@ export const readUsers = async () => {
 export const updateUser = async (id, data) => {
   try {
     const response = await axios.put(
-      `${baseUrl}/users/user/${id}`,
+      `${baseUrl}/users/${id}`,
       data
     )
 
@@ -56,7 +56,7 @@ export const updateUser = async (id, data) => {
 export const deleteUser = async (id) => {
   try {
     const response = await axios.delete(
-      `${baseUrl}/users/user/${id}`
+      `${baseUrl}/users/${id}`
     )
 
     return response.data
