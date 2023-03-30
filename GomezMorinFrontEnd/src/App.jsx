@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { setUsers } from "./states/generalSlice"
 import Card from "./components/Card"
 import { useForm } from "react-hook-form"
+import { createUser } from "./queries/query"
 
 
 function App() {
@@ -10,8 +11,11 @@ function App() {
 
   const { register, handleSubmit } = useForm()
 
-  const onSubmit = (data) => {
-    console.log(data)
+  const onSubmit = async (data) => {
+    const response = await createUser(data)
+
+    dispatch(setUsers(response))
+
   }
 
   return (
@@ -20,7 +24,7 @@ function App() {
         <label htmlFor="username">Username: </label>
         <input className="border-2 border-gray-400" type="text" id="username" placeholder="Username" {...register("username")} />
         <label htmlFor="image">Image: </label>
-        <input type="file" id="image" {...register("image")}/>
+        <input type="file" id="image" {...register("urlImg")}/>
         <button
           className="p-1 border-2 border-black bg-slate-300 "
         >
@@ -28,12 +32,12 @@ function App() {
         </button>
       </form>
 
-      <div>|
-      <ul>
-        { users.map((user, id) => (
-          <Card key={id} user={ user }/>
-        )) }
-      </ul>
+      <div>
+        <ul>
+          { users.map((user, id) => (
+            <Card key={id} user={ user }/>
+          )) }
+        </ul>
       </div>
     </div>
   )
