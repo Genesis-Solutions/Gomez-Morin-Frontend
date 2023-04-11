@@ -4,7 +4,7 @@ import Card from "./components/Card"
 import { useForm } from "react-hook-form"
 import { createUser, readUsers } from "./queries/query"
 import { useEffect } from "react"
-
+import MapContainer from "./components/MapContainer"
 
 function App() {
   const users = useSelector((state) => state.general.users)
@@ -48,6 +48,9 @@ function App() {
             <Card key={id} user={ user }/>
           )) }
         </ul>
+      </div>
+      <div>
+        <MapContainer />
       </div>
     </div>
   )
