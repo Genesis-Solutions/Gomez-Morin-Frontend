@@ -8,6 +8,8 @@ import MapContainer from "./components/MapContainer"
 import CardImage from "./components/CardImage"
 import GalleryCard from "./components/GalleryCard"
 import TextButton from "./components/TextButton"
+import TextContainer from "./components/TextContainer"
+
 import icon from './assets/flor.jpg'
 
 function App() {
@@ -35,7 +37,6 @@ function App() {
   return (
     
     <div >
-        
     </div>
     
   )
