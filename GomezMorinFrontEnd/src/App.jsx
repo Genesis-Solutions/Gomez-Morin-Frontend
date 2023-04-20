@@ -5,6 +5,10 @@ import { useForm } from "react-hook-form"
 import { createUser, readUsers } from "./queries/query"
 import { useEffect } from "react"
 import MapContainer from "./components/MapContainer"
+import CardImage from "./components/CardImage"
+import GalleryCard from "./components/GalleryCard"
+import TextButton from "./components/TextButton"
+import icon from './assets/flor.jpg'
 
 function App() {
   const users = useSelector((state) => state.general.users)
@@ -29,30 +33,11 @@ function App() {
   }, [])
 
   return (
-    <div className="w-full h-full ">
-      <form className="flex flex-col w-1/6" onSubmit={ handleSubmit(onSubmit) }>
-        <label htmlFor="username">Username: </label>
-        <input className="border-2 border-gray-400" type="text" id="username" placeholder="Username" {...register("username")} />
-        <label htmlFor="image">Image: </label>
-        <input type="file" id="image" {...register("urlImg")}/>
-        <button
-          className="p-1 border-2 border-black bg-slate-300 "
-        >
-          Enviar Usuario
-        </button>
-      </form>
-
-      <div>
-        <ul>
-          { users.map((user, id) => (
-            <Card key={id} user={ user }/>
-          )) }
-        </ul>
-      </div>
-      <div>
-        <MapContainer />
-      </div>
+    
+    <div >
+        
     </div>
+    
   )
 }
 
