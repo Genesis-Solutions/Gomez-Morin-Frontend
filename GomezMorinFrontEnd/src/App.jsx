@@ -9,6 +9,8 @@ import CardImage from "./components/CardImage"
 import GalleryCard from "./components/GalleryCard"
 import TextButton from "./components/TextButton"
 import TextContainer from "./components/TextContainer"
+import IconTitle from "./components/IconTitle"
+
 
 import icon from './assets/flor.jpg'
 
@@ -36,7 +38,8 @@ function App() {
 
   return (
     
-    <div >
+    <div className=" w-1/4 h-1/4 ">
+      <IconTitle headerText="Titulo" image={icon} altText="Un paisaje lindo"/>
     </div>
     
   )
