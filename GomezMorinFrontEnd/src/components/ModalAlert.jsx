@@ -77,22 +77,22 @@ const ModalAlert = ({ title, message, active }) => {
                       </div>
                       <div className="bg-gray-50 px-4 py-3 sm:flex sm:justify-center sm:px-6">
                         <div className="relative right-8">
-                        <Button
-                          text={"Confirmar"}
-                          type={"button"}
-                          colorBg={'red-600'}
-                          colorHoverBg={'red-700'}
-                          onClick={closeModal}
-                        ></Button>
+                          <Button
+                            text={"Confirmar"}
+                            type={"button"}
+                            colorBg={"bg-red-600"}
+                            colorHoverBg={"hover:bg-red-700"}
+                            onClick={closeModal}
+                          ></Button>
                         </div>
                         <div className="relative left-6">
-                        <button
-                          type="button"
-                          className="mt-3 inline-flex w-full rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                          onClick={closeModal}
-                        >
-                          Cancelar
-                        </button>
+                          <button
+                            type="button"
+                            className="mt-3 inline-flex w-full rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                            onClick={closeModal}
+                          >
+                            Cancelar
+                          </button>
                         </div>
                       </div>
                     </Dialog.Panel>
