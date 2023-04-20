@@ -3,6 +3,11 @@ module.exports = {
   content: ["./src/**/*.{html,js,jsx}"],
   darkMode: "class",
   theme: {
+    extend: {
+      colors: {
+        'gray-blue': '#4F5579',
+      },
+    },
     screens: {
       'sm': '640px',
       'md': '768px',
@@ -11,10 +16,6 @@ module.exports = {
       '2xl': '1536px'
     },
     fontFamily: {
-
-    },
-    extend: {
-
 
     },
   },
