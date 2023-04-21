@@ -1,14 +1,19 @@
+import { Height } from "@mui/icons-material";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 /**
- * A component that renders a carousel of images with a title.
- * @param {string} title - The title to display above the carousel.
- * @param {Array<string>} images - An array of image URLs to display in the carousel.
- * @returns {JSX.Element} - A React component that renders the image carousel.
+ * A component for displaying a carousel of images.
+ * 
+ * @param {string} title - The title of the carousel.
+ * @param {string[]} images - An array of image URLs to display in the carousel.
+ * @param {number} height - The height of the carousel in rem units.
+ * 
+ * @returns {JSX.Element} - The ImageCarousel component.
  */
-const ImageCarousel = ({ title, images }) => {
+const ImageCarousel = ({ title, images, height }) => {
+
   return (
     <div className="w-full h-full relative flex justify-center items-center">
       <Carousel
@@ -16,19 +21,19 @@ const ImageCarousel = ({ title, images }) => {
         autoPlay={true}
         infiniteLoop={true}
         showThumbs={false}
+        className="w-full h-full"
       >
-        {/* Map over the images array and render each image in a carousel slide */}
         {images.map((image, index) => (
-          <div key={index}>
+          <div style={{ width: "100%", height: `${height}rem`}}>
             <img
-              className="brightness-50 object-cover"
+              key={index}
+              className="brightness-50 object-cover object-center w-full h-full"
               src={image}
               alt={`Slide ${index}`}
             />
           </div>
         ))}
       </Carousel>
-      {/* Render the title as an absolute element over the carousel */}
       <h2 className="absolute font-bold text-white text-3xl">{title}</h2>
         
     </div>

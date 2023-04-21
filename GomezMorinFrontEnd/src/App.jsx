@@ -70,8 +70,8 @@ const columns = [
         </ul>
       </div>
 
-      <div className="h-[60%] w-[20%]">
-        <ImageCarousel title={"Test"} images={ imageArray } />
+      <div className="w-full h-full">
+        <ImageCarousel title={"Test"} images={ imageArray } height={28}/>
       </div>
 
       <div>
