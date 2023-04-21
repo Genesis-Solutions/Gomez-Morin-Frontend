@@ -24,7 +24,7 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
 
   return (
     <div className="w-full rounded-lg bg-gray drop-shadow-md">
-      <div className="flex mb-4 items-center">
+      <div className="flex items-center">
         <div class="w-1/2 mx-6 my-1 text-left">
           {usuario.length === 1 ? (
             usuario.map((tempUsuario) => (
@@ -69,7 +69,29 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
             <h1 className="font-bold text-2xl">No existe el usuario</h1>
           )}
         </div>
-        <div class="w-1/2 h-12 mx-6 my-1 text-left">ola</div>
+        <div class="w-1/2 h-12 mx-6 my-1 text-left">
+          <Checkbox label="Soy una persona moral" />
+          <p className="text-sm italic font-thin">
+            Este campo implica que eres una institución afiliada con Gómez
+            Morín.
+          </p>
+          <label>Contraseña</label>
+          <Button
+            text="Guardar Cambios"
+            type="submit"
+            colorBg="bg-teal-500"
+            colorHoverBg="bg-teal-500"
+            navigation=""
+          />
+          <label>Cuenta</label>
+          <Button
+            text="Guardar Cambios"
+            type="submit"
+            colorBg="bg-teal-500"
+            colorHoverBg="bg-teal-500"
+            navigation=""
+          />
+        </div>
       </div>
     </div>
   );

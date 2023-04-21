@@ -13,15 +13,11 @@ const Page = () => {
           <div class="col-span-1">
             <ProfileCard nombre="Andrés Magaña Pérez"/>
           </div>
-          <div class="col-span-2">
+          <div class="col-span-2 ">
             <InfoProfileCard/>
           </div>
         </div>
         
-        <br></br>
-        <div className="w-full">
-          <ProfileCard nombre="Andrés Magaña Pérez"/>
-        </div>
         <br/>
         <p className="text-base">Prueba texto base</p>
         <br/>
