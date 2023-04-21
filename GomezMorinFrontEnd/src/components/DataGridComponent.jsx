@@ -2,8 +2,8 @@ import React from 'react'
 import { DataGrid} from '@mui/x-data-grid';
 
 /**
- * rows y columns deben de tener este formato
- * TODO: Eliminar este comentario cuando se implemente el componente en todas sus páginas
+ * Rows and columns must have this format
+ * TODO: Remove this comment when the component is implemented in all its pages
  */
 // const rows = [
 //   { id: 1, col1: 'Hello', col2: 'World' },
@@ -16,6 +16,12 @@ import { DataGrid} from '@mui/x-data-grid';
 //   { field: 'col2', headerName: 'Column 2', width: 150 },
 // ];
 
+/**
+ * This component renders a Material-UI DataGrid component with rows and columns provided as props.
+ * @param {Array} rows - The array of rows to be displayed in the grid.
+ * @param {Array} columns - The array of columns to be displayed in the grid.
+ * @returns {JSX.Element} - The DataGrid component with provided rows and columns.
+ */
 const DataGridComponent = ({rows, columns}) => {
   return (
     <div style={{ height: 300, width: '100%' }}>
