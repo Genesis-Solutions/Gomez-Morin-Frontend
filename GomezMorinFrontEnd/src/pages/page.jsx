@@ -6,7 +6,7 @@ import InfoProfileCard from "../components/InfoProfileCard";
 
 const Page = () => {
   return (
-    <div>
+    <div className="my-16">
       <div className="mx-14">
         <br/>
         <div className="grid grid-cols-3 gap-4 items-center">
