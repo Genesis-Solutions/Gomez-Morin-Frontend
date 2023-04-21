@@ -69,7 +69,7 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
             <h1 className="font-bold text-2xl">No existe el usuario</h1>
           )}
         </div>
-        <div className="w-1/2 h-12 mx-6 my-1 text-left">
+        <div className="w-1/2 mx-6 my-1 text-left">
           <Checkbox label="Soy una persona moral" />
           <p className="text-sm italic font-thin">
             Este campo implica que eres una institución afiliada con Gómez
