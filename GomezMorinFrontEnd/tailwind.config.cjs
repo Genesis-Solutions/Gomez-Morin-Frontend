@@ -7,6 +7,12 @@ module.exports = {
       colors: {
         'gray-blue': '#4F5579',
         'gray': '#D4D5DE',
+        'pink-red':'#D91B5B',
+        'green-primary':'#AFD135',
+        'blue':'#242B57',
+        'green-secondary':'#00FF29',
+        'yellow':'#FFE600',
+        'orange':'#FF5C00',
       },
     },
     screens: {
