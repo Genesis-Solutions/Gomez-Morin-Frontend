@@ -2,27 +2,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import Footer from "../components/Footer";
 import ProfileCard from "../components/ProfileCard";
+import InfoProfileCard from "../components/InfoProfileCard";
 
 const Page = () => {
   return (
     <div>
-      <div className="w-full h-full grid grid-cols-2 grid-rows-auto justify-between pt-10 mx-14">
-        <h1>Hola prueba</h1>
-      </div>
-      <br/>
-      <div className="w-64 mx-14">
-        <ProfileCard nombre="Andrés Magaña Pérez"/>
-      </div>
-      <br></br>
       <div className="mx-14">
-        <ProfileCard nombre="Andrés Magaña Pérez"/>
+        <br/>
+        <div className="grid grid-cols-3 gap-4 items-center">
+          <div class="col-span-1">
+            <ProfileCard nombre="Andrés Magaña Pérez"/>
+          </div>
+          <div class="col-span-2">
+            <InfoProfileCard/>
+          </div>
+        </div>
+        
+        <br></br>
+        <div className="w-full">
+          <ProfileCard nombre="Andrés Magaña Pérez"/>
+        </div>
+        <br/>
+        <p className="text-base">Prueba texto base</p>
+        <br/>
+        
       </div>
-      <br/>
-      <p className="text-base">Prueba texto base</p>
-      <br/>
-      <div>
-        <Footer/>
-      </div>
+      <Footer/>
     </div>
   );
 };
