@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const NavbarItem = ({ children, navigation }) => {
+const NavbarItem = ({ children, navigation, isLoggedOut }) => {
   const navigate = useNavigate();
 
   const currentLink = navigation === window.location.pathname;

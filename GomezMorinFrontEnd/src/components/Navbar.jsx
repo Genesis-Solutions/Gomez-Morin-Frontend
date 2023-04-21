@@ -15,6 +15,9 @@ const Navbar = () => {
         </NavbarItem>
       </div>
       <div className="flex ml-auto">
+        <NavbarItem navigation="/" isLogout={true}>
+          Cerrar Sesión
+        </NavbarItem>
         <NavbarDropdownItem userName={"FERNI"}></NavbarDropdownItem>
       </div>
     </nav>
