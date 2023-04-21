@@ -1,7 +1,16 @@
+/**
+
+This component renders a dropdown text section that displays a header and two text containers that can be toggled on click.
+@param {string} leftText - The text content for the left text container.
+@param {string} rightText - The text content for the right text container.
+@param {string} headerIcon - The icon image url for the header.
+@param {string} headerText - The text content for the header.
+@returns {JSX.Element} - The dropdown text component JSX element.
+*/
+
 import { useState } from "react";
 import IconTitle from "./IconTitle"
 import TextContainer from "./TextContainer"
-
 
 const DropdownText = ({ leftText, rightText, headerIcon, headerText }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,6 +18,10 @@ const DropdownText = ({ leftText, rightText, headerIcon, headerText }) => {
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
+  /**
+
+  This function toggles the dropdown text display on click.
+  */
 
   return (
     <div className="relative w-full">

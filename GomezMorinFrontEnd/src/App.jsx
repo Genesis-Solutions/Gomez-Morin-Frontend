@@ -41,7 +41,7 @@ function App() {
   return (
     
     <div>
-    <DropdownText headerIcon ={icon} headerText="Titulo" leftText="Lorem Ipsum" rightText="Lorem Ipsum"/>
+    
 
     </div>
     
