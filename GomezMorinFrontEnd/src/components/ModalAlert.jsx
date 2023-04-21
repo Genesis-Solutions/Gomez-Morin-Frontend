@@ -3,7 +3,16 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import Button from "./Button";
 
-const ModalAlert = ({ title, message, active }) => {
+/**
+ * This is a component for an alert displayed on a modal giving the user two options.
+ *
+ * @param {string} title - The title of the alert.
+ * @param {string} message - The message that will be displayed on the alert.
+ * @param {boolean} active - The state to initialize the alert.
+ * @param {string} buttonName - The name of the button that will trigger the alert
+ */
+
+const ModalAlert = ({ title, message, active, buttonName }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -24,7 +33,7 @@ const ModalAlert = ({ title, message, active }) => {
         type="button"
         onClick={openModal}
       >
-        Cerrar Sesión
+        {buttonName}
       </button>
       {isOpen ? (
         <>

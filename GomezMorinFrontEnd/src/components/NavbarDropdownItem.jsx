@@ -2,6 +2,12 @@ import { Fragment, React } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import ModalAlert from "./ModalAlert";
 
+/**
+ * This is a component for showing a dropdown item in the navbar.
+ *
+ * @param {string} userName - The name of the user.
+ */
+
 const NavbarDropdownItem = ({ userName }) => {
   return (
     <>
@@ -29,6 +35,7 @@ const NavbarDropdownItem = ({ userName }) => {
                     title={"Cierre de Sesión"}
                     message={"¿Estás seguro que deseas cerrar tu sesión?"}
                     active={active}
+                    buttonName={"Cerrar Sesión"}
                   />
                 )}
               </Menu.Item>
