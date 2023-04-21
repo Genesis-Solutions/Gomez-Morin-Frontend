@@ -18,7 +18,7 @@ const Page = () => {
         <ProfileCard nombre="Andrés Magaña Pérez"/>
       </div>
       <br/>
-      <p className="text-base">Prueba texto base</p>
+      <Button className="w-full px-3 py-2 rounded-xl bg-gray-blue hover:text-white hover:bg-gray">Prueba</Button>
       <br/>
       <div>
         <Footer/>
