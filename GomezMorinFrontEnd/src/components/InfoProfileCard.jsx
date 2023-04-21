@@ -25,7 +25,7 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
   return (
     <div className="w-full rounded-lg bg-gray drop-shadow-md">
       <div className="flex items-center">
-        <div class="w-1/2 mx-6 my-1 text-left">
+        <div className="w-1/2 mx-6 my-1 text-left">
           {usuario.length === 1 ? (
             usuario.map((tempUsuario) => (
               <FormProvider {...methods}>
@@ -69,7 +69,7 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
             <h1 className="font-bold text-2xl">No existe el usuario</h1>
           )}
         </div>
-        <div class="w-1/2 h-12 mx-6 my-1 text-left">
+        <div className="w-1/2 h-12 mx-6 my-1 text-left">
           <Checkbox label="Soy una persona moral" />
           <p className="text-sm italic font-thin">
             Este campo implica que eres una institución afiliada con Gómez
