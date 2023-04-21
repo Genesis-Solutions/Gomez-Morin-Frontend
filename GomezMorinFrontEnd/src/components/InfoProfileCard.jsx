@@ -79,7 +79,7 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
           <Button
             text="Cambiar Contraseña"
             type="submit"
-            colorBg="bg-rose-800"
+            colorBg="bg-pink-red"
             colorHoverBg="bg-rose-800"
             navigation=""
           />
@@ -87,7 +87,7 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
           <Button
             text="Eliminar Cuenta"
             type="submit"
-            colorBg="bg-rose-800"
+            colorBg="bg-pink-red"
             colorHoverBg="bg-rose-500"
             navigation=""
           />
