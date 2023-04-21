@@ -69,7 +69,7 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
             <h1 className="font-bold text-2xl">No existe el usuario</h1>
           )}
         </div>
-        <div className="w-1/2 h-12 mx-6 my-1 text-left">
+        <div className="w-1/2 mx-6 my-2 text-left">
           <Checkbox label="Soy una persona moral" />
           <p className="text-sm italic font-thin">
             Este campo implica que eres una institución afiliada con Gómez
@@ -77,18 +77,18 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
           </p>
           <label>Contraseña</label>
           <Button
-            text="Guardar Cambios"
+            text="Cambiar Contraseña"
             type="submit"
-            colorBg="bg-teal-500"
-            colorHoverBg="bg-teal-500"
+            colorBg="bg-rose-800"
+            colorHoverBg="bg-rose-800"
             navigation=""
           />
           <label>Cuenta</label>
           <Button
-            text="Guardar Cambios"
+            text="Eliminar Cuenta"
             type="submit"
-            colorBg="bg-teal-500"
-            colorHoverBg="bg-teal-500"
+            colorBg="bg-rose-800"
+            colorHoverBg="bg-rose-500"
             navigation=""
           />
         </div>
