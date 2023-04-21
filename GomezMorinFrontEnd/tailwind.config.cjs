@@ -17,7 +17,7 @@ module.exports = {
       '2xl': '1536px'
     },
     fontFamily: {
-
+      'Gobold': ['./public/fonts/Gobold_Regular.otf'],
     },
   },
   plugins: [],
