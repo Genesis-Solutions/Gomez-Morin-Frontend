@@ -6,6 +6,7 @@ import { createUser, readUsers } from "./queries/query"
 import { useEffect } from "react"
 import ImageCarousel from "./components/ImageCarousel"
 import DataGridComponent from "./components/DataGridComponent"
+import Clipboard from "./components/Clipboard"
 
 function App() {
   const users = useSelector((state) => state.general.users)
@@ -72,6 +73,10 @@ const columns = [
       </div>
       <div>
         <DataGridComponent rows = {rows} columns = {columns} />
+      </div>
+      <div>
+        <Clipboard  textToCopy={"Esto es un ejemplo para copiar"}/>
+        <Clipboard  textToCopy={"Esto es otro ejemplo para copiar"}/>
       </div>
     </div>
   )
