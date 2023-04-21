@@ -10,9 +10,11 @@ import GalleryCard from "./components/GalleryCard"
 import TextButton from "./components/TextButton"
 import TextContainer from "./components/TextContainer"
 import IconTitle from "./components/IconTitle"
+import DropdownText from "./components/DropdownText"
 
 
 import icon from './assets/flor.jpg'
+import icon1 from './assets/icon.png'
 
 function App() {
   const users = useSelector((state) => state.general.users)
@@ -38,8 +40,9 @@ function App() {
 
   return (
     
-    <div className=" w-1/4 h-1/4 ">
-      <IconTitle headerText="Titulo" image={icon} altText="Un paisaje lindo"/>
+    <div>
+    <DropdownText headerIcon ={icon} headerText="Titulo" leftText="Lorem Ipsum" rightText="Lorem Ipsum"/>
+
     </div>
     
   )
