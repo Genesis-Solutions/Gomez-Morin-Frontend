@@ -28,7 +28,7 @@ const ModalAlert = ({ title, message, active, buttonName }) => {
       <button
         className={`${
           (active ? "bg-gray-700 text-gray-100" : "text-gray-100",
-          "block w-full px-4 py-2 text-left text-sm")
+          " w-full px-4 py-2 text-left text-sm")
         }`}
         type="button"
         onClick={openModal}
@@ -64,14 +64,14 @@ const ModalAlert = ({ title, message, active, buttonName }) => {
                   >
                     <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
                       <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                        <div className="sm:flex sm:items-start">
+                        <div className="sm:flex">
                           <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                             <ExclamationTriangleIcon
                               className="h-6 w-6 text-red-600"
                               aria-hidden="true"
                             />
                           </div>
-                          <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                          <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left sm:flex-grow">
                             <Dialog.Title
                               as="h3"
                               className="text-base font-semibold leading-6 text-gray-900"
@@ -84,17 +84,19 @@ const ModalAlert = ({ title, message, active, buttonName }) => {
                           </div>
                         </div>
                       </div>
-                      <div className="bg-gray-50 px-4 py-3 sm:flex sm:justify-center sm:px-6">
-                        <div className="relative right-8">
-                          <Button
-                            text={"Confirmar"}
-                            type={"button"}
-                            colorBg={"bg-red-600"}
-                            colorHoverBg={"hover:bg-red-700"}
-                            onClick={closeModal}
-                          ></Button>
-                        </div>
-                        <div className="relative left-6">
+
+                      
+                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:justify-center sm:gap-5 sm:px-6">
+                          <div className="">
+                            <Button
+                              text={"Confirmar"}
+                              type={"button"}
+                              colorBg={"bg-red-600"}
+                              colorHoverBg={"hover:bg-red-700"}
+                              onClick={closeModal}
+                            ></Button>
+                            </div>
+                        <div className="">
                           <button
                             type="button"
                             className="mt-3 inline-flex w-full rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
@@ -104,6 +106,7 @@ const ModalAlert = ({ title, message, active, buttonName }) => {
                           </button>
                         </div>
                       </div>
+                    
                     </Dialog.Panel>
                   </Transition.Child>
                 </div>
