@@ -3,6 +3,7 @@ import { useForm, FormProvider } from "react-hook-form";
 import InputForm from "./InputForm";
 import Button from "./Button";
 import Checkbox from "./Checkbox";
+import SpinnerLoader from "./SpinnerLoader";
 
 const InfoProfileCard = (/*Cookie.session.id*/) => {
   const [usuario, setUsuario] = useState([]);
@@ -63,34 +64,42 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
                 </form>
               </FormProvider>
             ))
-          ) : loading ? (
-            <h1 className="font-bold text-2xl">Cargando...</h1>
+          ) : loading ? ( 
+            <SpinnerLoader colorSpin="#AFD135"/>
           ) : (
             <h1 className="font-bold text-2xl">No existe el usuario</h1>
           )}
         </div>
         <div className="w-1/2 mx-6 my-2 text-left">
           <Checkbox label="Soy una persona moral" />
-          <p className="text-sm italic font-thin">
+          <p className="text-sm italic font-thin mb-2">
             Este campo implica que eres una institución afiliada con Gómez
             Morín.
           </p>
-          <label>Contraseña</label>
-          <Button
-            text="Cambiar Contraseña"
-            type="submit"
-            colorBg="bg-pink-red"
-            colorHoverBg="bg-rose-800"
-            navigation=""
-          />
-          <label>Cuenta</label>
-          <Button
-            text="Eliminar Cuenta"
-            type="submit"
-            colorBg="bg-pink-red"
-            colorHoverBg="bg-rose-500"
-            navigation=""
-          />
+          <div className="mt-3">
+            <label className="font-bold">Contraseña</label>
+          </div>
+          <div className="mt-3">
+            <Button
+              text="Cambiar Contraseña"
+              type="submit"
+              colorBg="bg-pink-red"
+              colorHoverBg="bg-rose-800"
+              navigation=""
+            />
+          </div>
+          <div className="mt-3">
+            <label className="font-bold">Cuenta</label>
+          </div>
+          <div className="my-3">
+            <Button
+              text="Eliminar Cuenta"
+              type="submit"
+              colorBg="bg-pink-red"
+              colorHoverBg="bg-rose-500"
+              navigation=""
+            />
+          </div>
         </div>
       </div>
     </div>

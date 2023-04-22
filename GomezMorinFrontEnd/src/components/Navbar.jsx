@@ -13,7 +13,7 @@ const Navbar = () => {
       <div className="flex-1 py-1">
         <NavbarItem navigation="/">
           <img
-            src="/images/logoMorin.png"
+            src="/img/gomez_morin_blanco.png"
             alt="My Image"
             className=" h-full w-16"
           />
