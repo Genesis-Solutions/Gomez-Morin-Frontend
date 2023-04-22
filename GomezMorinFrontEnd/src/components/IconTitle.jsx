@@ -18,12 +18,13 @@ function IconTitle({ image, headerText }) {
   }, []);
 
   return (
-    <div className="flex flex-col lg:flex-row items-center w-1/12 h-1/12 mt-4 mb-4">
+
+    <div className="flex flex-col lg:flex-row items-center w-1/4 h-1/4 mt-4 mb-4">
       <div className={`lg:w-1/2 mr-4 ${maxWidth}`}>
         <img src={image} className="w-full object-contain order-last lg:order-first " /> {/* Rendering the icon image */}
       </div>
       <div className="lg:w-1/2" ref={headerRef}>
-        <h1 className=" text-4xl ">{headerText}</h1> {/* Rendering the header text */}
+        <h1 className="text-3xl whitespace-nowrap text-center">{headerText}</h1> {/* Rendering the header text */}
       </div>
     </div>
   );

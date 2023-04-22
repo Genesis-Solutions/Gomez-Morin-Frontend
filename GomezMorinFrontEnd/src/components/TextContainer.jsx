@@ -8,7 +8,9 @@ import React from 'react';
 const TextContainer = ({ text }) => {
   return (
     <div className="w-full h-full">
-      <p>{text}</p> {/* Rendering the text content */}
+      <p className=" md:container md:mx-auto self-center ">
+        { text }
+      </p>
     </div>
   )
 }

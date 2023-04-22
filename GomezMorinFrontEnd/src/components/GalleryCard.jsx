@@ -10,15 +10,15 @@ import CardImage from "./CardImage";
  */
 const GalleryCard = ({icon1, icon2, icon3}) => {
   return (
-    <div className="w-full h-full">
-      <div className="grid grid-cols-3 gap-4 mt-10 mb-10 ml-10 mr-10">
-        <div className="mr-8">
+    <div className="w-full h-full ">
+      <div className="grid grid-cols-3  mx-14 flex justify-items-center ">
+        <div className=" mr-3 ml-3 self-center">
           <CardImage icon={icon1} /> {/* Rendering the first CardImage component */}
         </div>
-        <div className="mr-8">
+        <div className=" mr-3 ml-3 self-center">
           <CardImage icon={icon2} /> {/* Rendering the second CardImage component */}
         </div>
-        <div className="mr-8">
+        <div className=" mr-3 ml-3 self-center">
           <CardImage icon={icon3} /> {/* Rendering the third CardImage component */}
         </div>
       </div>

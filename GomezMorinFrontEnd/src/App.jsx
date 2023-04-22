@@ -41,7 +41,16 @@ function App() {
   return (
     
     <div>
-    
+      <div className="grid grid-rows-3">
+        {/*<GalleryCard icon1={icon} icon2={icon} icon3={icon}/>
+        <TextButton text="Boton de Prueba" link="pornhub.com"/>*/}
+        <div className="w-1/2 h-1/2">
+          <IconTitle image={icon1} headerText="hola"/>
+        </div>
+
+        
+        <DropdownText leftText="asdfasdfadsfadsfkasdnfjasdnfij asndfijasndo fjansdojfna osdjfnasjodnfoa o jsdnfoajsd nfajnsdifjansdiof jnasodojfasdfasdfadsfadsfk asdnfjasdnfijasndfijasndofj ansdojfnaosdjfnasjodnfoaojsdnf oajsdnfajnsdifjansdiofjnasodojf" rightText="asdfasdfadsfa dsfkasdnfjasdnfijasndfijas ndofjansdojfnaosd jfnasjodnfoaojsdnfo ajsdnfajnsdi fjansdiofjnas odojfasdfasdfa dsfadsfkasdnfjasdnfij asndfijasndofjansdojfnaosdjfna sjodnfoaojsdnfoajsdnfajnsdifjansdiofjnasodojf" headerIcon={icon1} headerText="Como Registrarse?"/>
+      </div>
 
     </div>
     

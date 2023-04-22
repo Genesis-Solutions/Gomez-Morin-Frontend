@@ -8,7 +8,7 @@ import React from 'react';
 const CardImage = ({icon}) => {
   return (
     <div>
-      <img className="w-full h-full" src={icon} /> {/* Rendering the icon image */}
+      <img className="w-full rounded-lg drop-shadow-md h-full " src={icon} /> {/* Rendering the icon image */}
     </div>
   )
 }

@@ -8,7 +8,7 @@ import React from 'react';
  */
 const TextButton = ({ text, link }) => {
   return (
-    <a href={link}>
+    <a class="underline mx-14 text-lg"href={link}>
       {text}
     </a>
   );
