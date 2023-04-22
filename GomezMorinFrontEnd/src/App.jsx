@@ -9,6 +9,7 @@ import DataGridComponent from "./components/DataGridComponent"
 import Clipboard from "./components/Clipboard"
 import ImageTitle from "./components/ImageTitle"
 import EditModal from "./components/EditModal"
+import SearchBar from "./components/SearchBar"
 
 function App() {
   const users = useSelector((state) => state.general.users)
@@ -90,6 +91,7 @@ const columns = [
       <div>
         <EditModal />
       </div>
+      <SearchBar />
     </div>
   )
 }
