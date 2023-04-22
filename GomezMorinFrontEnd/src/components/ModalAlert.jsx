@@ -15,13 +15,13 @@ import Button from "./Button";
 const ModalAlert = ({ title, message, active, buttonName }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  function closeModal() {
+  const closeModal = () => {
     setIsOpen(false);
-  }
+  };
 
-  function openModal() {
+  const openModal = () => {
     setIsOpen(true);
-  }
+  };
 
   return (
     <>
@@ -85,28 +85,30 @@ const ModalAlert = ({ title, message, active, buttonName }) => {
                         </div>
                       </div>
 
-                      
-                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:justify-center sm:gap-5 sm:px-6">
-                          <div className="">
-                            <Button
-                              text={"Confirmar"}
-                              type={"button"}
-                              colorBg={"bg-red-600"}
-                              colorHoverBg={"hover:bg-red-700"}
-                              onClick={closeModal}
-                            ></Button>
-                            </div>
+                      <div className="bg-gray-50 px-4 py-3 sm:flex sm:justify-center sm:gap-5 sm:px-6">
+                        <div className="">
+                          <Button
+                            text={"Confirmar"}
+                            type={"button"}
+                            colorBg={"bg-red-600"}
+                            colorHoverBg={"hover:bg-red-700"}
+                            onClick={() => {
+                              closeModal();
+                            }}
+                          ></Button>
+                        </div>
                         <div className="">
                           <button
                             type="button"
                             className="mt-3 inline-flex w-full rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                            onClick={closeModal}
+                            onClick={() => {
+                              closeModal();
+                            }}
                           >
                             Cancelar
                           </button>
                         </div>
                       </div>
-                    
                     </Dialog.Panel>
                   </Transition.Child>
                 </div>
