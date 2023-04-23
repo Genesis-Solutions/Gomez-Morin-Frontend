@@ -10,7 +10,6 @@ import { useFormContext } from "react-hook-form";
  *
  * @returns {JSX.Element} - The rendered component.
  */
-
 const TextArea = ({ label, name, placeholder, defaultValue }) => {
   const { register } = useFormContext();
 

@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { Checkbox } from "@material-tailwind/react";
 
 const Checkbox1 = ({ label,  }) => {

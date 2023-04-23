@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
  * @param {string} navigation - The path that will navigate to.
  * @param {boolean} isLoggedOut - The state that confirms or denies if the user is logged out.
  */
-
 const NavbarItem = ({ children, navigation, isLoggedOut }) => {
   const navigate = useNavigate();
 
