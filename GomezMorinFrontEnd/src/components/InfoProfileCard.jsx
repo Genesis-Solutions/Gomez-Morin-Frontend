@@ -84,11 +84,10 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
           {user.length === 1 ? (
             user.map((tempUser) => (
               <div>
-                <Checkbox label="Soy una persona moral" />
-                <p className="text-sm italic font-thin mb-2">
-                  Este campo implica que eres una institución afiliada con Gómez
-                  Morín.
-                </p>
+                <Checkbox
+                  label={"Soy una persona moral"}
+                  subLabel={"Este campo implica que eres una institución afiliada con Gómez Morín."}
+                />
                 <div className="mt-3">
                   <label className="font-bold">Contraseña</label>
                 </div>

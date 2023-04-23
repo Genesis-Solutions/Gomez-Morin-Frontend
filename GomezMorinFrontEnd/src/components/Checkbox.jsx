@@ -1,9 +1,25 @@
 import { Checkbox } from "@material-tailwind/react";
 
-const Checkbox1 = ({ label,  }) => {
+/**
+ * A Material Tailwind checkbox component with a label and optional sub-label.
+ * @param label The text for the checkbox label.
+ * @param subLabel An optional sub-label to display below the checkbox label.
+ * 
+ * @return The Checkbox1 component.
+ */
+const AltCheckbox = ({ label, subLabel }) => {
   return (
-    <Checkbox color="green" ripple={true} label="Soy persona moral" defaultChecked />
+    <div>
+      <Checkbox
+        color="green"
+        ripple={true}
+        label={label}
+        defaultChecked
+      />
+      <p className="text-sm italic font-thin mb-2">{subLabel}</p>
+    </div>
+    
   );
 };
 
-export default Checkbox1;
+export default AltCheckbox;
