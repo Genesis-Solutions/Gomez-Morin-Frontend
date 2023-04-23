@@ -5,21 +5,31 @@ import Button from "./Button";
 import Checkbox from "./Checkbox";
 import SpinnerLoader from "./SpinnerLoader";
 
+/**
+ * A component that displays user information and allows them to update their profile.
+ * @param {string} Cookie.session.id - The ID of the user's session cookie.
+ *
+ * @returns {JSX.Element} The JSX element displaying the user's profile and profile editing form.
+ */
 const InfoProfileCard = (/*Cookie.session.id*/) => {
-  const [usuario, setUsuario] = useState([]);
+  const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
 
   //UseEfect
   //query.findByID(cookie.session.id)
-  //setUsuario
+  //setUser
   //setLoading(false)
 
   const methods = useForm();
   const reset = methods.reset;
 
-  const onSubmitUsuario = async (data) => {
-    const response = await updateUsuario(data); //Query importada
-    setUsuario(response);
+  /**
+   * Handles submission of updated user information.
+   * @param {Object} data - The updated user data to be submitted.
+   */
+  const onSubmitUser = async (data) => {
+    const response = await updateUser(data); //Query importada
+    setUser(response);
     reset();
   };
 
@@ -27,30 +37,30 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
     <div className="w-full rounded-lg bg-gray drop-shadow-md">
       <div className="flex items-center">
         <div className="w-1/2 mx-6 my-1 text-left">
-          {usuario.length === 1 ? (
-            usuario.map((tempUsuario) => (
+          {user.length === 1 ? (
+            user.map((tempUser) => (
               <FormProvider {...methods}>
-                <form onSubmit={methods.handleSubmit(onSubmitUsuario)}>
+                <form onSubmit={methods.handleSubmit(onSubmitUser)}>
                   <InputForm
                     label="Usuario"
-                    name={tempUsuario.usuario} //Posible cambio
+                    name={tempUser.user} //Posible cambio
                     type="text"
                     placeholder="Escribe tu nuevo nombre de Usuario"
-                    defaultValue={tempUsuario.usuario} //Posible cambio
+                    defaultValue={tempUser.user} //Posible cambio
                   />
                   <InputForm
                     label="Correo"
-                    name={tempUsuario.correo} //Posible cambio
+                    name={tempUser.mail} //Posible cambio
                     type="text"
                     placeholder="prueba"
-                    defaultValue={tempUsuario.correo} //Posible cambio
+                    defaultValue={tempUser.mail} //Posible cambio
                   />
                   <InputForm
                     label="Teléfono Celular"
-                    name={tempUsuario.celular} //Posible cambio
+                    name={tempUser.phone} //Posible cambio
                     type="number"
                     placeholder="prueba"
-                    defaultValue={tempUsuario.celular} //Posible cambio
+                    defaultValue={tempUser.phone} //Posible cambio
                   />
                   <div className="flex justify-center items-center w-2/3 my-3">
                     <Button
@@ -64,42 +74,52 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
                 </form>
               </FormProvider>
             ))
-          ) : loading ? ( 
-            <SpinnerLoader colorSpin="#AFD135"/>
+          ) : loading ? (
+            <SpinnerLoader colorSpin="#AFD135" />
           ) : (
             <h1 className="font-bold text-2xl">No existe el usuario</h1>
           )}
         </div>
         <div className="w-1/2 mx-6 my-2 text-left">
-          <Checkbox label="Soy una persona moral" />
-          <p className="text-sm italic font-thin mb-2">
-            Este campo implica que eres una institución afiliada con Gómez
-            Morín.
-          </p>
-          <div className="mt-3">
-            <label className="font-bold">Contraseña</label>
-          </div>
-          <div className="mt-3">
-            <Button
-              text="Cambiar Contraseña"
-              type="submit"
-              colorBg="bg-pink-red"
-              colorHoverBg="bg-rose-800"
-              navigation=""
-            />
-          </div>
-          <div className="mt-3">
-            <label className="font-bold">Cuenta</label>
-          </div>
-          <div className="my-3">
-            <Button
-              text="Eliminar Cuenta"
-              type="submit"
-              colorBg="bg-pink-red"
-              colorHoverBg="bg-rose-500"
-              navigation=""
-            />
-          </div>
+          {user.length === 1 ? (
+            user.map((tempUser) => (
+              <div>
+                <Checkbox label="Soy una persona moral" />
+                <p className="text-sm italic font-thin mb-2">
+                  Este campo implica que eres una institución afiliada con Gómez
+                  Morín.
+                </p>
+                <div className="mt-3">
+                  <label className="font-bold">Contraseña</label>
+                </div>
+                <div className="mt-3">
+                  <Button
+                    text="Cambiar Contraseña"
+                    type="submit"
+                    colorBg="bg-pink-red"
+                    colorHoverBg="bg-rose-800"
+                    navigation=""
+                  />
+                </div>
+                <div className="mt-3">
+                  <label className="font-bold">Cuenta</label>
+                </div>
+                <div className="my-3">
+                  <Button
+                    text="Eliminar Cuenta"
+                    type="submit"
+                    colorBg="bg-pink-red"
+                    colorHoverBg="bg-rose-500"
+                    navigation=""
+                  />
+                </div>
+              </div>
+            ))
+          ) : loading ? (
+            <SpinnerLoader colorSpin="#AFD135" />
+          ) : (
+            <h1 className="font-bold text-2xl">No existe el usuario</h1>
+          )}
         </div>
       </div>
     </div>
