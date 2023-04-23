@@ -8,22 +8,24 @@ const Page = () => {
   return (
     <div className="my-16">
       <div className="mx-14">
-        <br/>
+        <br />
         <div className="grid grid-cols-3 gap-4 items-center">
           <div className="col-span-1">
-            <ProfileCard nombre="Andrés Magaña Pérez"/>
+            <ProfileCard
+              nombre={"Andrés Magaña Pérez"}
+              sourceImage={"/img/hexagono.png"}
+            />
           </div>
           <div className="col-span-2 ">
-            <InfoProfileCard/>
+            <InfoProfileCard />
           </div>
         </div>
-        
-        <br/>
+
+        <br />
         <p className="text-base">Prueba texto base</p>
-        <br/>
-        
+        <br />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
