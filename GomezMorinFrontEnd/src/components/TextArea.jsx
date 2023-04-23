@@ -16,8 +16,7 @@ const TextArea = ({ label, name, placeholder, defaultValue }) => {
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor="comment" className="font-semibold text-md">
-        {" "}
-        {label}
+        {" "}{label}
       </label>
       <textarea
         {...register(name)}
@@ -25,6 +24,7 @@ const TextArea = ({ label, name, placeholder, defaultValue }) => {
         className="p-1 rounded-md shadow-md ring-1 ring-gray-200 w-full h-20 px-3"
         id={name}
         placeholder={placeholder}
+        autoComplete="off"
       />
     </div>
   );

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Footer from "../components/Footer";
 import ProfileCard from "../components/ProfileCard";
 import InfoProfileCard from "../components/InfoProfileCard";
 
@@ -20,12 +19,7 @@ const Page = () => {
             <InfoProfileCard />
           </div>
         </div>
-
-        <br />
-        <p className="text-base">Prueba texto base</p>
-        <br />
       </div>
-      <Footer />
     </div>
   );
 };
