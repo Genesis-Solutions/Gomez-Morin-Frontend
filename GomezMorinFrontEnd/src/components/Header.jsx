@@ -1,7 +1,6 @@
 import React from "react";
 
 /**
- *
  * Componente para mostrar el encabezado de la página.
  * @param {string} tittle - Título del encabezado.
  *
