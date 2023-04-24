@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
  * @param {string} headerText - The text content for the header.
  * @returns {JSX.Element} - The IconTitle component JSX element.
  */
-function IconTitle({ image, headerText }) {
+const IconTitle = ({ image, headerText }) => {
   const headerRef = useRef(null); // Creating a ref object to reference the header element
   const [maxWidth, setMaxWidth] = useState(""); // Defining maxWidth state variable with initial value of ""
 
@@ -33,6 +33,6 @@ function IconTitle({ image, headerText }) {
       </div>
     </div>
   );
-}
+};
 
 export default IconTitle; // Exporting IconTitle component as the default export.

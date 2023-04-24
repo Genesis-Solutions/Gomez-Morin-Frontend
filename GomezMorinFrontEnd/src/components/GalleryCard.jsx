@@ -2,31 +2,33 @@ import React from "react";
 import CardImage from "./CardImage";
 
 /**
- * This component renders a gallery card containing three CardImage components.
- * @param {string} icon1 - The url of the first image.
- * @param {string} icon2 - The url of the second image.
- * @param {string} icon3 - The url of the third image.
- * @returns {JSX.Element} - The GalleryCard component JSX element.
+ * This is a React component that represents a gallery card with multiple images/icons.
+ * It renders a div element with a set of CardImage components, each displaying an icon.
+ * @param {Array} icons - An array of icons to be displayed in the gallery card.
+ * @returns {JSX.Element} A JSX element representing the gallery card.
  */
-const GalleryCard = ({ icon1, icon2, icon3 }) => {
+
+const GalleryCard = ({ icons }) => {
+  /**
+   * Renders a set of CardImage components with the given icons.
+   * @returns {JSX.Element} A JSX element representing the CardImage components with the given icons.
+   */
+  const renderCardImages = () => {
+    return icons.map((icon) => (
+      <div className="mr-3 ml-3 self-center" key={icon}>
+        <CardImage icon={icon} />
+      </div>
+    ));
+  };
+
   return (
-    <div className="w-full h-full ">
-      <div className="grid grid-cols-3  mx-14 flex justify-items-center ">
-        <div className=" mr-3 ml-3 self-center">
-          <CardImage icon={icon1} />{" "}
-          {/* Rendering the first CardImage component */}
-        </div>
-        <div className=" mr-3 ml-3 self-center">
-          <CardImage icon={icon2} />{" "}
-          {/* Rendering the second CardImage component */}
-        </div>
-        <div className=" mr-3 ml-3 self-center">
-          <CardImage icon={icon3} />{" "}
-          {/* Rendering the third CardImage component */}
-        </div>
+    <div className="w-full h-full">
+      <div className="mx-14 flex justify-items-center">
+        {renderCardImages()}
       </div>
     </div>
   );
 };
 
-export default GalleryCard; // Exporting GalleryCard component as the default export.
+export default GalleryCard;
+
