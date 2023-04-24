@@ -15,10 +15,13 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
   const [user, setUser] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  /* To do:
   //UseEfect
   //query.findByID(cookie.session.id)
   //setUser
   //setLoading(false)
+  */
+  
 
   const methods = useForm();
   const reset = methods.reset;
@@ -43,24 +46,24 @@ const InfoProfileCard = (/*Cookie.session.id*/) => {
                 <form onSubmit={methods.handleSubmit(onSubmitUser)}>
                   <InputForm
                     label="Usuario"
-                    name={tempUser.user} //Posible cambio
+                    name={tempUser.user} //To do: Posible cambio
                     type="text"
                     placeholder="Escribe tu nuevo nombre de Usuario"
-                    defaultValue={tempUser.user} //Posible cambio
+                    defaultValue={tempUser.user} //To do: Posible cambio
                   />
                   <InputForm
                     label="Correo"
-                    name={tempUser.mail} //Posible cambio
+                    name={tempUser.mail} //To do: Posible cambio
                     type="text"
                     placeholder="prueba"
-                    defaultValue={tempUser.mail} //Posible cambio
+                    defaultValue={tempUser.mail} //To do: Posible cambio
                   />
                   <InputForm
                     label="Teléfono Celular"
-                    name={tempUser.phone} //Posible cambio
+                    name={tempUser.phone} //To do: Posible cambio
                     type="number"
                     placeholder="prueba"
-                    defaultValue={tempUser.phone} //Posible cambio
+                    defaultValue={tempUser.phone} //To do: Posible cambio
                   />
                   <div className="flex justify-center items-center w-2/3 my-3">
                     <Button
