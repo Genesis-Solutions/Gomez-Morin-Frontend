@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Map, GoogleApiWrapper, Marker } from "google-maps-react";
 
 const apiKey = import.meta.env.VITE_API_KEY_MAPS;
 class MapContainer extends Component {

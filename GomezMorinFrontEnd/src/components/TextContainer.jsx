@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * This component renders a container for a text element.
@@ -8,11 +8,9 @@ import React from 'react';
 const TextContainer = ({ text }) => {
   return (
     <div className="w-full h-full">
-      <p className=" md:container md:mx-auto self-center ">
-        { text }
-      </p>
+      <p className=" md:container md:mx-auto self-center ">{text}</p>
     </div>
-  )
-}
+  );
+};
 
 export default TextContainer; // Exporting TextContainer component as the default export.

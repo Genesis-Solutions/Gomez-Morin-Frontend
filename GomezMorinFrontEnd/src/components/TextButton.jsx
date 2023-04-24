@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * A button that renders a link to a specified URL.
@@ -8,7 +8,7 @@ import React from 'react';
  */
 const TextButton = ({ text, link }) => {
   return (
-    <a class="underline mx-14 text-lg"href={link}>
+    <a class="underline mx-14 text-lg" href={link}>
       {text}
     </a>
   );

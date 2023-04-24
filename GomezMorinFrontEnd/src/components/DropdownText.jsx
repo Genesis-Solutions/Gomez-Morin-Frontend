@@ -9,7 +9,7 @@
 import { useState } from "react";
 import IconTitle from "./IconTitle";
 import TextContainer from "./TextContainer";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const DropdownText = ({ leftText, rightText, headerIcon, headerText }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,10 +30,10 @@ const DropdownText = ({ leftText, rightText, headerIcon, headerText }) => {
           onClick={toggleDropdown}
         >
           <div className="flex-shrink-0">
-            <IconTitle image={headerIcon} headerText={headerText}/>             
+            <IconTitle image={headerIcon} headerText={headerText} />
           </div>
           <div>
-            <ArrowDropDownIcon fontSize="large"/>
+            <ArrowDropDownIcon fontSize="large" />
           </div>
         </button>
       </div>
@@ -41,8 +41,12 @@ const DropdownText = ({ leftText, rightText, headerIcon, headerText }) => {
         <div className="absolute top-full left-0 right-0 w-full bg-white shadow-lg z-10">
           {/* Add justify-center to center the text containers */}
           <div className="flex flex-col lg:flex-row justify-center">
-            <div className="w-full lg:w-1/2 px-4 py-8 text-center h-1/2"><TextContainer text={leftText}/></div>
-            <div className="w-full lg:w-1/2 px-4 py-8 text-center h-1/2"><TextContainer text={rightText}/></div>
+            <div className="w-full lg:w-1/2 px-4 py-8 text-center h-1/2">
+              <TextContainer text={leftText} />
+            </div>
+            <div className="w-full lg:w-1/2 px-4 py-8 text-center h-1/2">
+              <TextContainer text={rightText} />
+            </div>
           </div>
         </div>
       )}

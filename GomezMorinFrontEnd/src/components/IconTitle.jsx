@@ -11,20 +11,25 @@ function IconTitle({ image, headerText }) {
   const [maxWidth, setMaxWidth] = useState(""); // Defining maxWidth state variable with initial value of ""
 
   useEffect(() => {
-    if (headerRef.current) { // Checking if headerRef is defined and not null
+    if (headerRef.current) {
+      // Checking if headerRef is defined and not null
       const headerWidth = headerRef.current.offsetWidth; // Getting the header element width
       setMaxWidth(`max-w-${Math.floor(headerWidth / 2)}`); // Calculating and setting the max width for the icon element
     }
   }, []);
 
   return (
-
     <div className="flex flex-col lg:flex-row items-center w-1/4 h-1/4 mt-4 mb-4">
       <div className={`lg:w-1/2 mr-4 ${maxWidth}`}>
-        <img src={image} className="w-full object-contain order-last lg:order-first " /> {/* Rendering the icon image */}
+        <img
+          src={image}
+          className="w-full object-contain order-last lg:order-first "
+        />{" "}
+        {/* Rendering the icon image */}
       </div>
       <div className="lg:w-1/2" ref={headerRef}>
-        <h1 className="text-3xl whitespace-nowrap text-center">{headerText}</h1> {/* Rendering the header text */}
+        <h1 className="text-3xl whitespace-nowrap text-center">{headerText}</h1>{" "}
+        {/* Rendering the header text */}
       </div>
     </div>
   );
