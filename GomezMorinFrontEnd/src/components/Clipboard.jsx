@@ -6,6 +6,7 @@ import { FileCopy } from "@mui/icons-material";
  * A React component that copies a given text to clipboard
  *
  * @param {string} textToCopy - The text to be copied to clipboard
+ * 
  * @returns {JSX.Element} - A React JSX element representing a clipboard UI
  */
 const Clipboard = ({ textToCopy }) => {

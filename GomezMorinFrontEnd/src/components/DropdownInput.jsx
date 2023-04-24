@@ -8,6 +8,8 @@ import { useFormContext } from "react-hook-form";
  * @param {string} label - The label for the input.
  * @param {string} id - The ID for the input.
  * @param {Array<Object>} options - An array of options for the dropdown.
+ *
+ * @returns {JSX.Element} - The DropdownInput component
  */
 const DropdownInput = ({ name, label, id, options }) => {
   const { register } = useFormContext();

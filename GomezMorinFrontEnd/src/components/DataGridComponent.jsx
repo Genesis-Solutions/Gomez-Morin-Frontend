@@ -1,5 +1,5 @@
-import React from 'react'
-import { DataGrid} from '@mui/x-data-grid';
+import React from "react";
+import { DataGrid } from "@mui/x-data-grid";
 
 /**
  * Rows and columns must have this format
@@ -20,14 +20,15 @@ import { DataGrid} from '@mui/x-data-grid';
  * This component renders a Material-UI DataGrid component with rows and columns provided as props.
  * @param {Array} rows - The array of rows to be displayed in the grid.
  * @param {Array} columns - The array of columns to be displayed in the grid.
+ *
  * @returns {JSX.Element} - The DataGrid component with provided rows and columns.
  */
-const DataGridComponent = ({rows, columns}) => {
+const DataGridComponent = ({ rows, columns }) => {
   return (
-    <div style={{ height: 300, width: '100%' }}>
+    <div style={{ height: 300, width: "100%" }}>
       <DataGrid rows={rows} columns={columns} />
     </div>
-  )
-}
+  );
+};
 
-export default DataGridComponent
+export default DataGridComponent;

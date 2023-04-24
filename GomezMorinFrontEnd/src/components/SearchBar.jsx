@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 /**
  * A functional component that renders a search bar with a search icon.
  * @param {Object} props - The props object that contains the component's properties.
+ * 
  * @return {JSX.Element} - A JSX element that represents the search bar.
  */
 const SearchBar = ({}) => {

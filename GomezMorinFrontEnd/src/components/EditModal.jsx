@@ -20,7 +20,7 @@ const EditModal = () => {
    * @param {object} data
    */
   const onSubmit = (data) => {
-    console.log(data);
+    
     setIsOpen(false);
   };
 

@@ -5,6 +5,7 @@ import React from "react";
  *
  * @param {string} image - The URL of the image to display.
  * @param {string} title - The title to display on top of the image.
+ * 
  * @returns {JSX.Element} - The ImageTitle component.
  */
 const ImageTitle = ({ image, title }) => {
