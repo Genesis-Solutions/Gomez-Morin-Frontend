@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 /**
  * This is a component for an item of the navbar.
- *
  * @param {string} children - The html element that will be passed through the component.
  * @param {string} navigation - The path that will navigate to.
  * @param {boolean} isLoggedOut - The state that confirms or denies if the user is logged out.
+ * @returns {JSX.Element} The JSX element displaying a navbar item.
  */
 
 const NavbarItem = ({ children, navigation, isLoggedOut }) => {

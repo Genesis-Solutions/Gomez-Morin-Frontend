@@ -15,7 +15,6 @@ const Card = ({ user }) => {
 
   const deleteQuery = async (id) => {
     const response = await deleteUser(id);
-    console.log(id);
 
     dispatch(setUsers(response));
   };

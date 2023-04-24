@@ -4,8 +4,8 @@ import ModalAlert from "./ModalAlert";
 
 /**
  * This is a component for showing a dropdown item in the navbar.
- *
  * @param {string} userName - The name of the user.
+ * @returns {JSX.Element} The JSX element displaying a navbar dropdown item.
  */
 
 const NavbarDropdownItem = ({ userName }) => {

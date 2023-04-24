@@ -5,11 +5,11 @@ import Button from "./Button";
 
 /**
  * This is a component for an alert displayed on a modal giving the user two options.
- *
  * @param {string} title - The title of the alert.
  * @param {string} message - The message that will be displayed on the alert.
  * @param {boolean} active - The state to initialize the alert.
- * @param {string} buttonName - The name of the button that will trigger the alert
+ * @param {string} buttonName - The name of the button that will trigger the alert.
+ * @returns {JSX.Element} The JSX element displaying a modal with two buttons.
  */
 
 const ModalAlert = ({ title, message, active, buttonName }) => {

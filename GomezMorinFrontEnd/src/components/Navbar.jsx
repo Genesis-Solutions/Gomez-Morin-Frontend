@@ -4,7 +4,7 @@ import NavbarDropdownItem from "./NavbarDropdownItem";
 
 /**
  * This is the component that will be used as a header of the application.
- *
+ * @returns {JSX.Element} The JSX element representing the navbar UI.
  */
 
 const Navbar = () => {

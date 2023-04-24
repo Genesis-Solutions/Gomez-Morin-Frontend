@@ -8,8 +8,8 @@ import { useFormContext } from "react-hook-form";
  * @param {string} type - The type of the input.
  * @param {string} placeholder - The text that will be shown on the input space.
  * @param {string} defaultValue - The value that will have by default.
+ * @returns {JSX.Element} The JSX element representing a input form UI.
  */
-
 const InputForm = ({ label, name, type, placeholder, defaultValue }) => {
   const { register } = useFormContext();
 
