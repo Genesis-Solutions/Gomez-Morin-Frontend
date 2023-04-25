@@ -9,6 +9,7 @@ import DropdownInput from "./DropdownInput";
 
 /**
  *  A React component that renders a modal with a form
+ * 
  * @returns {Jsx.Element} - A React JSX element representing a modal with a form
  */
 const EditModal = () => {
@@ -17,6 +18,7 @@ const EditModal = () => {
 
   /**
    *  Handles the submit of the form
+   * 
    * @param {object} data
    */
   const onSubmit = (data) => {
@@ -26,6 +28,7 @@ const EditModal = () => {
 
   /**
    * Handles the closing of the modal
+   * 
    * @returns {void}
    */
 
@@ -35,6 +38,7 @@ const EditModal = () => {
 
   /**
    * Handles the opening of the modal
+   * 
    * @returns {void}
    */
   const openModal = () => {

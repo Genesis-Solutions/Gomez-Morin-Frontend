@@ -9,7 +9,6 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
  * @param {string} title - The title of the carousel.
  * @param {string[]} images - An array of image URLs to display in the carousel.
  * @param {number} height - The height of the carousel in rem units.
- *
  * @returns {JSX.Element} - The ImageCarousel component.
  */
 const ImageCarousel = ({ title, images, height }) => {
