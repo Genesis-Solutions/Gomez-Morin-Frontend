@@ -16,7 +16,7 @@ const InputForm = ({ label, name, type, placeholder, defaultValue }) => {
   const { register } = useFormContext();
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 w-full h-full">
       <label htmlFor={name} className="font-semibold text-md py-1">
         {label}{" "}
       </label>

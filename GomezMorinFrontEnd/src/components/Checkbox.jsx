@@ -16,7 +16,7 @@ const AltCheckbox = ({ label, subLabel }) => {
         label={label}
         defaultChecked
       />
-      <p className="text-sm italic font-thin mb-2">{subLabel}</p>
+      <p className="text-sm italic font-thin thin mb-2 text-gray-500">{subLabel}</p>
     </div>
     
   );
