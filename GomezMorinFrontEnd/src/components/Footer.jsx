@@ -8,12 +8,12 @@ import React from "react";
 */
 const Footer = () => {
   return (
-    <div className="fixed bottom-0 w-full h-16 bg-gray-blue drop-shadow-lg">
+    <div className="fixed bottom-0 w-full h-16 bg-gray-blue-500 drop-shadow-lg">
       <div className="flex justify-between items-center">
         <div className="px-4 pt-2">
           <img
             className="object-scale-down h-12"
-            src="/img/gomez_morin_blanco.png"
+            src="/images/gomez_morin_blanco.png"
           />
         </div>
         <div className="px-3 pt-2 text-white">
@@ -28,7 +28,7 @@ const Footer = () => {
         <div className="px-4 pt-2">
           <img
             className="object-scale-down h-12"
-            src="/img/gomez_morin_blanco.png"
+            src="/images/gomez_morin_blanco.png"
           />
         </div>
       </div>

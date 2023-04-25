@@ -10,7 +10,7 @@ import NavbarDropdownItem from "./NavbarDropdownItem";
 
 const Navbar = () => {
   return (
-    <nav className="flex gap-6 px-4 bg-[#4F5579] fixed w-full">
+    <nav className="flex gap-6 px-4 bg-gray-blue-500 fixed w-full">
       <div className="flex-1 py-1">
         <NavbarItem navigation="/">
           <img

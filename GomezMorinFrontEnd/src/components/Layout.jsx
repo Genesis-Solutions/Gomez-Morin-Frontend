@@ -12,7 +12,7 @@ import Footer from "./Footer";
 
 const Layout = () => {
   return (
-    <div className="w-full h-full flex flex-col">
+    <div className="w-full h-full flex flex-col space-y-20">
       <Navbar />
       <Outlet />
       <Footer/>
