@@ -5,6 +5,7 @@ import Button from "./Button";
 
 /**
  * This is a component for an alert displayed on a modal giving the user two options.
+ * 
  * @param {string} title - The title of the alert.
  * @param {string} message - The message that will be displayed on the alert.
  * @param {boolean} active - The state to initialize the alert.

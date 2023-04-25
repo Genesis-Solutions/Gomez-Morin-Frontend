@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 /**
  * This component is used for the single web application.
  * In order to show all the components in the routes configured in App.jsx.
+ * 
  * @returns {JSX.Element} The JSX element representing the layout UI.
  */
 
