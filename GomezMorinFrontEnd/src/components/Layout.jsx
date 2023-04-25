@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 /**
  * This component is used for the single web application.
@@ -14,6 +15,7 @@ const Layout = () => {
     <div className="w-full h-full flex flex-col">
       <Navbar />
       <Outlet />
+      <Footer/>
     </div>
   );
 };
