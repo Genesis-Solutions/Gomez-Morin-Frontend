@@ -7,8 +7,8 @@ import SpinnerLoader from "./SpinnerLoader";
 
 /**
  * A component that displays user information and allows them to update their profile.
+ * 
  * @param {string} Cookie.session.id - The ID of the user's session cookie.
- *
  * @returns {JSX.Element} The JSX element displaying the user's profile and profile editing form.
  */
 const InfoProfileCard = (/*Cookie.session.id*/) => {

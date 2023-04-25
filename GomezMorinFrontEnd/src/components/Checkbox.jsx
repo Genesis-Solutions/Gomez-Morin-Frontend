@@ -2,9 +2,9 @@ import { Checkbox } from "@material-tailwind/react";
 
 /**
  * A Material Tailwind checkbox component with a label and optional sub-label.
+ * 
  * @param label The text for the checkbox label.
  * @param subLabel An optional sub-label to display below the checkbox label.
- * 
  * @return {JSX.Element} The Checkbox1 component.
  */
 const AltCheckbox = ({ label, subLabel }) => {

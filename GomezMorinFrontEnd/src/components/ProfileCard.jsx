@@ -2,9 +2,9 @@ import React from "react";
 
 /**
 * This component creates a profile card that displays a user's name and profile picture.
+
 * @param {string} nombre - The user's name, passed as a prop to the component.
 * @param {string} sourceImage - The source of the user's profile picture, passed as a prop to the component.
-*
 * @returns {JSX.Element} - Returns a JSX element that displays the user's name and profile picture in a card format.
 */
 const ProfileCard = ({ nombre, sourceImage }) => {
