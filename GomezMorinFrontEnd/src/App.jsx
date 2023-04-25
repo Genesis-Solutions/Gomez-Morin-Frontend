@@ -1,55 +1,19 @@
-import { useDispatch, useSelector } from "react-redux"
-import { setUsers } from "./states/generalSlice"
-import Card from "./components/Card"
-import { useForm } from "react-hook-form"
-import { createUser, readUsers } from "./queries/query"
-import { useEffect } from "react"
-import CardImage from "./components/CardImage"
-import GalleryCard from "./components/GalleryCard"
-import TextButton from "./components/TextButton"
-import TextContainer from "./components/TextContainer"
-import IconTitle from "./components/IconTitle"
-import DropdownText from "./components/DropdownText"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Page from "./pages/page";
+import Layout from "./components/Layout";
 
-
-import icon from './assets/flor.jpg'
-import icon1 from './assets/icon.png'
-
-function App() {
-  const users = useSelector((state) => state.general.users)
-  const dispatch = useDispatch()
-
-  const { register, handleSubmit } = useForm()
-
-  const icons = [icon1, icon];
-
-  const onSubmit = async (data) => {
-    const response = await createUser(data)
-
-    dispatch(setUsers(response))
-  }
-
-  useEffect(() => {
-    readUsers()
-    .then((response) => {
-      
-      if (response) {
-        dispatch(setUsers(response))
-      }
-    })
-  }, [])
-
+const App = () => {
   return (
-    
-    <div>
-      
-        <GalleryCard icons={icons}/>
-        
-        
-
+    <div className="App w-full h-full">
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Page />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
-    
-  )
-}
+  );
+};
 
-export default App
+export default App;
