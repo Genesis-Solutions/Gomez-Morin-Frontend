@@ -72,7 +72,7 @@ const Register = () => {
           </form>
         </FormProvider>
       </div>
-      <div className="h-full mb-20">
+      <div className="h-full mx-14 mb-20">
         <CardImage icon={hexagono} />
       </div>
     </div>
