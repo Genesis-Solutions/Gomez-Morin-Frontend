@@ -10,7 +10,7 @@ import { useForm, FormProvider } from "react-hook-form";
 const Register = () => {
   const methods = useForm();
   return (
-    <div className="w-full h-full grid grid-cols-2 mb-20">
+    <div className="w-full h-full grid grid-cols-2">
       <div className=" h-full grid grid-rows-7 mx-14 mt-4">
         <div className="flex justify-center ">
           <IconTitle image={hexagono} headerText="Registrarse" />
@@ -72,8 +72,7 @@ const Register = () => {
           </form>
         </FormProvider>
       </div>
-      <div className="h-full mx-14 mb-20">
-        <CardImage icon={hexagono} />
+        <div className="flex-1 bg-login bg-cover bg-center bg-no-repeat">
       </div>
     </div>
   );
