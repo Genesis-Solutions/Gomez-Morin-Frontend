@@ -28,6 +28,7 @@ const InputForm = ({ label, name, type, placeholder, defaultValue }) => {
         id={name}
         placeholder={placeholder}
         autoComplete="off"
+        required
       />
     </div>
   );
