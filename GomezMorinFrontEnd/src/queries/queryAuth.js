@@ -6,25 +6,27 @@ export const postUser = async (data) => {
     const { isMoralRegister, userRegister, mailRegister, passwordRegister, password2Register } = data;
     const formData = new FormData();
 
-    formData.append('isMoralRegister', isMoralRegister);
-    formData.append('userRegister', userRegister);
-    formData.append('mailRegister', mailRegister);
-    formData.append('passwordRegister', passwordRegister);
-    formData.append('password2Register', password2Register);
+    // formData.append('ptrRol', isMoralRegister);
+    formData.append('userName', userRegister);
+    formData.append('email:', mailRegister);
+    formData.append('password', passwordRegister);
 
     try {
         const response = await axios({
-            url: '${baseUrl}/signup/postUser',
+            url: '${baseUrl}/users/',
             method: "POST",
             data: formData,
             headers: { "Content-Type": "multipart/form-data" }
         })
 
-        if (data.passwordRegister != data.password2Register) {
-            
+        if (data.isMoralRegister) {
+            const ptrRol = 'hardcodeo';
+            formData.append('ptrRol', ptrRol);
         } else {
-            return response.data;
+            const ptrRol = '';
+            formData.append('ptrRol', ptrRol);
         }
+        return response.data;
     }
     catch(err) {
         console.log(err.message);
