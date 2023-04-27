@@ -1,4 +1,4 @@
-import react from "react";
+import react, { useState } from "react";
 import InputForm from "../../components/InputForm";
 import CheckBoxInput from "../../components/CheckBoxInput";
 import Button from "../../components/Button";
@@ -13,6 +13,7 @@ import { useForm, FormProvider } from "react-hook-form";
 const Register = () => {
   const methods = useForm();
   const reset = methods.reset;
+  const [ passwordValidator, setPasswordValidator ] = useState(false);
 
   /**
    * Handles form submission for user registration.
@@ -22,11 +23,15 @@ const Register = () => {
    * @returns {Promise} A promise that resolves with the response from the server.
    */
   const onSubmitUser = async (data) => {
+    if (data.passwordRegister !== data.password2Register) {
+      setPasswordValidator(true);
+      return;
+    }
     const response = await postUser(data);
   };
 
   return (
-    <div className="w-full h-full grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+    <div className="w-full h-full grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-6">
       <div className=" h-full grid grid-rows-7 mx-14 mt-4">
         <div className="flex justify-center ">
           <IconTitle image={hexagono} headerText="Registrarse" />
@@ -74,10 +79,17 @@ const Register = () => {
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
+                
               />
             </div>
-            <div className="flex justify-center mb-20">
-              <div className="w-1/2 mt-6 ">
+            { passwordValidator && (
+              <div className="w-full bg-red-400 drop-shadow-md mt-7 rounded-lg flex flex-col items-center">
+                <p className="text-gray-500 py-2">¡Contraseñas no coinciden!</p>
+              </div>
+            )}
+
+            <div className="flex justify-center">
+              <div className="w-1/2 mt-6">
                 <Button
                   text="Registrar"
                   type="submit"
@@ -89,7 +101,7 @@ const Register = () => {
           </form>
         </FormProvider>
       </div>
-      <div className="flex-1 bg-login bg-cover bg-center bg-no-repeat"></div>
+      <div className="flex-1 bg-login bg-cover bg-center bg-no-repeat h-screen"></div>
     </div>
   );
 };

@@ -20,7 +20,7 @@ export const postUser = async (data) => {
         })
 
         if (data.isMoralRegister) {
-            const ptrRol = 'hardcodeo';
+            const ptrRol = '644af272bac1cb80504dc379';
             formData.append('ptrRol', ptrRol);
         } else {
             const ptrRol = '';

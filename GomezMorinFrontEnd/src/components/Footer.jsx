@@ -8,7 +8,7 @@ import React from "react";
 */
 const Footer = () => {
   return (
-    <div className="sticky -bottom-96 w-full h-16 bg-gray-blue-500 drop-shadow-lg ">
+    <div className="sticky -bottom-full w-full h-16 bg-gray-blue-500 drop-shadow-lg">
       <div className="flex justify-between items-center">
         <div className="px-4 pt-2">
           <img
