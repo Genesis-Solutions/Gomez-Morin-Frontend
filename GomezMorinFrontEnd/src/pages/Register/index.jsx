@@ -1,16 +1,21 @@
 import react from "react";
 import InputForm from "../../components/InputForm";
-import CheckBox from "../../components/Checkbox";
+import CheckBoxInput from "../../components/CheckBoxInput";
 import Button from "../../components/Button";
 import IconTitle from "../../components/IconTitle";
 import hexagono from "../../../public/images/hexagono.png";
-import CardImage from "../../components/CardImage";
 import { useForm, FormProvider } from "react-hook-form";
 
 const Register = () => {
   const methods = useForm();
+  const reset = methods.reset;
+
+  const onSubmitUser = async (data) => {
+    const response = await postUser(data);
+  }
+
   return (
-    <div className="w-full h-full grid grid-cols-2">
+    <div className="w-full h-full grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
       <div className=" h-full grid grid-rows-7 mx-14 mt-4">
         <div className="flex justify-center ">
           <IconTitle image={hexagono} headerText="Registrarse" />
@@ -18,15 +23,16 @@ const Register = () => {
         <FormProvider {...methods}>
           <form>
             <div className="">
-              <CheckBox
+              <CheckBoxInput
                 label="Soy persona moral"
+                name="isMoralRegister"
                 subLabel="Este campo implica que eres una institución afiliada con Goméz Morín"
               />
             </div>
-            <div className="  mt-2">
+            <div className="mt-2">
               <InputForm
                 label="Usuario"
-                name="Usuario"
+                name="userRegister"
                 type="text"
                 placeholder="Ingresa tu Usuario"
                 defaultValue=""
@@ -35,7 +41,7 @@ const Register = () => {
             <div className=" mt-2">
               <InputForm
                 label="Correo"
-                name="Correo"
+                name="mailRegister"
                 type="email"
                 placeholder="Ingresa tu Correo"
                 defaultValue=""
@@ -44,7 +50,7 @@ const Register = () => {
             <div className=" mt-2">
               <InputForm
                 label="Contraseña"
-                name="Contraseña"
+                name="passwordRegister"
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
@@ -53,7 +59,7 @@ const Register = () => {
             <div className=" mt-2">
               <InputForm
                 label="Confirmar contraseña"
-                name="Contraseña2"
+                name="password2Register"
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
