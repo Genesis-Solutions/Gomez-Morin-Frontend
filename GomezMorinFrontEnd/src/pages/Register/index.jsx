@@ -12,7 +12,7 @@ const Register = () => {
 
   const onSubmitUser = async (data) => {
     const response = await postUser(data);
-  }
+  };
 
   return (
     <div className="w-full h-full grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
@@ -21,7 +21,7 @@ const Register = () => {
           <IconTitle image={hexagono} headerText="Registrarse" />
         </div>
         <FormProvider {...methods}>
-          <form>
+          <form onSubmit={methods.handleSubmit(onSubmitUser)}>
             <div className="">
               <CheckBoxInput
                 label="Soy persona moral"
@@ -65,21 +65,20 @@ const Register = () => {
                 defaultValue=""
               />
             </div>
-			<div className="flex justify-center mb-20">
-				<div className="w-1/2 mt-6 ">
-				<Button
-					text="Registrar"
-					type="submit"
-					colorBg="bg-green-primary"
-					colorHoverBg="hover:bg-green-600"
-				/>
-				</div>
+            <div className="flex justify-center mb-20">
+              <div className="w-1/2 mt-6 ">
+                <Button
+                  text="Registrar"
+                  type="submit"
+                  colorBg="bg-green-primary"
+                  colorHoverBg="hover:bg-green-600"
+                />
+              </div>
             </div>
           </form>
         </FormProvider>
       </div>
-        <div className="flex-1 bg-login bg-cover bg-center bg-no-repeat">
-      </div>
+      <div className="flex-1 bg-login bg-cover bg-center bg-no-repeat"></div>
     </div>
   );
 };
