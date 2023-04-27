@@ -19,8 +19,12 @@ export const postUser = async (data) => {
             data: formData,
             headers: { "Content-Type": "multipart/form-data" }
         })
-        
-        return response.data;
+
+        if (data.passwordRegister != data.password2Register) {
+            
+        } else {
+            return response.data;
+        }
     }
     catch(err) {
         console.log(err.message);
