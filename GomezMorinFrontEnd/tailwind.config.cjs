@@ -49,6 +49,9 @@ module.exports = withMT({
       xl: "1280px",
       "2xl": "1536px",
     },
+    backgroundImage: {
+      'login': "url('../public/images/iniciarSesionBG.png')",
+    },
     fontFamily: {},
   },
   plugins: [],
