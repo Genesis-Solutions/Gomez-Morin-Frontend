@@ -5,11 +5,22 @@ import Button from "../../components/Button";
 import IconTitle from "../../components/IconTitle";
 import hexagono from "../../../public/images/hexagono.png";
 import { useForm, FormProvider } from "react-hook-form";
-
+/**
+ * The Register component is a user registration form that allows users to create a new account.
+ *
+ * @returns {JSX.Element} The JSX code that renders the Register component.
+ */
 const Register = () => {
   const methods = useForm();
   const reset = methods.reset;
 
+  /**
+   * Handles form submission for user registration.
+   *
+   * @async
+   * @param {Object} data - The data submitted through the form.
+   * @returns {Promise} A promise that resolves with the response from the server.
+   */
   const onSubmitUser = async (data) => {
     const response = await postUser(data);
   };
