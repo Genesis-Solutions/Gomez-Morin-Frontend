@@ -33,7 +33,7 @@ export const postUser = async(data) => {
 };
 
 export const loginUser = async(data) => {
-    const { email, password } = data;
+    const { user, password } = data;
     const body = {
         email,
         password,
