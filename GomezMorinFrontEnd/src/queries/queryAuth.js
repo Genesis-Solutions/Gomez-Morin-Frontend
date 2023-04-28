@@ -31,3 +31,17 @@ export const postUser = async(data) => {
         return Promise.reject(err);
     }
 };
+
+export const loginUser = async(data) => {
+    const { email, password } = data;
+    const body = {
+        email,
+        password,
+    };
+    try {
+        const response = await axios.post(`${baseUrl}/auth/login`, body);
+        return response.data;
+    } catch (err) {
+        return Promise.reject(err);
+    }
+};
