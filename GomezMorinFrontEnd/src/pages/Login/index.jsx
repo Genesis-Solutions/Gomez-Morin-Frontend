@@ -46,7 +46,7 @@ const Login = () => {
             <div className="flex justify-center mt-10">
               <div className="w-full max-w-xs">
                 <Button
-                  text="Registrar"
+                  text="Iniciar Sesión"
                   type="submit"
                   colorBg="bg-light-blue-500"
                   colorHoverBg="hover:bg-light-blue-600"
