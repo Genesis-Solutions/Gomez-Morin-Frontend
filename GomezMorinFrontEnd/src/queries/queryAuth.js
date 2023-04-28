@@ -8,12 +8,12 @@ export const postUser = async (data) => {
 
     // formData.append('ptrRol', isMoralRegister);
     formData.append('userName', userRegister);
-    formData.append('email:', mailRegister);
+    formData.append('email', mailRegister);
     formData.append('password', passwordRegister);
 
     try {
         const response = await axios({
-            url: '${baseUrl}/users/',
+            url: `${baseUrl}/users/`,
             method: "POST",
             data: formData,
             headers: { "Content-Type": "multipart/form-data" }
@@ -22,13 +22,10 @@ export const postUser = async (data) => {
         if (data.isMoralRegister) {
             const ptrRol = '644af272bac1cb80504dc379';
             formData.append('ptrRol', ptrRol);
-        } else {
-            const ptrRol = '';
-            formData.append('ptrRol', ptrRol);
-        }
+        } 
         return response.data;
     }
     catch(err) {
-        console.log(err.message);
+        return Promise.reject(err);
     }
 }
