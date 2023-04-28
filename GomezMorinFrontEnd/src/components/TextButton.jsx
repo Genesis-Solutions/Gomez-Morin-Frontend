@@ -6,10 +6,10 @@ import React from "react";
  * @param {string} link - The URL to navigate to when the button is clicked.
  * @returns {JSX.Element} - A link with the specified text and URL.
  */
-const TextButton = ({ text, link }) => {
+const TextButton = ({ text, path }) => {
   return (
-    <a class="underline mx-14 text-lg" href={link}>
-      {text}
+    <a class="underline mx-14 text-lg text-gray-400" href={ path }>
+      { text }
     </a>
   );
 };

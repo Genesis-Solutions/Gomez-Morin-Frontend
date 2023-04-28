@@ -6,6 +6,7 @@ import IconTitle from "../../components/IconTitle";
 import hexagono from "../../../public/images/hexagono.png";
 import { useForm, FormProvider } from "react-hook-form";
 import { postUser } from "../../queries/queryAuth.js";
+import { useNavigate } from "react-router-dom";
 
 /**
  * The Register component is a user registration form that allows users to create a new account.
@@ -16,6 +17,7 @@ const Register = () => {
   const methods = useForm();
   const errors = methods.formState.errors;
   const [passwordValidator, setPasswordValidator] = useState(false);
+  const navigate = useNavigate();
 
   /**
    * Handles form submission for user registration.
@@ -33,6 +35,7 @@ const Register = () => {
     }
     try {
       await postUser(data);
+      navigate("/login");
     } catch (err) {
       alert("Usuario o email ya registrado");
     }
