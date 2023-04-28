@@ -1,11 +1,11 @@
 import React from "react";
 
 /**
-* A React component that displays the footer of a webpage. It includes the Gomez Morin logo,
-* phone number, and address. The component is fixed at the bottom of the page.
-*
-* @return {JSX.Element} The JSX code that displays the footer.
-*/
+ * A React component that displays the footer of a webpage. It includes the Gomez Morin logo,
+ * phone number, and address. The component is fixed at the bottom of the page.
+ *
+ * @return {JSX.Element} The JSX code that displays the footer.
+ */
 const Footer = () => {
   return (
     <div className="sticky -bottom-full w-full h-16 bg-gray-blue-500 drop-shadow-lg">

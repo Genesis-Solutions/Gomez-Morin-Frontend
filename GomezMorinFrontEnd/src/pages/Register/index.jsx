@@ -1,4 +1,4 @@
-import react, { useState } from "react";
+import React, { useState } from "react";
 import InputForm from "../../components/InputForm";
 import CheckBoxInput from "../../components/CheckBoxInput";
 import Button from "../../components/Button";
