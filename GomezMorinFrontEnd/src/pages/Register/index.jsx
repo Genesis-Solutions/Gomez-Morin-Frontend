@@ -6,6 +6,7 @@ import IconTitle from "../../components/IconTitle";
 import hexagono from "../../../public/images/hexagono.png";
 import { useForm, FormProvider } from "react-hook-form";
 import { postUser } from "../../queries/queryAuth.js";
+
 /**
  * The Register component is a user registration form that allows users to create a new account.
  *

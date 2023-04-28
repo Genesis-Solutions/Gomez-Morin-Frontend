@@ -1,3 +1,7 @@
+import axios from "axios";
+
+const baseUrl = import.meta.env.VITE_BASE_URL;
+
 /**
  * Send a POST request to create a new user.
  *
@@ -8,10 +12,6 @@
  * @param {string} data.passwordRegister - The password for the new user.
  * @returns {Promise} A promise that resolves with the response data on success or rejects with an error on failure.
  */
-import axios from "axios";
-
-const baseUrl = import.meta.env.VITE_BASE_URL;
-
 export const postUser = async (data) => {
   const { isMoralRegister, userRegister, mailRegister, passwordRegister } =
     data;
