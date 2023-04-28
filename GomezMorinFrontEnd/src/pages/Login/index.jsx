@@ -62,8 +62,6 @@ const Login = () => {
                 <TextButton text="Crear una Cuenta" path={"/register"} />
               </div>
             </div>
-
-            
           </form>
         </FormProvider>
       </div>
