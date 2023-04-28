@@ -1,14 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
 import IconTitle from "../../components/IconTitle";
 import TextButton from "../../components/TextButton";
 import hexagono from "../../../public/images/hexagono.png";
 import { useForm, FormProvider } from "react-hook-form";
-import { loginUser } from "../../queries/queryLogin.js";
 
 /**
- *
  *A functional component that renders a login form with user input fields and validation.
  *
  *@returns {JSX.Element} The Login form UI with user input fields and validation.
@@ -16,8 +14,7 @@ import { loginUser } from "../../queries/queryLogin.js";
 
 const Login = () => {
   const methods = useForm();
-  const errors = methods.formState.errors;
-  const [passwordValidator, setPasswordValidator] = useState(false);
+  
   return (
     <div className="w-full h-full grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
       <div className=" h-full  mx-14 mt-4">
