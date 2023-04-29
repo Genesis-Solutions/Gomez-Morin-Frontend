@@ -5,12 +5,11 @@ import Login from "./pages/Login";
 import { useSelector } from "react-redux";
 
 const App = () => {
-  const accessToken = useSelector((state) => state.auth.accessToken);
   return (
     <div className="App w-full h-full">
       <BrowserRouter>
         <Routes>
-          <Route element={ <Layout /> }>
+          <Route path="/" element={<Layout />}>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
           </Route>
