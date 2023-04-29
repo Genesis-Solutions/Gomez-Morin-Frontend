@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
 import IconTitle from "../../components/IconTitle";
 import TextButton from "../../components/TextButton";
 import hexagono from "../../../public/images/hexagono.png";
 import { useForm, FormProvider } from "react-hook-form";
+import loginUser from "../../queries/queryAuth";
+import { useNavigate } from "react-router-dom";
 
 /**
  *A functional component that renders a login form with user input fields and validation.
@@ -14,7 +16,28 @@ import { useForm, FormProvider } from "react-hook-form";
 
 const Login = () => {
   const methods = useForm();
-  
+  const navigate = useNavigate();
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    if (name === 'userName') {
+      setUserName(value);
+    } else {
+      setPassword(value);
+    }
+  };
+
+  const onSubmitUser = async (data) => {
+    try {
+      await loginUser(data);
+      navigate("/");
+    } catch (err) {
+      alert(err.response.data.message);
+    }
+  };
+
   return (
     <div className="w-full h-full grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
       <div className=" h-full  mx-14 mt-4">
@@ -22,24 +45,31 @@ const Login = () => {
           <IconTitle image={hexagono} headerText="Iniciar Sesión" />
         </div>
         <FormProvider {...methods}>
-          <form className="w-full max-w-md mx-auto">
+          <form
+            onSubmit={methods.handleSubmit(onSubmitUser)}
+            className="w-full max-w-md mx-auto"
+          >
             <div className="mt-2">
               <InputForm
                 label="Usuario"
-                name="userRegister"
+                name="userName"
                 type="text"
                 placeholder="Ingresa tu Usuario"
                 defaultValue=""
+                value={userName}
+                onChange={handleInputChange}
               />
             </div>
 
             <div className="mt-6">
               <InputForm
                 label="Contraseña"
-                name="passwordRegister"
+                name="password"
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
+                value={password}
+                onChange={handleInputChange}
               />
             </div>
 
