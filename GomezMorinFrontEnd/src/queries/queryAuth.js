@@ -26,7 +26,6 @@ export const postUser = async (data) => {
   }
   try {
     const response = await axios.post(`${baseUrl}/users/`, body);
-    console.log(response.data)
     return response.data;
   } catch (err) {
     return Promise.reject(err);
@@ -35,13 +34,12 @@ export const postUser = async (data) => {
 
 /**
  * send a POST request to login
- * 
+ *
  * @param {string} data.userName - The user's username.
  * @param {string} data.password - The user's password.
  * @returns {Promise} A promise that resolves with the response data from the API endpoint.
  * @throws {Error} If the data parameter is not an object or is missing required fields.
  */
-
 export const loginUser = async (data) => {
   const { userName, password } = data;
   const body = {
@@ -56,4 +54,17 @@ export const loginUser = async (data) => {
   }
 };
 
-export default loginUser;
+/**
+ * Sends a POST request to log out the current user.
+ *
+ * @throws {Error} If an error occurs during the logout process.
+ * @returns {Promise<object>} A promise that resolves with the data returned by the server.
+ */
+export const logoutUser = async () => {
+  try {
+    const response = await axios.get(`${baseUrl}/users/logout`);
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};

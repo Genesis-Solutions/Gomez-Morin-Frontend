@@ -13,7 +13,7 @@ const Navbar = () => {
   const accessToken = localStorage.getItem("accessToken");
   const userName = localStorage.getItem("userName");
   const userName2 = useSelector((state) => state.auth.userName);
-  console.log(userName);
+
   return (
     <nav className="sticky top-0 flex gap-6 px-4 bg-gray-blue-500 w-full h-16 z-10">
       <div className="flex-1 py-1">
