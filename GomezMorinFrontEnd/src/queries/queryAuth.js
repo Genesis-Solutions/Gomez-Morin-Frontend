@@ -12,10 +12,6 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
  * @param {string} data.passwordRegister - The password for the new user.
  * @returns {Promise} A promise that resolves with the response data on success or rejects with an error on failure.
  * @param {Object} data - An object containing the user's login credentials.
- * @param {string} data.userName - The user's username.
- * @param {string} data.password - The user's password.
- * @returns {Promise} A promise that resolves with the response data from the API endpoint.
- * @throws {Error} If the data parameter is not an object or is missing required fields.
  */
 export const postUser = async (data) => {
   const { isMoralRegister, userRegister, mailRegister, passwordRegister } =
@@ -36,6 +32,15 @@ export const postUser = async (data) => {
   }
 };
 
+/**
+ * send a POST request to login
+ * 
+ * @param {string} data.userName - The user's username.
+ * @param {string} data.password - The user's password.
+ * @returns {Promise} A promise that resolves with the response data from the API endpoint.
+ * @throws {Error} If the data parameter is not an object or is missing required fields.
+ */
+
 export const loginUser = async (data) => {
   const { userName, password } = data;
   const body = {
@@ -47,7 +52,6 @@ export const loginUser = async (data) => {
     return response.data;
   } catch (err) {
     return Promise.reject(err);
-
   }
 };
 
