@@ -41,7 +41,6 @@ export const postUser = async (data) => {
  * @returns {Promise} A promise that resolves with the response data from the API endpoint.
  * @throws {Error} If the data parameter is not an object or is missing required fields.
  */
-
 export const loginUser = async (data) => {
   const { userName, password } = data;
   const body = {
@@ -62,7 +61,6 @@ export const loginUser = async (data) => {
  * @throws {Error} If an error occurs during the logout process.
  * @returns {Promise<object>} A promise that resolves with the data returned by the server.
  */
-
 export const logoutUser = async () => {
   try {
     const response = await axios.get(`${baseUrl}/users/logout`);
