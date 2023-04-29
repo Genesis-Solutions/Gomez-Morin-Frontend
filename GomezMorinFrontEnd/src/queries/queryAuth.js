@@ -39,13 +39,16 @@ export const postUser = async (data) => {
 export const loginUser = async (data) => {
   const { userName, password } = data;
   const body = {
-    userName,
-    password,
+    userName: userName,
+    password: password,
   };
   try {
-    const response = await axios.post(`${baseUrl}/login`, body);
+    const response = await axios.post(`${baseUrl}/users/login`, body);
     return response.data;
   } catch (err) {
     return Promise.reject(err);
+
   }
 };
+
+export default loginUser;
