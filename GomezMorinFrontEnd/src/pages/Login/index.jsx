@@ -5,7 +5,7 @@ import IconTitle from "../../components/IconTitle";
 import TextButton from "../../components/TextButton";
 import hexagono from "../../../public/images/hexagono.png";
 import { useForm, FormProvider } from "react-hook-form";
-import loginUser from "../../queries/queryAuth";
+import { loginUser } from "../../queries/queryAuth";
 import { useNavigate } from "react-router-dom";
 import { setAccessToken, setUser } from "../../states/authSlice";
 import { useSelector } from "react-redux";
@@ -23,9 +23,6 @@ const Login = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.auth.userName);
-  const id = useSelector((state) => state.auth.id);
-  const email = useSelector((state) => state.auth.email);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

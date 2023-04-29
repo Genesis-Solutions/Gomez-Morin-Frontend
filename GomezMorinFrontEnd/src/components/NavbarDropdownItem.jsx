@@ -1,5 +1,6 @@
 import { Fragment, React } from "react";
 import { Menu, Transition } from "@headlessui/react";
+import { logoutUser } from "../queries/queryAuth";
 import { useDispatch } from "react-redux";
 import { clearAccessToken } from "../states/authSlice";
 import Button from "./Button";
@@ -13,6 +14,26 @@ import Button from "./Button";
 
 const NavbarDropdownItem = ({ userName }) => {
   const dispatch = useDispatch();
+
+  /**
+   * Handles the click event of a "logout" button, which triggers the logout process for the current user.
+   *
+   * @async
+   * @function onClickHandler
+   * @throws {Error} If an error occurs during the logout process.
+   * @returns {void}
+   */
+  const onClickHandler = async () => {
+    try {
+      const response = await logoutUser();
+      dispatch(clearAccessToken());
+      alert(response.message);
+      window.location.href = "/";
+    } catch (err) {
+      alert(err.response.message);
+    }
+  };
+
   return (
     <>
       <Menu as="div" className="relative inline-block text-left py-4 px-4">
@@ -34,13 +55,7 @@ const NavbarDropdownItem = ({ userName }) => {
           <Menu.Items className="absolute text-gray-100 right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-gray-blue-500  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="py-1">
               <Menu.Item>
-                <Button
-                  text={"Cerrar sesión"}
-                  action={() => {
-                    dispatch(clearAccessToken());
-                    window.location.href = "/";
-                  }}
-                />
+                <Button text={"Cerrar sesión"} action={onClickHandler} />
               </Menu.Item>
             </div>
           </Menu.Items>
