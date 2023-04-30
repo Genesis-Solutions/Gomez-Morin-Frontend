@@ -47,7 +47,7 @@ export const loginUser = async (data) => {
     password: password,
   };
   try {
-    const response = await axios(`${baseUrl}/users/login`, body, {
+    const response = await axios.post(`${baseUrl}/users/login`, body, {
       withCredentials: true,
     });
     return response.data;
