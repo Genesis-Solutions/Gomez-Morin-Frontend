@@ -5,9 +5,12 @@ import IconTitle from "../../components/IconTitle";
 import TextButton from "../../components/TextButton";
 import hexagono from "../../../public/images/hexagono.png";
 import { useForm, FormProvider } from "react-hook-form";
-import loginUser from "../../queries/queryAuth";
+import { loginUser } from "../../queries/queryAuth";
 import { useNavigate } from "react-router-dom";
-
+import { setAccessToken, setUser } from "../../states/authSlice";
+import { useSelector } from "react-redux";
+import jwt_decode from "jwt-decode";
+import { useDispatch } from "react-redux";
 /**
  *A functional component that renders a login form with user input fields and validation.
  *
@@ -17,12 +20,13 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const methods = useForm();
   const navigate = useNavigate();
-  const [userName, setUserName] = useState('');
-  const [password, setPassword] = useState('');
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
-    if (name === 'userName') {
+    if (name === "userName") {
       setUserName(value);
     } else {
       setPassword(value);
@@ -31,7 +35,11 @@ const Login = () => {
 
   const onSubmitUser = async (data) => {
     try {
-      await loginUser(data);
+      const response = await loginUser(data);
+      dispatch(setAccessToken(response.accessToken));
+      const accessToken = localStorage.getItem("accessToken");
+      const decodedToken = await jwt_decode(accessToken);
+      dispatch(setUser(decodedToken));
       navigate("/");
     } catch (err) {
       alert(err.response.data.message);
