@@ -47,7 +47,9 @@ export const loginUser = async (data) => {
     password: password,
   };
   try {
-    const response = await axios.post(`${baseUrl}/users/login`, body);
+    const response = await axios(`${baseUrl}/users/login`, body, {
+      withCredentials: true,
+    });
     return response.data;
   } catch (err) {
     return Promise.reject(err);
@@ -62,7 +64,9 @@ export const loginUser = async (data) => {
  */
 export const logoutUser = async () => {
   try {
-    const response = await axios.get(`${baseUrl}/users/logout`);
+    const response = await axios.get(`${baseUrl}/users/logout`, {
+      withCredentials: true,
+    });
     return response.data;
   } catch (err) {
     return Promise.reject(err);
