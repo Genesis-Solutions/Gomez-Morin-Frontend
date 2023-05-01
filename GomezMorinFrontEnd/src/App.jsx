@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import RequestForm from "./pages/RequestForm"
+import RequestForm from "./pages/RequestForm";
 
 const App = () => {
   return (
