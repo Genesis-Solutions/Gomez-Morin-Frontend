@@ -18,7 +18,7 @@ import {
 
 /**
  * A React functional component that represents a request form.
- * 
+ *
  * @returns The JSX element that renders the request form.
  */
 const RequestForm = () => {
@@ -26,15 +26,34 @@ const RequestForm = () => {
   const initialForm = useSelector((state) => state.form.initialForm);
   const specificForm = useSelector((state) => state.form.specificForm);
   const sendForm = useSelector((state) => state.form.sendForm);
+  const typeEvent = useSelector((state) => state.form.typeEventForm);
   const methods = useForm();
+  const setValue = methods.setValue;
+
   const dispatch = useDispatch();
   const formState = useSelector((state) => state.form.formState);
+
+  const resetHandler = () => {
+    setValue("assistance", "");
+    setValue("ages", "");
+    setValue("requiredSpace", "");
+    setValue("equipment", "");
+    setValue("selfEquipment", "");
+    setValue("softInstallation", "");
+    setValue("electricInstallation", "");
+    setValue("mounting", "");
+    setValue("tableNumber", "");
+    setValue("openingDayDate", "");
+    setValue("openingDayTime", "");
+    setValue("sound", "");
+    setValue("microphone", "");
+  };
 
   /**
    * Callback function that is called when the form is submitted.
    * It dispatches actions to show the corresponding form state
    * or triggers the submit form logic.
-   * 
+   *
    * @param {Object} data - The data collected from the form.
    */
   const onSubmit = (data) => {
@@ -47,7 +66,10 @@ const RequestForm = () => {
     }
 
     if (formState === "SpecificForm") {
-      dispatch(setTypeEventForm(data.typeEvent));
+      if (typeEvent !== data.typeEvent) {
+        dispatch(setTypeEventForm(data.typeEvent));
+        resetHandler();
+      }
       dispatch(showSpecificForm());
     }
 
@@ -57,7 +79,7 @@ const RequestForm = () => {
 
     if (formState === "SubmitForm") {
       /* Submit Form Logic */
-      // console.log(data);
+      console.log(data);
     }
   };
 

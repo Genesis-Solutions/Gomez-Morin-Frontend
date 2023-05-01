@@ -6,16 +6,17 @@ import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { setFormState, showUserForm } from "../../states/formSlice";
+import { typeEvent } from "../../utils/RequestForm/options";
 
 /**
  * A React functional component that renders a form for collecting initial information about an event.
- * 
+ *
  * @returns The JSX element that renders the initial information form.
  */
 const InitialForm = () => {
   /**
    * A state hook that holds the form data for the component.
-   * 
+   *
    * @type {[object, function]} An array containing the form data object and a function to update it.
    */
   const [formData, setFormData] = useState({
@@ -25,7 +26,7 @@ const InitialForm = () => {
 
   /**
    * A function that handles changes to the checkbox inputs in the form and updates the form data accordingly.
-   * 
+   *
    * @param {string} name - The name of the checkbox input.
    * @param {boolean} isChecked - The new checked state of the checkbox input.
    */
@@ -36,17 +37,6 @@ const InitialForm = () => {
     });
   };
 
-  /**
-   * An array of objects representing the available options for a select input in the form.
-   * 
-   * @type {Array<object>} An array containing objects with `value` and `_id` properties.
-   */
-  const option = [
-    { value: "Evento", _id: "1" },
-    { value: "Taller", _id: "2" },
-    { value: "Exposición", _id: "3" },
-  ];
-
   const dispatch = useDispatch();
 
   return (
@@ -56,7 +46,7 @@ const InitialForm = () => {
           <DropdownInput
             name="typeEvent"
             label="Tipo de evento"
-            options={option}
+            options={typeEvent}
           />
         </div>
 
