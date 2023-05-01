@@ -11,41 +11,51 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { showUserForm, showInitialForm, showSpecificForm, showSendForm, setTypeEventForm } from "../../states/formSlice";
 
+/**
+ * A React functional component that represents a request form.
+ * @returns The JSX element that renders the request form.
+ */
 const RequestForm = () => {
 
-  const userForm = useSelector((state) => state.form.userForm)
-  const initialForm = useSelector((state) => state.form.initialForm)
-  const specificForm = useSelector((state) => state.form.specificForm)
-  const sendForm = useSelector((state) => state.form.sendForm)
+  const userForm = useSelector((state) => state.form.userForm);
+  const initialForm = useSelector((state) => state.form.initialForm);
+  const specificForm = useSelector((state) => state.form.specificForm);
+  const sendForm = useSelector((state) => state.form.sendForm);
   const methods = useForm();
-  const dispatch = useDispatch()
-  const formState = useSelector((state) => state.form.formState)
+  const dispatch = useDispatch();
+  const formState = useSelector((state) => state.form.formState);
   const reset = methods.reset;
   const navigate = useNavigate();
 
+  /**
+   * Callback function that is called when the form is submitted.
+   * It dispatches actions to show the corresponding form state
+   * or triggers the submit form logic.
+   * @param {Object} data - The data collected from the form.
+   */
   const onSubmit = (data) => {
-    console.log(data)
     if (formState === "UserForm") {
-      dispatch(showUserForm())
+      dispatch(showUserForm());
     }
 
     if (formState === "InitialForm") {
-      dispatch(showInitialForm())
+      dispatch(showInitialForm());
     }
 
     if (formState === "SpecificForm") {
-      dispatch(setTypeEventForm(data.tipoEvento))
-      dispatch(showSpecificForm())
+      dispatch(setTypeEventForm(data.typeEvent));
+      dispatch(showSpecificForm());
     }
 
     if (formState === "SendForm") {
-      dispatch(showSendForm())
+      dispatch(showSendForm());
     }
 
     if (formState === "SubmitForm") {
-      console.log("submitea el formulario")
+      /* Submit Form Logic */
+      // console.log(data);
     }
-  }
+  };
 
   return (
     <div className="w-full h-full flex justify-between overflow-y-auto">
@@ -59,12 +69,10 @@ const RequestForm = () => {
           <ButtonOptionForm
             text={"Información general del evento"}
             active={ initialForm }
-
           />
           <ButtonOptionForm
             text={"Información específica del evento"}
             active={ specificForm }
-
           />
           <ButtonOptionForm
             text={"Envío del formulario"}

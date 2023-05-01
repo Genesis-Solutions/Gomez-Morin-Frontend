@@ -1,16 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../components/Button";
 import AltCheckbox from "../../components/Checkbox";
 import { useDispatch } from "react-redux";
 import { setFormState, showSpecificForm } from "../../states/formSlice";
 
+/**
+ * Component for sending the form.
+ * @returns {JSX.Element}
+ */
 const SendForm = () => {
   const dispatch = useDispatch();
+  const [isChecked, setIsChecked] = useState(false)
+
   return (
     <>
-      <AltCheckbox
-        label={"Acepto el envio de la información presentada de la solicitud"}
-      />
+      <div className="flex gap-3">
+        <input type="checkbox" checked={isChecked} onClick={() => { setIsChecked(!isChecked) }} id="guideLines" readOnly={true} />
+        <label htmlFor="">
+          Acepto el envio de la información presentada de la solicitud
+        </label>
+      </div>
+
       <div className="flex justify-end gap-5">
         <Button
           text="Anterior"
@@ -24,11 +34,12 @@ const SendForm = () => {
         <Button
           text="Enviar"
           type="submit"
-          colorBg="bg-light-blue-500"
-          colorHoverBg="bg-light-blue-700"
+          colorBg={`${isChecked ? "bg-light-blue-500" : "bg-gray-400 pointer-events-none"}`}
+          colorHoverBg={`${isChecked ? "bg-light-blue-700" : ""}`}
           action={() => {
             dispatch(setFormState("SubmitForm"));
           }}
+          disabled={!isChecked}
         />
       </div>
     </>

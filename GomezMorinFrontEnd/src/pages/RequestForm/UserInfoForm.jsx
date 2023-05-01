@@ -3,8 +3,11 @@ import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { setFormState } from "../../states/formSlice";
-import { useRef } from "react";
 
+/**
+ * A React functional component that renders a form for collecting user information.
+ * @returns The JSX element that renders the user info form.
+ */
 const UserInfoForm = () => {
   const dispatch = useDispatch();
 
@@ -14,7 +17,7 @@ const UserInfoForm = () => {
         <div className="flex-1">
           <InputForm
             type="text"
-            name="nombreContacto"
+            name="nameRequester"
             label="Nombre del solicitante"
             placeholder="Ejemplo: Juan Alcántara.."
             defaultValue=""
@@ -24,7 +27,7 @@ const UserInfoForm = () => {
         <div className="flex-1">
           <InputForm
             type="number"
-            name="telContacto"
+            name="cellphone"
             label="Número de telefono del solicitante"
             placeholder="Ejemplo: 777123443.."
             defaultValue=""
@@ -36,47 +39,55 @@ const UserInfoForm = () => {
         <div className="flex-1">
           <InputForm
             type="email"
-            name="correoContacto"
+            name="email"
             label="Correo del solicitante"
             placeholder="Ejemplo: Juan@gmail.com.."
             defaultValue=""
           />
         </div>
       </div>
-      <div className="flex-1">
-        <InputForm
-          type="file"
-          name="ine"
-          label="Sube la copia de tu INE"
-          placeholder="Buscar..."
-          defaultValue=""
-        />
-
-        <InputForm
-          type="file"
-          name="comprobanteDomicilio"
-          label="Sube la copia de tu comprobante de domicilio"
-          placeholder="Ejemplo: Buscar..."
-          defaultValue=""
-        />
-      </div>
+      <InputForm
+        type="file"
+        name="ineDoc"
+        label="Sube la copia de tu INE"
+        placeholder="Buscar..."
+        defaultValue=""
+      />
 
       <InputForm
         type="file"
-        name="curp"
-        label="Sube la copia de tu curp"
+        name="addressDoc"
+        label="Sube la copia de tu comprobante de domicilio"
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
       />
 
+      <InputForm
+        type="file"
+        name="curpDoc"
+        label="Sube la copia de tu CURP"
+        placeholder="Ejemplo: Buscar..."
+        defaultValue=""
+      />
+
+      <InputForm
+        type="file"
+        name="extraDoc"
+        label="Sube algún documento extra que creas necesario"
+        placeholder="Ejemplo: Buscar..."
+        defaultValue=""
+        required={false}
+      />
+
+      {/* Form Navigation */}
       <div className="flex justify-end">
         <Button
           text="Siguiente"
           type=""
           colorBg="bg-light-blue-500"
           colorHoverBg="bg-light-blue-600"
-          action = {() => {
-            dispatch(setFormState("InitialForm"))
+          action={() => {
+            dispatch(setFormState("InitialForm"));
           }}
         />
       </div>

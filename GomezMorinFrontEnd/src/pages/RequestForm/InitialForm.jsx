@@ -7,12 +7,25 @@ import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { setFormState, showUserForm } from "../../states/formSlice";
 
+/**
+ * A React functional component that renders a form for collecting initial information about an event.
+ * @returns The JSX element that renders the initial information form.
+ */
 const InitialForm = () => {
+  /**
+   * A state hook that holds the form data for the component.
+   * @type {[object, function]} An array containing the form data object and a function to update it.
+   */
   const [formData, setFormData] = useState({
     inauguracion: false,
     costo: false,
   });
 
+  /**
+   * A function that handles changes to the checkbox inputs in the form and updates the form data accordingly.
+   * @param {string} name - The name of the checkbox input.
+   * @param {boolean} isChecked - The new checked state of the checkbox input.
+   */
   const handleCheckBoxChange = (name, isChecked) => {
     setFormData({
       ...formData,
@@ -20,6 +33,10 @@ const InitialForm = () => {
     });
   };
 
+  /**
+   * An array of objects representing the available options for a select input in the form.
+   * @type {Array<object>} An array containing objects with `value` and `_id` properties.
+   */
   const option = [
     { value: "Evento", _id: "1" },
     { value: "Taller", _id: "2" },
@@ -33,7 +50,7 @@ const InitialForm = () => {
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
           <DropdownInput
-            name="tipoEvento"
+            name="typeEvent"
             label="Tipo de evento"
             options={option}
           />
@@ -42,7 +59,7 @@ const InitialForm = () => {
         <div className="flex-1">
           <InputForm
             type="text"
-            name="nombreEvento"
+            name="nameEvent"
             label="Nombre del Evento"
             placeholder="Ejemplo: Taller de..."
             defaultValue=""
@@ -52,7 +69,7 @@ const InitialForm = () => {
 
       <TextArea
         type="text"
-        name="descripcionGeneral"
+        name="generalDescription"
         label="Descripción del evento"
         placeholder="Ejemplo: Descripción general del evento..."
         defaultValue=""
@@ -61,8 +78,8 @@ const InitialForm = () => {
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
           <InputForm
-            type="text"
-            name="diaInicio"
+            type="date"
+            name="startDay"
             label="Dia de inicio del evento"
             placeholder="Ejemplo: 04/24/2023"
             defaultValue=""
@@ -71,8 +88,8 @@ const InitialForm = () => {
 
         <div className="flex-1">
           <InputForm
-            type="text"
-            name="horaInicio"
+            type=""
+            name="startTime"
             label="Hora de inicio del evento"
             placeholder="Ejemplo: 10:00pm"
             defaultValue=""
@@ -82,8 +99,8 @@ const InitialForm = () => {
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
           <InputForm
-            type="text"
-            name="diaFinal"
+            type="date"
+            name="endDay"
             label="Dia de fin del evento"
             placeholder="Ejemplo: 04/25/2023"
             defaultValue=""
@@ -93,7 +110,7 @@ const InitialForm = () => {
         <div className="flex-1">
           <InputForm
             type="text"
-            name="horaFinal"
+            name="endTime"
             label="Hora de fin de evento"
             placeholder="Ejemplo: 11:00pm"
             defaultValue=""
@@ -105,7 +122,7 @@ const InitialForm = () => {
         <div className="flex-1">
           <div className="flex flex-col gap-4">
             <CheckBoxInput
-              name="inauguracion"
+              name="inauguration"
               label="¿Hay inauguración en tu evento?"
               onChange={(isChecked) =>
                 handleCheckBoxChange("inauguracion", isChecked)
@@ -114,7 +131,7 @@ const InitialForm = () => {
             {formData.inauguracion && (
               <InputForm
                 type="text"
-                name="autoridades"
+                name="authorities"
                 label="Especifica las autoridades correspondientes"
                 placeholder="Ejemplo: Secretaría de cultura.."
                 defaultValue=""
@@ -126,7 +143,7 @@ const InitialForm = () => {
         <div className="flex-1">
           <InputForm
             type="text"
-            name="lugar"
+            name="place"
             label="Lugar del evento"
             placeholder="Ejemplo: sala numero 3 de gomez morin"
             defaultValue=""
@@ -138,14 +155,14 @@ const InitialForm = () => {
         <div className="flex-1">
           <div className="flex flex-col gap-4">
             <CheckBoxInput
-              name="costo"
+              name="cost"
               label="¿El evento tiene costo de admisión?"
               onChange={(isChecked) => handleCheckBoxChange("costo", isChecked)}
             />
             {formData.costo && (
               <InputForm
                 type="number"
-                name="cuota"
+                name="fee"
                 label="Especifica el costo por acceso"
                 placeholder="Ejemplo: 1000.."
                 defaultValue=""
@@ -157,7 +174,7 @@ const InitialForm = () => {
         <div className="flex-1">
           <InputForm
             type="text"
-            name="publicoObjetivo"
+            name="targetAudience"
             label="Dirigido a"
             placeholder="Ejemplo: Adultos mayores de 18 años"
             defaultValue=""
@@ -167,11 +184,13 @@ const InitialForm = () => {
 
       <InputForm
         type="text"
-        name="redesSociales"
+        name="socialNetwork"
         label="Redes sociales"
         placeholder="Ejemplo: instagram.com/JuanAlcantara.."
         defaultValue=""
       />
+
+      {/* Form Navigation */}
       <div className="flex justify-end gap-5">
         <Button
           text="Anterior"
