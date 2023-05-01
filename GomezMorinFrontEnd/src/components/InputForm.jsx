@@ -10,6 +10,7 @@ import { useFormContext } from "react-hook-form";
  * @param {string} placeholder - The text that will be shown on the input space.
  * @param {string} defaultValue - The value that will have by default.
  * @param {string} pattern - The pattern that the input will have to follow.
+ * @param {bool} required - The bool to decide if its a required input
  * @returns {JSX.Element} The JSX element representing a input form UI.
  */
 
@@ -20,6 +21,7 @@ const InputForm = ({
   placeholder,
   defaultValue,
   pattern,
+  required = true
 }) => {
   const { register } = useFormContext();
 
@@ -31,12 +33,12 @@ const InputForm = ({
       <input
         {...register(name, { pattern: { value: pattern } })}
         defaultValue={defaultValue}
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+        className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
         type={type}
         id={name}
         placeholder={placeholder}
         autoComplete="off"
-        required
+        required={ required }
       />
     </div>
   );
