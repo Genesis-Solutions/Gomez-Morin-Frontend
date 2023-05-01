@@ -9,14 +9,20 @@ import SpecificForm from "./SpecificForm";
 import SendForm from "./SendForm";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
-import { showUserForm, showInitialForm, showSpecificForm, showSendForm, setTypeEventForm } from "../../states/formSlice";
+import {
+  showUserForm,
+  showInitialForm,
+  showSpecificForm,
+  showSendForm,
+  setTypeEventForm,
+} from "../../states/formSlice";
 
 /**
  * A React functional component that represents a request form.
+ * 
  * @returns The JSX element that renders the request form.
  */
 const RequestForm = () => {
-
   const userForm = useSelector((state) => state.form.userForm);
   const initialForm = useSelector((state) => state.form.initialForm);
   const specificForm = useSelector((state) => state.form.specificForm);
@@ -31,6 +37,7 @@ const RequestForm = () => {
    * Callback function that is called when the form is submitted.
    * It dispatches actions to show the corresponding form state
    * or triggers the submit form logic.
+   * 
    * @param {Object} data - The data collected from the form.
    */
   const onSubmit = (data) => {
@@ -62,26 +69,23 @@ const RequestForm = () => {
       <div className="flex flex-col items-center w-full h-full px-12 gap-5">
         <Header tittle={"Nueva Solicitud"} />
         <div className="w-full h-12 flex">
-          <ButtonOptionForm
-            text={"Información personal"}
-            active={ userForm }
-          />
+          <ButtonOptionForm text={"Información personal"} active={userForm} />
           <ButtonOptionForm
             text={"Información general del evento"}
-            active={ initialForm }
+            active={initialForm}
           />
           <ButtonOptionForm
             text={"Información específica del evento"}
-            active={ specificForm }
+            active={specificForm}
           />
-          <ButtonOptionForm
-            text={"Envío del formulario"}
-            active={ sendForm }
-          />
+          <ButtonOptionForm text={"Envío del formulario"} active={sendForm} />
         </div>
         <div className="py-12 w-full h-full p-12 sm:px-6 overflow-y-auto">
           <FormProvider {...methods}>
-            <form className="flex flex-col gap-6" onSubmit={methods.handleSubmit(onSubmit)}>
+            <form
+              className="flex flex-col gap-6"
+              onSubmit={methods.handleSubmit(onSubmit)}
+            >
               {userForm && <UserInfoForm />}
               {initialForm && <InitialForm />}
               {specificForm && <SpecificForm />}

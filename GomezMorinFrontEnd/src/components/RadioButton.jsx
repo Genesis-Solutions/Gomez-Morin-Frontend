@@ -3,6 +3,7 @@ import { useFormContext } from "react-hook-form";
 
 /**
  * A functional component that renders a radio button input and label
+ * 
  * @param {object} props - The props object containing the following properties:
  * @param {string} props.label - The label text to display alongside the radio button
  * @param {string} props.name - The name attribute for the radio button input
@@ -10,12 +11,7 @@ import { useFormContext } from "react-hook-form";
  * @param {string} props.id - The id attribute for the radio button input
  * @returns {JSX.Element} - The rendered component
  */
-const RadioButton = ({
-  label,
-  name,
-  value,
-  id
-}) => {
+const RadioButton = ({ label, name, value, id }) => {
   const { register } = useFormContext();
   return (
     <div className="flex w-full gap-3  h-full">

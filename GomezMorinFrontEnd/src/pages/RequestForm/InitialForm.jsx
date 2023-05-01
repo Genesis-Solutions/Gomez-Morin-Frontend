@@ -9,11 +9,13 @@ import { setFormState, showUserForm } from "../../states/formSlice";
 
 /**
  * A React functional component that renders a form for collecting initial information about an event.
+ * 
  * @returns The JSX element that renders the initial information form.
  */
 const InitialForm = () => {
   /**
    * A state hook that holds the form data for the component.
+   * 
    * @type {[object, function]} An array containing the form data object and a function to update it.
    */
   const [formData, setFormData] = useState({
@@ -23,6 +25,7 @@ const InitialForm = () => {
 
   /**
    * A function that handles changes to the checkbox inputs in the form and updates the form data accordingly.
+   * 
    * @param {string} name - The name of the checkbox input.
    * @param {boolean} isChecked - The new checked state of the checkbox input.
    */
@@ -35,6 +38,7 @@ const InitialForm = () => {
 
   /**
    * An array of objects representing the available options for a select input in the form.
+   * 
    * @type {Array<object>} An array containing objects with `value` and `_id` properties.
    */
   const option = [
@@ -43,7 +47,7 @@ const InitialForm = () => {
     { value: "Exposición", _id: "3" },
   ];
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -197,14 +201,18 @@ const InitialForm = () => {
           type=""
           colorBg="bg-gray-400"
           colorHoverBg="bg-gray-600"
-          action = {() => { dispatch(showUserForm()) }}
+          action={() => {
+            dispatch(showUserForm());
+          }}
         />
         <Button
           text="Siguiente"
           type="submit"
           colorBg="bg-light-blue-500"
           colorHoverBg="bg-light-blue-700"
-          action = {() => { dispatch(setFormState("SpecificForm")) }}
+          action={() => {
+            dispatch(setFormState("SpecificForm"));
+          }}
         />
       </div>
     </>

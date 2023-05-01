@@ -142,16 +142,17 @@ const microphoneOptions = [
 
 /**
  * A React component for displaying the Specific Form.
+ * 
  * @returns The JSX element that renders the initial information form.
  */
 const SpecificForm = () => {
   const dispatch = useDispatch();
   const typeEvent = useSelector((state) => state.form.typeEventForm);
 
-  console.log(typeEvent)
+  console.log(typeEvent);
   return (
     <>
-    {/* Shared Questions from Specific Form */}
+      {/* Shared Questions from Specific Form */}
       <div className="grid grid-cols-2 gap-x-14 gap-y-6">
         <div className="md:col-span-1 col-span-2">
           <InputForm
@@ -302,7 +303,9 @@ const SpecificForm = () => {
               <InputForm
                 type="text"
                 name="requireSpace"
-                label={`Espacio requerido para el ${typeEvent === "Evento" ? "evento" : "exposición"}`}
+                label={`Espacio requerido para el ${
+                  typeEvent === "Evento" ? "evento" : "exposición"
+                }`}
                 placeholder="5"
                 defaultValue=""
               />
@@ -311,7 +314,7 @@ const SpecificForm = () => {
         )}
 
         {/* Questions of Exposicion */}
-        {(typeEvent === "Exposición") && (
+        {typeEvent === "Exposición" && (
           <>
             <div className="md:col-span-1 col-span-2">
               <InputForm

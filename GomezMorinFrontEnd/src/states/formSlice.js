@@ -9,7 +9,7 @@ const initialState = {
   initialForm: false,
   specificForm: false,
   sendForm: false,
-  typeEventForm: ""
+  typeEventForm: "",
 };
 
 /**
@@ -21,6 +21,7 @@ export const formSlice = createSlice({
   reducers: {
     /**
      * Updates the current state of the form.
+     * 
      * @param {Object} state - The current state of the form.
      * @param {Object} action - The action object to be dispatched.
      */
@@ -29,6 +30,7 @@ export const formSlice = createSlice({
     },
     /**
      * Shows the user form.
+     * 
      * @param {Object} state - The current state of the form.
      */
     showUserForm: (state) => {
@@ -39,6 +41,7 @@ export const formSlice = createSlice({
     },
     /**
      * Shows the initial form.
+     * 
      * @param {Object} state - The current state of the form.
      */
     showInitialForm: (state) => {
@@ -49,6 +52,7 @@ export const formSlice = createSlice({
     },
     /**
      * Shows the specific form.
+     * 
      * @param {Object} state - The current state of the form.
      */
     showSpecificForm: (state) => {
@@ -59,6 +63,7 @@ export const formSlice = createSlice({
     },
     /**
      * Shows the send form.
+     * 
      * @param {Object} state - The current state of the form.
      */
     showSendForm: (state) => {
@@ -69,15 +74,23 @@ export const formSlice = createSlice({
     },
     /**
      * Updates the type of event form.
+     * 
      * @param {Object} state - The current state of the form.
      * @param {Object} action - The action object to be dispatched.
      */
     setTypeEventForm: (state, action) => {
-      state.typeEventForm = action.payload
-    }
+      state.typeEventForm = action.payload;
+    },
   },
 });
 
-export const { setFormState, showUserForm, showInitialForm, showSendForm, showSpecificForm, setTypeEventForm } = formSlice.actions;
+export const {
+  setFormState,
+  showUserForm,
+  showInitialForm,
+  showSendForm,
+  showSpecificForm,
+  setTypeEventForm,
+} = formSlice.actions;
 
 export default formSlice.reducer;

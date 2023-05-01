@@ -6,6 +6,7 @@ import { setFormState } from "../../states/formSlice";
 
 /**
  * A React functional component that renders a form for collecting user information.
+ * 
  * @returns The JSX element that renders the user info form.
  */
 const UserInfoForm = () => {

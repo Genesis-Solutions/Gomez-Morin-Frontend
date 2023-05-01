@@ -5,16 +5,25 @@ import { setFormState, showSpecificForm } from "../../states/formSlice";
 
 /**
  * Component for sending the form.
+ * 
  * @returns {JSX.Element}
  */
 const SendForm = () => {
   const dispatch = useDispatch();
-  const [isChecked, setIsChecked] = useState(false)
+  const [isChecked, setIsChecked] = useState(false);
 
   return (
     <>
       <div className="flex gap-3">
-        <input type="checkbox" checked={isChecked} onClick={() => { setIsChecked(!isChecked) }} id="guideLines" readOnly={true} />
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onClick={() => {
+            setIsChecked(!isChecked);
+          }}
+          id="guideLines"
+          readOnly={true}
+        />
         <label htmlFor="">
           Acepto el envio de la información presentada de la solicitud
         </label>
@@ -33,7 +42,9 @@ const SendForm = () => {
         <Button
           text="Enviar"
           type="submit"
-          colorBg={`${isChecked ? "bg-light-blue-500" : "bg-gray-400 pointer-events-none"}`}
+          colorBg={`${
+            isChecked ? "bg-light-blue-500" : "bg-gray-400 pointer-events-none"
+          }`}
           colorHoverBg={`${isChecked ? "bg-light-blue-700" : ""}`}
           action={() => {
             dispatch(setFormState("SubmitForm"));
