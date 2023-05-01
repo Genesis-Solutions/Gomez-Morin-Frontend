@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import Button from "../../components/Button";
-import AltCheckbox from "../../components/Checkbox";
 import { useDispatch } from "react-redux";
 import { setFormState, showSpecificForm } from "../../states/formSlice";
 
