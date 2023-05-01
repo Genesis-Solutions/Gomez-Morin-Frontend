@@ -31,12 +31,12 @@ const InputForm = ({
       <input
         {...register(name, { pattern: { value: pattern } })}
         defaultValue={defaultValue}
-        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+        className=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
         type={type}
         id={name}
         placeholder={placeholder}
         autoComplete="off"
-        required
+        // required
       />
     </div>
   );

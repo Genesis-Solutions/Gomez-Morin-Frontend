@@ -19,7 +19,7 @@ const Button = ({ text, type, colorBg, colorHoverBg, action }) => {
     "text-sm",
     "p-2",
     "rounded-lg",
-    colorHoverBg,
+    `hover:${colorHoverBg}`,
   ];
 
   return (
