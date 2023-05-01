@@ -1,7 +1,6 @@
 import { React } from "react";
 import { useForm, FormProvider } from "react-hook-form";
 import Header from "../../components/Header";
-import { useNavigate } from "react-router-dom";
 import ButtonOptionForm from "./ButtonOptionForm";
 import UserInfoForm from "./UserInfoForm";
 import InitialForm from "./InitialForm";
@@ -30,8 +29,6 @@ const RequestForm = () => {
   const methods = useForm();
   const dispatch = useDispatch();
   const formState = useSelector((state) => state.form.formState);
-  const reset = methods.reset;
-  const navigate = useNavigate();
 
   /**
    * Callback function that is called when the form is submitted.
