@@ -59,7 +59,7 @@ const RequestForm = () => {
    *
    * @param {Object} data - The data collected from the form.
    */
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (formState === "UserForm") {
       dispatch(showUserForm());
     }
@@ -82,7 +82,11 @@ const RequestForm = () => {
 
     if (formState === "SubmitForm") {
       /* Submit Form Logic */
-      createRequest({ ...data, userId: userId });
+      try {
+        await createRequest({ ...data, userId: userId });
+      } catch (err) {
+        alert(err.response.data.message);
+      }
     }
   };
 

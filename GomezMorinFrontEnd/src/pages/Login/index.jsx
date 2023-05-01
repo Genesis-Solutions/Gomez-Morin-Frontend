@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
 import IconTitle from "../../components/IconTitle";
@@ -8,7 +8,6 @@ import { useForm, FormProvider } from "react-hook-form";
 import { loginUser } from "../../queries/queryAuth";
 import { useNavigate } from "react-router-dom";
 import { setAccessToken, setUser } from "../../states/authSlice";
-import { useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import { useDispatch } from "react-redux";
 /**
@@ -20,18 +19,7 @@ import { useDispatch } from "react-redux";
 const Login = () => {
   const methods = useForm();
   const navigate = useNavigate();
-  const [userName, setUserName] = useState("");
-  const [password, setPassword] = useState("");
   const dispatch = useDispatch();
-
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    if (name === "userName") {
-      setUserName(value);
-    } else {
-      setPassword(value);
-    }
-  };
 
   const onSubmitUser = async (data) => {
     try {
@@ -65,7 +53,6 @@ const Login = () => {
                 placeholder="Ingresa tu Usuario"
                 defaultValue=""
                 value={userName}
-                onChange={handleInputChange}
               />
             </div>
 
@@ -77,7 +64,6 @@ const Login = () => {
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
                 value={password}
-                onChange={handleInputChange}
               />
             </div>
 
