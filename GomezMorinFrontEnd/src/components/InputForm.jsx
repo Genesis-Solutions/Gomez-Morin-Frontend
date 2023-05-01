@@ -21,7 +21,7 @@ const InputForm = ({
   placeholder,
   defaultValue,
   pattern,
-  required = false
+  required = true
 }) => {
   const { register } = useFormContext();
 
