@@ -79,7 +79,6 @@ const RequestForm = () => {
 
     if (formState === "SubmitForm") {
       /* Submit Form Logic */
-      console.log(data);
     }
   };
 
