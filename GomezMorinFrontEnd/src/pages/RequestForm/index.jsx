@@ -102,11 +102,10 @@ const RequestForm = () => {
     if (formState === "SubmitForm") {
       /* Submit Form Logic */
       try {
-        console.log(data)
         await createRequest({ ...data, userId: userId }, typeEvent);
         dispatch(showUserForm());
         navigate("/request");
-        // reset();
+        reset();
       } catch (err) {
         alert(err.response.data.message);
       }
