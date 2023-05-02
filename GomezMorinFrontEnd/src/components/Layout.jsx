@@ -12,7 +12,7 @@ import Footer from "./Footer";
 
 const Layout = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-between">
+    <div className="w-full h-full flex flex-col justify-between overflow-y-auto gap-10">
       <Navbar />
       <Outlet />
       <Footer/>
