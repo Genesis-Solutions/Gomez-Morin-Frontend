@@ -8,6 +8,8 @@ import SpecificForm from "./SpecificForm";
 import SendForm from "./SendForm";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { createRequest } from "../../queries/queryRequestForm";
+
 import {
   showUserForm,
   showInitialForm,
@@ -29,6 +31,7 @@ const RequestForm = () => {
   const typeEvent = useSelector((state) => state.form.typeEventForm);
   const methods = useForm();
   const setValue = methods.setValue;
+  const userId = useSelector((state) => state.auth.id);
 
   const dispatch = useDispatch();
   const formState = useSelector((state) => state.form.formState);
@@ -56,7 +59,7 @@ const RequestForm = () => {
    *
    * @param {Object} data - The data collected from the form.
    */
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     if (formState === "UserForm") {
       dispatch(showUserForm());
     }
@@ -79,6 +82,11 @@ const RequestForm = () => {
 
     if (formState === "SubmitForm") {
       /* Submit Form Logic */
+      try {
+        await createRequest({ ...data, userId: userId });
+      } catch (err) {
+        alert(err.response.data.message);
+      }
     }
   };
 
