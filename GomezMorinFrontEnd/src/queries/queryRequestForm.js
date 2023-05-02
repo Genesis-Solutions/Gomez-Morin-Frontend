@@ -165,9 +165,9 @@ export const createRequest = async (data) => {
     arrayFile.push(extraDoc[0]);
   }
 
-  for (let i = 0; i < arrayFile.length; i++) {
-    formData.append("file", arrayFile[i]);
-  }
+  arrayFile.map((file) => {
+    formData.append("file", file);
+  });
 
   try {
     const response = await axios({
