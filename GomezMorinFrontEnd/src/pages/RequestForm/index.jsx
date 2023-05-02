@@ -9,6 +9,7 @@ import SendForm from "./SendForm";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { createRequest } from "../../queries/queryRequestForm";
+import { useNavigate } from "react-router-dom";
 
 import {
   showUserForm,
@@ -30,8 +31,10 @@ const RequestForm = () => {
   const sendForm = useSelector((state) => state.form.sendForm);
   const typeEvent = useSelector((state) => state.form.typeEventForm);
   const methods = useForm();
+  const reset = methods.reset;
   const setValue = methods.setValue;
   const userId = useSelector((state) => state.auth.id);
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
   const formState = useSelector((state) => state.form.formState);
@@ -61,11 +64,16 @@ const RequestForm = () => {
    */
   const onSubmit = async (data) => {
     if (formState === "UserForm") {
+      // if (data.cellphone)
       dispatch(showUserForm());
     }
 
     if (formState === "InitialForm") {
-      dispatch(showInitialForm());
+      if (data.cellphone.length >= 10) {
+        dispatch(showInitialForm());
+      } else {
+        alert("El número de teléfono tiene que ser mayor o igual a 10 dígitos");
+      }
     }
 
     if (formState === "SpecificForm") {
@@ -77,13 +85,28 @@ const RequestForm = () => {
     }
 
     if (formState === "SendForm") {
-      dispatch(showSendForm());
+      if (data.phoneEmergency.length >= 10 && data.postalCode.length >= 5) {
+        dispatch(showSendForm());
+      } else {
+        if (data.phoneEmergency.length < 10) {
+          alert(
+            "El número de teléfono tiene que ser mayor o igual a 10 dígitos"
+          );
+        }
+
+        if (data.postalCode.length < 5) {
+          alert("El código postal debe de ser mayor a 5 dígitos");
+        }
+      }
     }
 
     if (formState === "SubmitForm") {
       /* Submit Form Logic */
       try {
-        await createRequest({ ...data, userId: userId });
+        await createRequest({ ...data, userId: userId }, typeEvent);
+        dispatch(showUserForm());
+        reset();
+        navigate("/request");
       } catch (err) {
         alert(err.response.data.message);
       }
