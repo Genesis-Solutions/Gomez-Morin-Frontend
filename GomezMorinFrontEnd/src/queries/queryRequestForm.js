@@ -161,12 +161,13 @@ export const createRequest = async (data) => {
   formData.append("userPtr", userId);
 
   const arrayFile = [ineDoc[0], addressDoc[0], curpDoc[0]];
-
   if (extraDoc) {
     arrayFile.push(extraDoc[0]);
   }
 
-  formData.append("file", arrayFile);
+  for (let i = 0; i < arrayFile.length; i++) {
+    formData.append("file", arrayFile[i]);
+  }
 
   try {
     const response = await axios({

@@ -203,12 +203,11 @@ const SpecificForm = () => {
             </div>
             <div className="md:col-span-1 col-span-2">
               <InputForm
-                type="string"
+                type="time"
                 name="openingDayTime"
                 label="Hora de inauguración (Formato 24hrs)"
                 placeholder="13:00"
                 defaultValue=""
-                max="5"
               />
             </div>
             <div className="md:col-span-1 col-span-2">

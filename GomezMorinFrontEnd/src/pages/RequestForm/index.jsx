@@ -64,7 +64,6 @@ const RequestForm = () => {
    */
   const onSubmit = async (data) => {
     if (formState === "UserForm") {
-      // if (data.cellphone)
       dispatch(showUserForm());
     }
 
@@ -103,10 +102,11 @@ const RequestForm = () => {
     if (formState === "SubmitForm") {
       /* Submit Form Logic */
       try {
+        console.log(data)
         await createRequest({ ...data, userId: userId }, typeEvent);
         dispatch(showUserForm());
-        reset();
         navigate("/request");
+        // reset();
       } catch (err) {
         alert(err.response.data.message);
       }
