@@ -51,6 +51,8 @@ module.exports = withMT({
     },
     backgroundImage: {
       'login': "url('../public/images/iniciarSesionBG.png')",
+      'sideRightBG': "url('../public/images/sideRightBackground.png')",
+      'sideLeftBG': "url('../public/images/sideLeftBG.png')",
     },
     fontFamily: {},
   },
