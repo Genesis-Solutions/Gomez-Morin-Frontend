@@ -52,7 +52,6 @@ const Login = () => {
                 type="text"
                 placeholder="Ingresa tu Usuario"
                 defaultValue=""
-                value={userName}
               />
             </div>
 
@@ -63,7 +62,6 @@ const Login = () => {
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
-                value={password}
               />
             </div>
 

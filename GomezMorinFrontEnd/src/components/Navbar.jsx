@@ -29,7 +29,10 @@ const Navbar = () => {
       <div className="flex gap-4 ml-auto">
         <NavbarItem navigation="/faq">Información</NavbarItem>
         {accessToken ? (
-          <NavbarDropdownItem userName={userName ? userName : userName2} />
+          <>
+            <NavbarItem navigation="/request">Mis solicitudes</NavbarItem>
+            <NavbarDropdownItem userName={userName ? userName : userName2} />
+          </>
         ) : (
           <NavbarItem navigation="/login">Iniciar Sesión</NavbarItem>
         )}
