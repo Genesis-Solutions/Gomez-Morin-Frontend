@@ -24,6 +24,7 @@ const InputForm = ({
   defaultValue,
   pattern,
   required = true,
+  accept,
   min,
   max,
 }) => {
@@ -43,6 +44,7 @@ const InputForm = ({
         placeholder={placeholder}
         autoComplete="off"
         required={required}
+        accept={accept}
         minLength={min}
         maxLength={max}
       />

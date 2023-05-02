@@ -54,6 +54,7 @@ const UserInfoForm = () => {
         label="Sube la copia de tu INE"
         placeholder="Buscar..."
         defaultValue=""
+        accept="application/pdf"
       />
 
       <InputForm
@@ -62,6 +63,7 @@ const UserInfoForm = () => {
         label="Sube la copia de tu comprobante de domicilio"
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
+        accept="application/pdf"
       />
 
       <InputForm
@@ -70,6 +72,7 @@ const UserInfoForm = () => {
         label="Sube la copia de tu CURP"
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
+        accept="application/pdf"
       />
 
       <InputForm
@@ -79,6 +82,7 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         required={false}
+        accept="application/pdf"
       />
 
       {/* Form Navigation */}
