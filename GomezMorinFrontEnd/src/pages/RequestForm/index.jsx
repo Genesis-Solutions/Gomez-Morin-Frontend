@@ -87,7 +87,7 @@ const RequestForm = () => {
       if (
         data.phoneEmergency.length >= 10 &&
         data.postalCode.length >= 5 &&
-        data.specificDescription >= 50
+        data.specificDescription.length >= 50
       ) {
         dispatch(showSendForm());
       } else {
@@ -97,8 +97,8 @@ const RequestForm = () => {
           );
         } else if (data.postalCode.length < 5) {
           alert("El código postal debe de ser mayor a 5 dígitos");
-        } else if (data.specificDescription < 50) {
-          alert("La descripción específica debe tener al menos 50 caracteres");
+        } else if (data.specificDescription.length < 50) {
+          alert("La descripción detallada debe tener al menos 50 caracteres");
         }
       }
     }
