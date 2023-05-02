@@ -84,17 +84,21 @@ const RequestForm = () => {
     }
 
     if (formState === "SendForm") {
-      if (data.phoneEmergency.length >= 10 && data.postalCode.length >= 5) {
+      if (
+        data.phoneEmergency.length >= 10 &&
+        data.postalCode.length >= 5 &&
+        data.specificDescription >= 50
+      ) {
         dispatch(showSendForm());
       } else {
         if (data.phoneEmergency.length < 10) {
           alert(
             "El número de teléfono tiene que ser mayor o igual a 10 dígitos"
           );
-        }
-
-        if (data.postalCode.length < 5) {
+        } else if (data.postalCode.length < 5) {
           alert("El código postal debe de ser mayor a 5 dígitos");
+        } else if (data.specificDescription < 50) {
+          alert("La descripción específica debe tener al menos 50 caracteres");
         }
       }
     }
