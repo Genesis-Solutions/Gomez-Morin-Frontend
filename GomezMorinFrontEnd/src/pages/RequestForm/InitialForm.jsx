@@ -82,11 +82,12 @@ const InitialForm = () => {
 
         <div className="flex-1">
           <InputForm
-            type=""
+            type="time"
             name="startTime"
             label="Hora de inicio del evento"
             placeholder="Ejemplo: 10:00pm"
             defaultValue=""
+            max="5"
           />
         </div>
       </div>
@@ -103,7 +104,7 @@ const InitialForm = () => {
 
         <div className="flex-1">
           <InputForm
-            type="text"
+            type="time"
             name="endTime"
             label="Hora de fin de evento"
             placeholder="Ejemplo: 11:00pm"
@@ -116,7 +117,7 @@ const InitialForm = () => {
         <div className="flex-1">
           <div className="flex flex-col gap-4">
             <CheckBoxInput
-              name="inauguration"
+              name="openingDay"
               label="¿Hay inauguración en tu evento?"
               onChange={(isChecked) =>
                 handleCheckBoxChange("inauguracion", isChecked)

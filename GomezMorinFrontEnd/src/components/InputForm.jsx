@@ -11,6 +11,8 @@ import { useFormContext } from "react-hook-form";
  * @param {string} defaultValue - The value that will have by default.
  * @param {string} pattern - The pattern that the input will have to follow.
  * @param {bool} required - The bool to decide if its a required input
+ * @param {int} min - The int to decide the min length of the input
+ * @param {int} max - The int to decide decide if its a required input
  * @returns {JSX.Element} The JSX element representing a input form UI.
  */
 
@@ -21,7 +23,9 @@ const InputForm = ({
   placeholder,
   defaultValue,
   pattern,
-  required = true
+  required = true,
+  min,
+  max,
 }) => {
   const { register } = useFormContext();
 
@@ -38,7 +42,9 @@ const InputForm = ({
         id={name}
         placeholder={placeholder}
         autoComplete="off"
-        required={ required }
+        required={required}
+        minLength={min}
+        maxLength={max}
       />
     </div>
   );

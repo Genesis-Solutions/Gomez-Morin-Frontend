@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = import.meta.env.VITE_BASEURL;
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 /**
  * Creates an Axios request with the given data
@@ -103,6 +103,36 @@ export const createRequest = async (data) => {
     userId,
   } = data;
 
+  if (authorities) {
+    formData.append("authorities", authorities);
+  }
+
+  if (fee) {
+    formData.append("fee", fee);
+  }
+
+  if (typeEvent === "Evento" || typeEvent === "Taller") {
+    formData.append("assistance", assistance);
+    formData.append("ages", ages);
+    formData.append("equipment", equipment);
+    formData.append("selfEquipment", selfEquipment);
+    formData.append("softInstallation", softInstallation);
+    formData.append("electricInstallation", electricInstallation);
+    formData.append("mounting", mounting);
+    formData.append("tableNumber", tableNumber);
+  }
+
+  if (typeEvent === "Evento" || typeEvent === "Exposición") {
+    formData.append("requiredSpace", requiredSpace);
+  }
+
+  if (typeEvent === "Exposición") {
+    formData.append("openingDayDate", openingDayDate);
+    formData.append("openingDayTime", openingDayTime);
+    formData.append("sound", sound);
+    formData.append("microphone", microphone);
+  }
+
   formData.append("typeEvent", typeEvent);
   formData.append("nameEvent", nameEvent);
   formData.append("targetAudience", targetAudience);
@@ -113,10 +143,8 @@ export const createRequest = async (data) => {
   formData.append("endTime", endTime);
   formData.append("openingDay", openingDay);
   formData.append("inauguration", inauguration);
-  formData.append("authorities", authorities);
   formData.append("place", place);
   formData.append("cost", cost);
-  formData.append("fee", fee);
   formData.append("socialNetwork", socialNetwork);
   formData.append("requestDate", requestDate);
   formData.append("nameRequester", nameRequester);
@@ -130,28 +158,16 @@ export const createRequest = async (data) => {
   formData.append("publicEvent", publicEvent);
   formData.append("chairNumber", chairNumber);
   formData.append("specificDescription", specificDescription);
-  formData.append("assistance", assistance);
-  formData.append("ages", ages);
-  formData.append("requiredSpace", requiredSpace);
-  formData.append("equipment", equipment);
-  formData.append("selfEquipment", selfEquipment);
-  formData.append("softInstallation", softInstallation);
-  formData.append("electricInstallation", electricInstallation);
-  formData.append("mounting", mounting);
-  formData.append("tableNumber", tableNumber);
-  formData.append("openingDayDate", openingDayDate);
-  formData.append("openingDayTime", openingDayTime);
-  formData.append("sound", sound);
-  formData.append("microphone", microphone);
   formData.append("userPtr", userId);
 
   const arrayFile = [ineDoc[0], addressDoc[0], curpDoc[0]];
-
   if (extraDoc) {
     arrayFile.push(extraDoc[0]);
   }
 
-  formData.append("file", arrayFile);
+  arrayFile.map((file) => {
+    formData.append("file", file);
+  });
 
   try {
     const response = await axios({

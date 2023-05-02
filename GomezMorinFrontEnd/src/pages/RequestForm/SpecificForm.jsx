@@ -43,6 +43,7 @@ const SpecificForm = () => {
             name="phoneEmergency"
             label="Teléfono de emergencia"
             placeholder="4441234566"
+            min="10"
             defaultValue=""
           />
         </div>
@@ -101,6 +102,7 @@ const SpecificForm = () => {
             label="Descripción detallada del evento"
             placeholder="Se mostrarán diferentes bandas en rondas"
             defaultValue=""
+            min="50"
           />
         </div>
 
@@ -201,7 +203,7 @@ const SpecificForm = () => {
             </div>
             <div className="md:col-span-1 col-span-2">
               <InputForm
-                type="string"
+                type="time"
                 name="openingDayTime"
                 label="Hora de inauguración (Formato 24hrs)"
                 placeholder="13:00"
