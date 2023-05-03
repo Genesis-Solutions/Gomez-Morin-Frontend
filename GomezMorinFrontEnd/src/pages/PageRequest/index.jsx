@@ -2,12 +2,12 @@ import React from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const PageRequest = () => {
   const navigate = useNavigate();
-  const accessToken = localStorage.getItem("rol");
-  console.log("accessToken");
-  console.log(accessToken);
+  const rol = localStorage.getItem("nameRol");
+  console.log(rol);
   return (
     <div className="grid grid-cols-6 w-screen h-screen">
       <div className="h-full col-span-1 bg-sideLeftBG bg-cover bg-center bg-no-repeat"></div>
@@ -21,7 +21,12 @@ const PageRequest = () => {
               colorBg={"bg-light-blue-500"}
               colorHoverBg={"hover:bg-light-blue-700"}
               action={() => {
-                navigate("/request-form");
+                if (rol==="Moral"){
+                  navigate("/request-formMoral");
+                } else if (rol==="Física") {
+                  navigate("/request-form");
+                }
+                
               }}
             ></Button>
           </div>
