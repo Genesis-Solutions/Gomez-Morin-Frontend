@@ -10,7 +10,6 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
  * @param {Object} data - The data object containing the sign and membretatedLetterDoc fields.
  * @param {string} data.sign - The signature of the requester.
  * @param {FileList} data.membretatedLetterDoc - The file uploaded by the requester.
- *
  * @returns {Promise} A Promise that resolves with the response data if the request is successful, or rejects with an error message if the request fails.
  */
 export const createRequestMoral = async (data) => {

@@ -18,16 +18,14 @@ const RequestAsMoral = () => {
   const userId = useSelector((state) => state.auth.id);
   const [isChecked, setIsChecked] = useState(false);
 
- /**
-* The onSubmitRequestAsMoral function handles the form submission for
-* creating a new moral request.
-*
-* @param {Object} data - The form data.
-*/
+  /**
+   * The onSubmitRequestAsMoral function handles the form submission for
+   * creating a new moral request.
+   *
+   * @param {Object} data - The form data.
+   */
   const onSubmitRequestAsMoral = async (data) => {
-
     try {
-        console.log(data)
       await createRequestMoral({ ...data, userId: userId });
       navigate("/request");
     } catch (err) {

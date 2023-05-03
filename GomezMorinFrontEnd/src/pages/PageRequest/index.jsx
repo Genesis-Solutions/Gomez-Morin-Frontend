@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 const PageRequest = () => {
   const navigate = useNavigate();
   const rol = localStorage.getItem("nameRol");
-  console.log(rol);
   return (
     <div className="grid grid-cols-6 w-screen h-screen">
       <div className="h-full col-span-1 bg-sideLeftBG bg-cover bg-center bg-no-repeat"></div>
@@ -21,12 +20,11 @@ const PageRequest = () => {
               colorBg={"bg-light-blue-500"}
               colorHoverBg={"hover:bg-light-blue-700"}
               action={() => {
-                if (rol==="Moral"){
+                if (rol === "Moral") {
                   navigate("/request-formMoral");
-                } else if (rol==="Física") {
+                } else if (rol === "Física") {
                   navigate("/request-form");
                 }
-                
               }}
             ></Button>
           </div>
