@@ -6,6 +6,7 @@
  * @property {string|null} userName - The user's name.
  * @property {string|null} id - The user's ID.
  * @property {string|null} email - The user's email address.
+ * @property {string|null} nameRol - The user's rol.
  */
 
 /**
@@ -26,6 +27,7 @@ const initialState = {
   userName: null,
   id: null,
   email: null,
+  nameRol: null,
 };
 
 /**
@@ -57,6 +59,8 @@ export const authSlice = createSlice({
     setUser: (state, action) => {
       state.userName = action.payload.userName;
       localStorage.setItem("userName", action.payload.userName);
+      state.nameRol = action.payload.nameRol;
+      localStorage.setItem("nameRol", action.payload.nameRol);
       state.id = action.payload.id;
       state.email = action.payload.email;
     },
@@ -71,8 +75,10 @@ export const authSlice = createSlice({
       state.userName = null;
       state.id = null;
       state.email = null;
+      state.nameRol = null;
       localStorage.removeItem("accessToken");
       localStorage.removeItem("userName");
+      localStorage.removeItem("nameRol");
     },
   },
 });
