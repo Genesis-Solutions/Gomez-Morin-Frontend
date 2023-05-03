@@ -5,7 +5,9 @@ import { useNavigate } from "react-router-dom";
 
 const PageRequest = () => {
   const navigate = useNavigate();
-
+  const accessToken = localStorage.getItem("rol");
+  console.log("accessToken");
+  console.log(accessToken);
   return (
     <div className="grid grid-cols-6 w-screen h-screen">
       <div className="h-full col-span-1 bg-sideLeftBG bg-cover bg-center bg-no-repeat"></div>
