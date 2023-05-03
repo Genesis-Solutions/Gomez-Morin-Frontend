@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import { createRequestMoral } from "../../queries/queryRequestFormMoral";
 import { useForm, FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
 
 /**
@@ -14,6 +15,7 @@ import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
 const RequestAsMoral = () => {
   const methods = useForm();
   const navigate = useNavigate();
+  const userId = useSelector((state) => state.auth.id);
   const [isChecked, setIsChecked] = useState(false);
 
  /**
@@ -23,7 +25,9 @@ const RequestAsMoral = () => {
 * @param {Object} data - The form data.
 */
   const onSubmitRequestAsMoral = async (data) => {
+
     try {
+        console.log(data)
       await createRequestMoral({ ...data, userId: userId });
       navigate("/request");
       reset();
@@ -85,9 +89,6 @@ const RequestAsMoral = () => {
                         : "bg-gray-400 pointer-events-none"
                     }`}
                     colorHoverBg={`${isChecked ? "bg-light-blue-700" : ""}`}
-                    action={() => {
-                      dispatch(setFormState("SubmitForm"));
-                    }}
                     disabled={!isChecked}
                   />
                 </div>
