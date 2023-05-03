@@ -30,7 +30,6 @@ const RequestAsMoral = () => {
         console.log(data)
       await createRequestMoral({ ...data, userId: userId });
       navigate("/request");
-      reset();
     } catch (err) {
       alert(err.response.data.message);
     }
