@@ -55,10 +55,10 @@ const RequestAsMoral = () => {
                     onClick={() => {
                       setIsChecked(!isChecked);
                     }}
-                    id="guideLines"
+                    id="sign"
                     readOnly={true}
                   />
-                  <label htmlFor="guideLines" className="pl-3">
+                  <label htmlFor="sign" className="pl-3">
                     Acepto los lineamientos de Gómez Morín
                   </label>
                 </div>

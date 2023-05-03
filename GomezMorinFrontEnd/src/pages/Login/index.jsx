@@ -27,6 +27,7 @@ const Login = () => {
       dispatch(setAccessToken(response.accessToken));
       const accessToken = localStorage.getItem("accessToken");
       const decodedToken = await jwt_decode(accessToken);
+      console.log(decodedToken);
       dispatch(setUser(decodedToken));
       navigate("/");
     } catch (err) {
