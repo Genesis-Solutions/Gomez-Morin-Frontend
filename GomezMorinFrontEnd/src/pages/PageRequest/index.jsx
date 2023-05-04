@@ -15,20 +15,30 @@ const PageRequest = () => {
   const navigate = useNavigate();
   const rol = localStorage.getItem("nameRol");
   const [rows, setRows] = useState([]);
-
+  function transformarDatos(datos) {
+    return datos.map((dato) => ({
+      row1: dato.folio,
+      row2: dato.startDay,
+      row3: dato.email,
+      row4: dato.nameEvent,
+      row5: dato.status,
+    }));
+  }
   useEffect(() => {
     async function fetchData() {
-      const data = await getForm(userPtr, queryParams);
-      setRows(data);
+      const data = await getForm(userPtr);
+      const transformedData = transformarDatos(data);
+      setRows(transformedData);
     }
     fetchData();
   }, []);
+
   const columns = [
     { field: "col1", headerName: "Folio", width: 100 },
     { field: "col2", headerName: "Dia de Inicio", width: 140 },
     { field: "col3", headerName: "Tipo", width: 140 },
-	{ field: "col4", headerName: "Nombre", width: 180 },
-	{ field: "col5", headerName: "Estatus", width: 140 },
+    { field: "col4", headerName: "Nombre", width: 180 },
+    { field: "col5", headerName: "Estatus", width: 140 },
   ];
 
   /**
