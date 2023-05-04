@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import DataGridComponent from "../../components/DataGridComponent";
+import { useForm, FormProvider } from "react-hook-form";
+import { getForm } from "../../queries/queryRequestForm";
 
 /**
  * The PageRequest component displays the request page, including a header, a button to create a new request,
@@ -12,7 +14,15 @@ import DataGridComponent from "../../components/DataGridComponent";
 const PageRequest = () => {
   const navigate = useNavigate();
   const rol = localStorage.getItem("nameRol");
-  const rows = [{ id: 1, col1: "06096", col2: "02/02/2002", col3: "Galeria",col4: "Van Gogh", col5: "Aceptado" }];
+  const [rows, setRows] = useState([]);
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getForm(userPtr, queryParams);
+      setRows(data);
+    }
+    fetchData();
+  }, []);
   const columns = [
     { field: "col1", headerName: "Folio", width: 100 },
     { field: "col2", headerName: "Dia de Inicio", width: 140 },
