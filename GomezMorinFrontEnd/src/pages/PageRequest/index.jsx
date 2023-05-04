@@ -4,17 +4,26 @@ import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import DataGridComponent from "../../components/DataGridComponent";
 
+/**
+ * The PageRequest component displays the request page, including a header, a button to create a new request,
+ * and a data grid component to display existing requests.
+ */
+
 const PageRequest = () => {
   const navigate = useNavigate();
   const rol = localStorage.getItem("nameRol");
-  const rows = [
-    { id: 1, col1: "06096", col2: "World", col3: "Aceptado" },
-  ];
+  const rows = [{ id: 1, col1: "06096", col2: "World", col3: "Aceptado" }];
   const columns = [
     { field: "col1", headerName: "Folio", width: 200 },
     { field: "col2", headerName: "Evento", width: 500 },
     { field: "col3", headerName: "Estatus", width: 200 },
   ];
+
+  /**
+   * Render the PageRequest component.
+   *
+   * @returns The PageRequest component.
+   */
   return (
     <div className="grid grid-cols-6 w-screen h-screen">
       <div className="h-full col-span-1 bg-sideLeftBG bg-cover bg-center bg-no-repeat"></div>
@@ -27,6 +36,9 @@ const PageRequest = () => {
               type={"button"}
               colorBg={"bg-light-blue-500"}
               colorHoverBg={"hover:bg-light-blue-700"}
+              /**
+               * Navigate to the appropriate form based on the user's role when the button is clicked.
+               */
               action={() => {
                 if (rol === "Moral") {
                   navigate("/request-formMoral");
