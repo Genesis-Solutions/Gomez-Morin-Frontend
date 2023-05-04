@@ -22,8 +22,11 @@ export const postUser = async (data) => {
     password: passwordRegister,
   };
   if (isMoralRegister) {
-    body.ptrRol = "644af272bac1cb80504dc379";
+    body.ptrRol = "6451a03436c62efad459f3b4";
+  } else {
+    body.ptrRol = "6451f22a0e8703af7a4a87b7";
   }
+
   try {
     const response = await axios.post(`${baseUrl}/users/`, body);
     return response.data;

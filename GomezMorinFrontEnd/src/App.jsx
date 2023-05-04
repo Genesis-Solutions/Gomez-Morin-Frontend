@@ -4,6 +4,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import RequestForm from "./pages/RequestForm";
 import PageRequest from "./pages/PageRequest";
+import RequestAsMoral from "./pages/RequestFormMoral";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/request-form" element={<RequestForm />} />
             <Route path="/request" element={<PageRequest />} />
+            <Route path="/request-formMoral" element={<RequestAsMoral />} />
           </Route>
         </Routes>
       </BrowserRouter>
