@@ -55,7 +55,7 @@ const NavbarDropdownItem = ({ userName }) => {
           <Menu.Items className="absolute text-gray-100 right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-gray-blue-500  shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="py-1">
               <Menu.Item>
-                <Button text={"Cerrar sesión"} action={() => {onClickHandler}} />
+                <Button text={"Cerrar sesión"} action={onClickHandler} />
               </Menu.Item>
             </div>
           </Menu.Items>
