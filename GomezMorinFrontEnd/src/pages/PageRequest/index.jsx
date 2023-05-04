@@ -12,11 +12,13 @@ import DataGridComponent from "../../components/DataGridComponent";
 const PageRequest = () => {
   const navigate = useNavigate();
   const rol = localStorage.getItem("nameRol");
-  const rows = [{ id: 1, col1: "06096", col2: "World", col3: "Aceptado" }];
+  const rows = [{ id: 1, col1: "06096", col2: "02/02/2002", col3: "Galeria",col4: "Van Gogh", col5: "Aceptado" }];
   const columns = [
-    { field: "col1", headerName: "Folio", width: 200 },
-    { field: "col2", headerName: "Evento", width: 500 },
-    { field: "col3", headerName: "Estatus", width: 200 },
+    { field: "col1", headerName: "Folio", width: 100 },
+    { field: "col2", headerName: "Dia de Inicio", width: 140 },
+    { field: "col3", headerName: "Tipo", width: 140 },
+	{ field: "col4", headerName: "Nombre", width: 180 },
+	{ field: "col5", headerName: "Estatus", width: 140 },
   ];
 
   /**
