@@ -62,6 +62,7 @@ export const authSlice = createSlice({
       state.nameRol = action.payload.nameRol;
       localStorage.setItem("nameRol", action.payload.nameRol);
       state.id = action.payload.id;
+      localStorage.setItem("id", action.payload.id);
       state.email = action.payload.email;
     },
 
@@ -79,6 +80,7 @@ export const authSlice = createSlice({
       localStorage.removeItem("accessToken");
       localStorage.removeItem("userName");
       localStorage.removeItem("nameRol");
+      localStorage.removeItem("id");
     },
   },
 });
