@@ -23,11 +23,11 @@ import { createSlice } from "@reduxjs/toolkit";
  * @type {AuthInitialState}
  */
 const initialState = {
-    accessToken: null,
-    userName: null,
-    id: null,
-    email: null,
-    nameRol: null,
+  accessToken: null,
+  userName: null,
+  id: null,
+  email: null,
+  nameRol: null,
 };
 
 /**
@@ -36,53 +36,53 @@ const initialState = {
  * @type {AuthSlice}
  */
 export const authSlice = createSlice({
-    name: "auth",
-    initialState,
-    reducers: {
-        /**
-         * Sets the access token in the state and saves it to localStorage.
-         *
-         * @param {AuthInitialState} state - The current state.
-         * @param {import("@reduxjs/toolkit").PayloadAction<string>} action - The action containing the new access token.
-         */
-        setAccessToken: (state, action) => {
-            state.accessToken = action.payload;
-            localStorage.setItem("accessToken", action.payload);
-        },
-
-        /**
-         * Sets the user information in the state.
-         *
-         * @param {AuthInitialState} state - The current state.
-         * @param {import("@reduxjs/toolkit").PayloadAction<{userName: string, id: string, email: string}>} action - The action containing the user information.
-         */
-        setUser: (state, action) => {
-            state.userName = action.payload.userName;
-            localStorage.setItem("userName", action.payload.userName);
-            state.nameRol = action.payload.nameRol;
-            localStorage.setItem("nameRol", action.payload.nameRol);
-            state.id = action.payload.id;
-            localStorage.setItem("id", action.payload.id);
-            state.email = action.payload.email;
-        },
-
-        /**
-         * Clears the access token from the state and removes it from localStorage.
-         *
-         * @param {AuthInitialState} state - The current state.
-         */
-        clearAccessToken: (state) => {
-            state.accessToken = null;
-            state.userName = null;
-            state.id = null;
-            state.email = null;
-            state.nameRol = null;
-            localStorage.removeItem("accessToken");
-            localStorage.removeItem("userName");
-            localStorage.removeItem("nameRol");
-            localStorage.removeItem("id")
-        },
+  name: "auth",
+  initialState,
+  reducers: {
+    /**
+     * Sets the access token in the state and saves it to localStorage.
+     *
+     * @param {AuthInitialState} state - The current state.
+     * @param {import("@reduxjs/toolkit").PayloadAction<string>} action - The action containing the new access token.
+     */
+    setAccessToken: (state, action) => {
+      state.accessToken = action.payload;
+      localStorage.setItem("accessToken", action.payload);
     },
+
+    /**
+     * Sets the user information in the state.
+     *
+     * @param {AuthInitialState} state - The current state.
+     * @param {import("@reduxjs/toolkit").PayloadAction<{userName: string, id: string, email: string}>} action - The action containing the user information.
+     */
+    setUser: (state, action) => {
+      state.userName = action.payload.userName;
+      localStorage.setItem("userName", action.payload.userName);
+      state.nameRol = action.payload.nameRol;
+      localStorage.setItem("nameRol", action.payload.nameRol);
+      state.id = action.payload.id;
+      localStorage.setItem("id", action.payload.id);
+      state.email = action.payload.email;
+    },
+
+    /**
+     * Clears the access token from the state and removes it from localStorage.
+     *
+     * @param {AuthInitialState} state - The current state.
+     */
+    clearAccessToken: (state) => {
+      state.accessToken = null;
+      state.userName = null;
+      state.id = null;
+      state.email = null;
+      state.nameRol = null;
+      localStorage.removeItem("accessToken");
+      localStorage.removeItem("userName");
+      localStorage.removeItem("nameRol");
+      localStorage.removeItem("id");
+    },
+  },
 });
 
 /**

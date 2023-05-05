@@ -1,7 +1,6 @@
 import axios from "axios";
 
-const baseURL =
-    import.meta.env.VITE_BASE_URL;
+const baseURL = import.meta.env.VITE_BASE_URL;
 
 /**
  * Creates an Axios request with the given data
@@ -54,133 +53,133 @@ const baseURL =
  * @returns {Promise} A promise that resolves with the response data from the server
  */
 
-export const createRequest = async(data) => {
-    const formData = new FormData();
-    const {
-        typeEvent,
-        nameEvent,
-        targetAudience,
-        generalDescription,
-        startDay,
-        startTime,
-        endDay,
-        endTime,
-        openingDay,
-        inauguration,
-        authorities,
-        place,
-        cost,
-        fee,
-        socialNetwork,
-        ineDoc,
-        addressDoc,
-        curpDoc,
-        extraDoc,
-        requestDate,
-        nameRequester,
-        cellphone,
-        phoneEmergency,
-        email,
-        direction,
-        postalCode,
-        street,
-        colony,
-        publicEvent,
-        chairNumber,
-        specificDescription,
-        assistance,
-        ages,
-        requiredSpace,
-        equipment,
-        selfEquipment,
-        softInstallation,
-        electricInstallation,
-        mounting,
-        tableNumber,
-        openingDayDate,
-        openingDayTime,
-        sound,
-        microphone,
-        userId,
-    } = data;
+export const createRequest = async (data) => {
+  const formData = new FormData();
+  const {
+    typeEvent,
+    nameEvent,
+    targetAudience,
+    generalDescription,
+    startDay,
+    startTime,
+    endDay,
+    endTime,
+    openingDay,
+    inauguration,
+    authorities,
+    place,
+    cost,
+    fee,
+    socialNetwork,
+    ineDoc,
+    addressDoc,
+    curpDoc,
+    extraDoc,
+    requestDate,
+    nameRequester,
+    cellphone,
+    phoneEmergency,
+    email,
+    direction,
+    postalCode,
+    street,
+    colony,
+    publicEvent,
+    chairNumber,
+    specificDescription,
+    assistance,
+    ages,
+    requiredSpace,
+    equipment,
+    selfEquipment,
+    softInstallation,
+    electricInstallation,
+    mounting,
+    tableNumber,
+    openingDayDate,
+    openingDayTime,
+    sound,
+    microphone,
+    userId,
+  } = data;
 
-    if (authorities) {
-        formData.append("authorities", authorities);
-    }
+  if (authorities) {
+    formData.append("authorities", authorities);
+  }
 
-    if (fee) {
-        formData.append("fee", fee);
-    }
+  if (fee) {
+    formData.append("fee", fee);
+  }
 
-    if (typeEvent === "Evento" || typeEvent === "Taller") {
-        formData.append("assistance", assistance);
-        formData.append("ages", ages);
-        formData.append("equipment", equipment);
-        formData.append("selfEquipment", selfEquipment);
-        formData.append("softInstallation", softInstallation);
-        formData.append("electricInstallation", electricInstallation);
-        formData.append("mounting", mounting);
-        formData.append("tableNumber", tableNumber);
-    }
+  if (typeEvent === "Evento" || typeEvent === "Taller") {
+    formData.append("assistance", assistance);
+    formData.append("ages", ages);
+    formData.append("equipment", equipment);
+    formData.append("selfEquipment", selfEquipment);
+    formData.append("softInstallation", softInstallation);
+    formData.append("electricInstallation", electricInstallation);
+    formData.append("mounting", mounting);
+    formData.append("tableNumber", tableNumber);
+  }
 
-    if (typeEvent === "Evento" || typeEvent === "Exposición") {
-        formData.append("requiredSpace", requiredSpace);
-    }
+  if (typeEvent === "Evento" || typeEvent === "Exposición") {
+    formData.append("requiredSpace", requiredSpace);
+  }
 
-    if (typeEvent === "Exposición") {
-        formData.append("openingDayDate", openingDayDate);
-        formData.append("openingDayTime", openingDayTime);
-        formData.append("sound", sound);
-        formData.append("microphone", microphone);
-    }
+  if (typeEvent === "Exposición") {
+    formData.append("openingDayDate", openingDayDate);
+    formData.append("openingDayTime", openingDayTime);
+    formData.append("sound", sound);
+    formData.append("microphone", microphone);
+  }
 
-    formData.append("typeEvent", typeEvent);
-    formData.append("nameEvent", nameEvent);
-    formData.append("targetAudience", targetAudience);
-    formData.append("generalDescription", generalDescription);
-    formData.append("startDay", startDay);
-    formData.append("startTime", startTime);
-    formData.append("endDay", endDay);
-    formData.append("endTime", endTime);
-    formData.append("openingDay", openingDay);
-    formData.append("inauguration", inauguration);
-    formData.append("place", place);
-    formData.append("cost", cost);
-    formData.append("socialNetwork", socialNetwork);
-    formData.append("requestDate", requestDate);
-    formData.append("nameRequester", nameRequester);
-    formData.append("cellphone", cellphone);
-    formData.append("phoneEmergency", phoneEmergency);
-    formData.append("email", email);
-    formData.append("direction", direction);
-    formData.append("postalCode", postalCode);
-    formData.append("street", street);
-    formData.append("colony", colony);
-    formData.append("publicEvent", publicEvent);
-    formData.append("chairNumber", chairNumber);
-    formData.append("specificDescription", specificDescription);
-    formData.append("userPtr", userId);
+  formData.append("typeEvent", typeEvent);
+  formData.append("nameEvent", nameEvent);
+  formData.append("targetAudience", targetAudience);
+  formData.append("generalDescription", generalDescription);
+  formData.append("startDay", startDay);
+  formData.append("startTime", startTime);
+  formData.append("endDay", endDay);
+  formData.append("endTime", endTime);
+  formData.append("openingDay", openingDay);
+  formData.append("inauguration", inauguration);
+  formData.append("place", place);
+  formData.append("cost", cost);
+  formData.append("socialNetwork", socialNetwork);
+  formData.append("requestDate", requestDate);
+  formData.append("nameRequester", nameRequester);
+  formData.append("cellphone", cellphone);
+  formData.append("phoneEmergency", phoneEmergency);
+  formData.append("email", email);
+  formData.append("direction", direction);
+  formData.append("postalCode", postalCode);
+  formData.append("street", street);
+  formData.append("colony", colony);
+  formData.append("publicEvent", publicEvent);
+  formData.append("chairNumber", chairNumber);
+  formData.append("specificDescription", specificDescription);
+  formData.append("userPtr", userId);
 
-    const arrayFile = [ineDoc[0], addressDoc[0], curpDoc[0]];
-    if (extraDoc) {
-        arrayFile.push(extraDoc[0]);
-    }
+  const arrayFile = [ineDoc[0], addressDoc[0], curpDoc[0]];
+  if (extraDoc) {
+    arrayFile.push(extraDoc[0]);
+  }
 
-    arrayFile.map((file) => {
-        formData.append("file", file);
+  arrayFile.map((file) => {
+    formData.append("file", file);
+  });
+
+  try {
+    const response = await axios({
+      url: `${baseURL}/solicitudes/solicitud`,
+      method: "POST",
+      data: formData,
+      headers: { "Content-Type": "multipart/form-data" },
     });
-
-    try {
-        const response = await axios({
-            url: `${baseURL}/solicitudes/solicitud`,
-            method: "POST",
-            data: formData,
-            headers: { "Content-Type": "multipart/form-data" },
-        });
-        return response.data;
-    } catch (err) {
-        return Promise.reject(err);
-    }
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err);
+  }
 };
 
 /**
@@ -190,16 +189,15 @@ export const createRequest = async(data) => {
  * @param {Object} [queryParams={}] - Optional object containing any additional query parameters for the HTTP GET request.
  * @returns {Promise} - A Promise that either resolves with the response data or rejects with an error if the request fails.
  */
-export const getForm = async(userPtr, queryParams = {}) => {
-    try {
-        const response = await axios({
-            url: `${baseURL}/solicitudes/${userPtr}`,
-            method: "GET",
-            params: queryParams,
-        });
-        console.log(response.data);
-        return response.data;
-    } catch (err) {
-        return Promise.reject(err);
-    }
+export const getForm = async (userPtr, queryParams = {}) => {
+  try {
+    const response = await axios({
+      url: `${baseURL}/solicitudes/${userPtr}`,
+      method: "GET",
+      params: queryParams,
+    });
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err);
+  }
 };
