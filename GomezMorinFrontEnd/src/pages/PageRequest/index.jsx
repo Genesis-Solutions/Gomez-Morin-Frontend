@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import DataGridComponent from "../../components/DataGridComponent";
 import { getForm } from "../../queries/queryRequestForm";
 
@@ -14,6 +15,7 @@ const PageRequest = () => {
   const navigate = useNavigate();
   const rol = localStorage.getItem("nameRol");
   const [rows, setRows] = useState([]);
+  const userPtr = localStorage.getItem("userPtr");
 
   function transformarDatos(datos) {
     return datos.map((dato) => ({
@@ -27,7 +29,9 @@ const PageRequest = () => {
 
   useEffect(() => {
     async function fetchData() {
+
       const data = await getForm(userPtr);
+      console.log("data");
       const transformedData = transformarDatos(data);
       setRows(transformedData);
     }
