@@ -183,14 +183,21 @@ export const createRequest = async(data) => {
     }
 };
 
-
+/**
+ * This function retrieves a form for a given user from a server using HTTP GET request.
+ *
+ * @param {string} userPtr - The user pointer of the user for which the form should be retrieved.
+ * @param {Object} [queryParams={}] - Optional object containing any additional query parameters for the HTTP GET request.
+ * @returns {Promise} - A Promise that either resolves with the response data or rejects with an error if the request fails.
+ */
 export const getForm = async(userPtr, queryParams = {}) => {
     try {
         const response = await axios({
             url: `${baseURL}/solicitudes/${userPtr}`,
             method: "GET",
-            params: queryParams
+            params: queryParams,
         });
+        console.log(response.data);
         return response.data;
     } catch (err) {
         return Promise.reject(err);

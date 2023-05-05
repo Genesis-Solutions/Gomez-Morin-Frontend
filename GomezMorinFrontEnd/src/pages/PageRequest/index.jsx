@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Header from "../../components/Header";
 import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
 import DataGridComponent from "../../components/DataGridComponent";
 import { getForm } from "../../queries/queryRequestForm";
 
@@ -10,32 +9,49 @@ import { getForm } from "../../queries/queryRequestForm";
  * The PageRequest component displays the request page, including a header, a button to create a new request,
  * and a data grid component to display existing requests.
  */
-
 const PageRequest = () => {
   const navigate = useNavigate();
   const rol = localStorage.getItem("nameRol");
   const [rows, setRows] = useState([]);
-  const userPtr = localStorage.getItem("userPtr");
+  const userPtr = localStorage.getItem("id");
 
-  function transformarDatos(datos) {
-    return datos.map((dato) => ({
-      row1: dato.folio,
-      row2: dato.startDay,
-      row3: dato.email,
-      row4: dato.nameEvent,
-      row5: dato.status,
-    }));
-  }
+  /**
+   * Transforms the data received from the server into the appropriate format based on the user's role.
+   *
+   * @param {Array} datos - The data received from the server.
+   * @returns {Array} - The transformed data.
+   */
+  const transformarDatos = (datos) => {
+    if (rol === "Moral") {
+      return datos.map((dato, index) => ({
+        id: index,
+        col1: dato.folio,
+        col2: dato.membretatedLetterDoc.substring(
+          0,
+          dato.membretatedLetterDoc.lastIndexOf(".pdf")
+        ),
+        col3: dato.status,
+      }));
+    } else {
+      return datos.map((dato, index) => ({
+        id: index,
+        col1: dato.folio,
+        col2: dato.startDay,
+        col3: dato.typeEvent,
+        col4: dato.nameEvent,
+        col5: dato.status,
+      }));
+    }
+  };
 
   useEffect(() => {
-    async function fetchData() {
-
-      const data = await getForm(userPtr);
-      console.log("data");
-      const transformedData = transformarDatos(data);
+    /**
+     * Calls the getForm function to fetch data from the server and updates the component's state with the transformed data.
+     */
+    getForm(userPtr).then((res) => {
+      const transformedData = transformarDatos(res);
       setRows(transformedData);
-    }
-    fetchData();
+    });
   }, []);
 
   const columns = [
@@ -45,11 +61,16 @@ const PageRequest = () => {
     { field: "col4", headerName: "Nombre", width: 180 },
     { field: "col5", headerName: "Estatus", width: 140 },
   ];
+  const columnsMoral = [
+    { field: "col1", headerName: "Folio", width: 100 },
+    { field: "col2", headerName: "Documento Enviado", width: 400 },
+    { field: "col3", headerName: "Estatus", width: 140 },
+  ];
 
   /**
    * Render the PageRequest component.
    *
-   * @returns The PageRequest component.
+   * @returns {JSX.Element} - The PageRequest component.
    */
   return (
     <div className="grid grid-cols-6 w-screen h-screen">
@@ -78,7 +99,7 @@ const PageRequest = () => {
           <div className="w-full">
             <DataGridComponent
               rows={rows}
-              columns={columns}
+              columns={rol === "Moral" ? columnsMoral : columns}
             ></DataGridComponent>
           </div>
         </div>
