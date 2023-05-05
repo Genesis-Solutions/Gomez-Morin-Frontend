@@ -97,10 +97,18 @@ const PageRequest = () => {
             ></Button>
           </div>
           <div className="w-full">
-            <DataGridComponent
-              rows={rows}
-              columns={rol === "Moral" ? columnsMoral : columns}
-            ></DataGridComponent>
+            {rows.length > 0 ? (
+              <DataGridComponent
+                rows={rows}
+                columns={rol === "Moral" ? columnsMoral : columns}
+              ></DataGridComponent>
+            ) : (
+              <div className="flex justify-center items-center w-full h-full">
+                <p className="text-2xl text-gray-400">
+                  No hay solicitudes registradas
+                </p>
+              </div>
+            )}
           </div>
         </div>
       </div>
