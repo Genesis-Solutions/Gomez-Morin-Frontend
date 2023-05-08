@@ -11,11 +11,11 @@ const ImageTitle = ({ image, title }) => {
   return (
     <div className="w-full h-full relative flex justify-center items-center">
       <img
-        className="object-cover brightness-50 w-full h-full"
+        className="object-cover brightness-50 w-full h-full opacity-40"
         src={image}
         alt={``}
       />
-      <h2 className="absolute font-bold text-white text-3xl">{title}</h2>
+      <h2 className="absolute text-4xl text-gray-blue-600 font-gobold">{title}</h2>
     </div>
   );
 };

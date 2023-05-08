@@ -54,7 +54,10 @@ module.exports = withMT({
       'sideRightBG': "url('../public/images/sideRightBackground.png')",
       'sideLeftBG': "url('../public/images/sideLeftBG.png')",
     },
-    fontFamily: {},
+    fontFamily: {
+      gobold: "public/fonts/Gobold_Regular.otf",
+      gobold_high_thin_italic: "public/fonts/Gobold High Thin Italic.otf",
+    },
   },
   plugins: [],
 });
