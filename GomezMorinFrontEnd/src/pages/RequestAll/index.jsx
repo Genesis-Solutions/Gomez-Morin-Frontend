@@ -51,10 +51,8 @@ const RequestAll = () => {
      * Calls the getAllForms function to fetch data from the server and updates the component's state with the transformed data.
      */
     getAllForms(userId).then((res) => {
-      console.log(res);
       const data = transformData(res);
       setRows(data);
-      //   console.log(data)
     });
   }, []);
 
