@@ -3,7 +3,7 @@
  * It includes an image title, a search bar, and a data grid component.
  */
 import React, { useEffect, useState } from "react";
-import ImageTitle from "../../components/ImageTiTle";
+import ImageTitle from "../../components/ImageTitle";
 import SearchBar from "../../components/SearchBar";
 import DataGridComponent from "../../components/DataGridComponent";
 import ImageTitleImage from "../../../public/images/ImageTitleImage.png";
