@@ -1,5 +1,7 @@
 import axios from "axios";
-
+import { useDispatch } from "react-redux";
+import jwt_decode from "jwt-decode";
+import { setAccessToken, setUser } from "../states/authSlice";
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
 /**
@@ -43,20 +45,28 @@ export const postUser = async (data) => {
  * @returns {Promise} A promise that resolves with the response data from the API endpoint.
  * @throws {Error} If the data parameter is not an object or is missing required fields.
  */
-export const loginUser = async (data) => {
-  const { userName, password } = data;
-  const body = {
-    userName: userName,
-    password: password,
+export const useLoginUser = () => {
+  const dispatch = useDispatch();
+
+  const login = async (data) => {
+    const { userName, password } = data;
+    const body = {
+      userName: userName,
+      password: password,
+    };
+    try {
+      const response = await axios.post(`${baseUrl}/users/login`, body, {
+        withCredentials: true,
+      });
+      dispatch(setAccessToken(response.data.accessToken));
+      const decodedToken = jwt_decode(response.data.accessToken);
+      dispatch(setUser(decodedToken));
+      return response.data;
+    } catch (err) {
+      return Promise.reject(err);
+    }
   };
-  try {
-    const response = await axios.post(`${baseUrl}/users/login`, body, {
-      withCredentials: true,
-    });
-    return response.data;
-  } catch (err) {
-    return Promise.reject(err);
-  }
+  return login;
 };
 
 /**
@@ -74,4 +84,22 @@ export const logoutUser = async () => {
   } catch (err) {
     return Promise.reject(err);
   }
+};
+
+export const useRefreshToken = () => {
+  const dispatch = useDispatch();
+  const refresh = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/users/refreshToken`, {
+        withCredentials: true,
+      });
+      dispatch(setAccessToken(response.data.accessToken));
+      const decodedToken = jwt_decode(response.data.accessToken);
+      dispatch(setUser(decodedToken));
+      return response.data;
+    } catch (err) {
+      return Promise.reject(err);
+    }
+  };
+  return refresh;
 };

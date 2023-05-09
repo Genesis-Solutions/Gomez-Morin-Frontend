@@ -7,24 +7,65 @@ import PageRequest from "./pages/PageRequest";
 import RequestAsMoral from "./pages/RequestFormMoral";
 import RequestAll from "./pages/RequestAll";
 import { useSelector } from "react-redux";
+import PersistLogin from "./components/PersistLogin";
 
 const App = () => {
-  const rol = localStorage.getItem("nameRol");
-  const rol2 = useSelector((state) => state.auth.nameRol);
-  const accessToken2 = useSelector((state) => state.auth.accessToken);
-  const accessToken = localStorage.getItem("accessToken");
+  const rol = useSelector((state) => state.auth.nameRol);
+  const accessToken = useSelector((state) => state.auth.accessToken);
 
   return (
     <div className="App w-full h-full">
       <BrowserRouter>
         <Routes>
+        <Route element={<PersistLogin />}>
           <Route path="/" element={<Layout />}>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/request-form" element={(rol2 === 'Física'|| rol === 'Física') && (accessToken2 || accessToken) ?  <RequestForm /> : <Navigate to="/" replace />} />
-            <Route path="/request" element={(accessToken2 || accessToken) ? <PageRequest /> : <Navigate to="/" replace />} />
-            <Route path="/request-formMoral" element={(rol2 === 'Física'|| rol === 'Moral') && (accessToken2 || accessToken) ? <RequestAsMoral /> : <Navigate to="/" replace />} /> 
-            <Route path="/requestAll" element={(rol2 === 'Física'|| rol === 'S.P') && (accessToken2 || accessToken) ? <RequestAll /> : <Navigate to="/" replace />} />
+           
+              <Route
+                path="/request-form"
+                element={
+                  (rol === "Física") &&
+                  (accessToken) ? (
+                    <RequestForm />
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
+                }
+              />
+              <Route
+                path="/request"
+                element={
+                  accessToken ? (
+                    <PageRequest />
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
+                }
+              />
+              <Route
+                path="/request-formMoral"
+                element={
+                  (rol === "Moral") &&
+                  (accessToken) ? (
+                    <RequestAsMoral />
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
+                }
+              />
+              <Route
+                path="/requestAll"
+                element={
+                  (rol === "S.P") &&
+                  (accessToken) ? (
+                    <RequestAll />
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
+                }
+              />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>
