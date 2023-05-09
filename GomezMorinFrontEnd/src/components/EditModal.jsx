@@ -97,7 +97,9 @@ const EditModal = ({ idForm }) => {
                     <FormProvider {...methods}>
                       <div className="flex flex-col justify-between h-full gap-4">
                         <form
-                          onSubmit={methods.handleSubmit((data) => onSubmit(data, idForm))}
+                          onSubmit={methods.handleSubmit((data) =>
+                            onSubmit(data, idForm)
+                          )}
                           className="flex flex-col justify-between h-full gap-4"
                         >
                           <InputForm

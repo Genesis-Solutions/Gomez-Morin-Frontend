@@ -237,7 +237,7 @@ export const updateForms = async (data) => {
       `${baseURL}/solicitudes/updateRequest/${idForm}`,
       { folio, tipoDocumento }
     );
-    
+
     return response.data;
   } catch (err) {
     return Promise.reject(err);
