@@ -49,7 +49,6 @@ const EditModal = () => {
     <>
       <Button2
         onClick={openModal}
-        variant="outlined"
         size="small"
         startIcon={<ModeEditOutline />}
       />

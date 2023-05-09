@@ -12,6 +12,7 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const accessToken = localStorage.getItem("accessToken");
   const userName = localStorage.getItem("userName");
+  const rol = localStorage.getItem("nameRol");
   const userName2 = useSelector((state) => state.auth.userName);
 
   return (
@@ -30,7 +31,9 @@ const Navbar = () => {
         <NavbarItem navigation="/faq">Información</NavbarItem>
         {accessToken ? (
           <>
-            <NavbarItem navigation="/request">Mis solicitudes</NavbarItem>
+          {rol === "S.P" ? (
+            <NavbarItem navigation="/requestAll">Solicitudes</NavbarItem>
+          ):( <NavbarItem navigation="/request">Mis solicitudes</NavbarItem>)}
             <NavbarDropdownItem userName={userName ? userName : userName2} />
           </>
         ) : (
