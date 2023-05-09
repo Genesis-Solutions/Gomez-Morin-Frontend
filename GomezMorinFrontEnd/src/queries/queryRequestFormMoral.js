@@ -14,9 +14,10 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
  */
 export const createRequestMoral = async (data) => {
   const formData = new FormData();
-  const { membretatedLetterDoc, userId } = data;
+  const { membretatedLetterDoc, userId, date } = data;
   formData.append("file", membretatedLetterDoc[0]);
-  formData.append("userPtr", userId )
+  formData.append("userPtr", userId);
+  formData.append("requestDate", date);
   try {
     const response = await axios({
       url: `${baseUrl}/solicitudes/request-letter`,

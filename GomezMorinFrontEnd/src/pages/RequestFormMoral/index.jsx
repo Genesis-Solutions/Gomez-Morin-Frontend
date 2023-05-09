@@ -17,6 +17,13 @@ const RequestAsMoral = () => {
   const navigate = useNavigate();
   const userId = useSelector((state) => state.auth.id);
   const [isChecked, setIsChecked] = useState(false);
+  const today = new Date();
+  const month = today.getMonth() + 1;
+  const monthString = month < 10 ? `0${month}` : `${month}`;
+  const day = today.getDate();
+  const dayString = day < 10 ? `0${day}` : `${day}`;
+  const year = today.getFullYear();
+  const todayString = `${year}-${monthString}-${dayString}`;
 
   /**
    * The onSubmitRequestAsMoral function handles the form submission for
@@ -26,7 +33,7 @@ const RequestAsMoral = () => {
    */
   const onSubmitRequestAsMoral = async (data) => {
     try {
-      await createRequestMoral({ ...data, userId: userId });
+      await createRequestMoral({ ...data, userId: userId, date: todayString });
       navigate("/request");
     } catch (err) {
       alert(err.response.data.message);
