@@ -24,7 +24,7 @@ const RequestAll = () => {
       field: "actions",
       headerName: "",
       width: 200,
-      renderCell: () => <EditModal />,
+      renderCell: ({ row }) => <EditModal idForm={row.id} />,
     },
   ];
 
@@ -41,7 +41,9 @@ const RequestAll = () => {
         ? item.membretatedLetterDoc
         : item.nameEvent,
       estatus: item.status,
-      renderCell: () => <EditModal id={item.id} />,
+      renderCell: ({ id }) => {
+        return <EditModal idForm={id} />;
+      },
     }));
   };
 
