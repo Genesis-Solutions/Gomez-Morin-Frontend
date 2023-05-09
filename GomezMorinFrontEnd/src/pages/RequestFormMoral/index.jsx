@@ -15,7 +15,7 @@ import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
 const RequestAsMoral = () => {
   const methods = useForm();
   const navigate = useNavigate();
-  const userId = useSelector((state) => state.auth.id);
+  const userId = localStorage.getItem("id");
   const [isChecked, setIsChecked] = useState(false);
   const today = new Date();
   const month = today.getMonth() + 1;
