@@ -41,7 +41,7 @@ const RequestAll = () => {
         ? item.membretatedLetterDoc
         : item.nameEvent,
       estatus: item.status,
-      renderCell: () => <EditModal />,
+      renderCell: () => <EditModal id={item.id} />,
     }));
   };
 
