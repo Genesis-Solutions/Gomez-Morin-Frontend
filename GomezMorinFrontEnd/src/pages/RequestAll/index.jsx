@@ -4,14 +4,13 @@
  */
 import React, { useEffect, useState } from "react";
 import ImageTitle from "../../components/ImageTitle";
-import SearchBar from "../../components/SearchBar";
 import DataGridComponent from "../../components/DataGridComponent";
 import ImageTitleImage from "../../../public/images/ImageTitleImage.png";
 import EditModal from "../../components/EditModal";
 import { getAllForms } from "../../queries/queryRequestForm";
 
-const userId = localStorage.getItem("id");
 const RequestAll = () => {
+  const userId = localStorage.getItem("id");
   const [rows, setRows] = useState([]);
   // Define columns to be displayed in the data grid component
   const columns = [
@@ -42,7 +41,7 @@ const RequestAll = () => {
         ? item.membretatedLetterDoc
         : item.nameEvent,
       estatus: item.status,
-      renderCell: () => <EditModal />,
+      renderCell: () => <EditModal id={item.id} />,
     }));
   };
 

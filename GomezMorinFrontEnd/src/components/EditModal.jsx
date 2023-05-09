@@ -107,8 +107,9 @@ const EditModal = () => {
                             name={"tipoDocumento"}
                             id={"tipoDocumento"}
                             options={[
-                              { value: "Aprobado", _id: "sdsadfsdf" },
-                              { value: "Cancelado", _id: "sdsadfsdsf" },
+                              { value: "En Proceso", _id: "1" },
+                              { value: "Aprobado", _id: "2" },
+                              { value: "Cancelado", _id: "3" },
                             ]}
                           />
                           <Button
