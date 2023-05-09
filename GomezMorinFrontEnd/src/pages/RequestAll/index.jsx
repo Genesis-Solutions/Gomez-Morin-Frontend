@@ -2,14 +2,17 @@
  * The RequestAll component displays a table with data that represents incoming requests.
  * It includes an image title, a search bar, and a data grid component.
  */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ImageTitle from "../../components/ImageTiTle";
 import SearchBar from "../../components/SearchBar";
 import DataGridComponent from "../../components/DataGridComponent";
 import ImageTitleImage from "../../../public/images/ImageTitleImage.png";
 import EditModal from "../../components/EditModal";
+import { getAllForms } from "../../queries/queryRequestForm";
 
+const userId = localStorage.getItem("id");
 const RequestAll = () => {
+  const [rows, setRows] = useState([]);
   // Define columns to be displayed in the data grid component
   const columns = [
     { field: "fecha", headerName: "Fecha", width: 200 },
@@ -27,28 +30,31 @@ const RequestAll = () => {
   ];
 
   // Define rows to be displayed in the data grid component
-  const rows = [
-    {
-      id: 1,
-      fecha: "01/01/2021",
-      folio: "1",
-      tipo: "Persona física",
-      evento: "Evento 1",
-      nombre: "Nombre 1",
-      estatus: "Estatus 1",
+
+  const transformData = (data) => {
+    return data.map((item) => ({
+      id: item._id,
+      fecha: item.requestDate,
+      folio: item.folio,
+      tipo: item.membretatedLetterDoc ? "Persona moral" : "Persona física",
+      evento: item.membretatedLetterDoc ? "-" : item.typeEvent,
+      nombre: item.membretatedLetterDoc
+        ? item.membretatedLetterDoc
+        : item.nameEvent,
+      estatus: item.status,
       renderCell: () => <EditModal />,
-    },
-    {
-      id: 2,
-      fecha: "01/01/2021",
-      folio: "1",
-      tipo: "Persona moral",
-      evento: "-",
-      nombre: "Nombre 1",
-      estatus: "Estatus 1",
-      renderCell: () => <EditModal />,
-    },
-  ];
+    }));
+  };
+
+  useEffect(() => {
+    /**
+     * Calls the getAllForms function to fetch data from the server and updates the component's state with the transformed data.
+     */
+    getAllForms(userId).then((res) => {
+      const data = transformData(res);
+      setRows(data);
+    });
+  }, []);
 
   // Render the RequestAll component
   return (
@@ -56,10 +62,6 @@ const RequestAll = () => {
       <div className="h-1/6 w-full">
         {/* Display an image title with the "Bandeja de Entrada" title and an image */}
         <ImageTitle title={"Bandeja de Entrada"} image={ImageTitleImage} />
-      </div>
-      <div className="w-3/4">
-        {/* Display a search bar */}
-        <SearchBar />
       </div>
       <div className="flex flex-col justify-center w-full pl-8 pr-8 ">
         {/* Display the data grid component with the columns and rows */}

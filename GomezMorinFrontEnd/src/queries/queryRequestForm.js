@@ -201,3 +201,24 @@ export const getForm = async (userPtr, queryParams = {}) => {
     return Promise.reject(err);
   }
 };
+
+/**
+ * Function to retrieve all forms of a given user from the server
+ *
+ * @param {string} userId - The ID of the user
+ * @returns {Promise} A Promise that resolves to an array of forms or rejects with an error
+ */
+export const getAllForms = async (userId) => {
+  try {
+    const body = {
+      id: userId,
+    };
+    const response = await axios.post(
+      `${baseURL}/solicitudes/request-all`,
+      body
+    );
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
