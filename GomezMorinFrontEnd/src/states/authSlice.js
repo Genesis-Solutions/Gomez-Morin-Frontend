@@ -28,7 +28,6 @@ const initialState = {
   id: null,
   email: null,
   nameRol: null,
-  logged: false,
 };
 
 /**
@@ -48,7 +47,6 @@ export const authSlice = createSlice({
      */
     setAccessToken: (state, action) => {
       state.accessToken = action.payload;
-
     },
 
     /**
@@ -62,7 +60,6 @@ export const authSlice = createSlice({
       state.nameRol = action.payload.nameRol;
       state.id = action.payload.id;
       state.email = action.payload.email;
-      state.logged = true;
     },
 
     /**
@@ -76,7 +73,6 @@ export const authSlice = createSlice({
       state.id = null;
       state.email = null;
       state.nameRol = null;
-      state.logged = false;
     },
   },
 });
