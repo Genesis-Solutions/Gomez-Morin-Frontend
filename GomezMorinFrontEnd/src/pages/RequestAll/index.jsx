@@ -4,15 +4,16 @@
  */
 import React, { useEffect, useState } from "react";
 import ImageTitle from "../../components/ImageTitle";
-import SearchBar from "../../components/SearchBar";
 import DataGridComponent from "../../components/DataGridComponent";
 import ImageTitleImage from "../../../public/images/ImageTitleImage.png";
 import EditModal from "../../components/EditModal";
 import { getAllForms } from "../../queries/queryRequestForm";
-
-const userId = localStorage.getItem("id");
+import { useSelector, useDispatch } from "react-redux";
+import { setRows } from "../../states/formSlice";
 const RequestAll = () => {
-  const [rows, setRows] = useState([]);
+  const userId = useSelector((state) => state.auth.id);
+  const rows = useSelector((state) => state.form.rows) || [];
+  const dispatch = useDispatch();
   // Define columns to be displayed in the data grid component
   const columns = [
     { field: "fecha", headerName: "Fecha", width: 200 },
@@ -25,7 +26,7 @@ const RequestAll = () => {
       field: "actions",
       headerName: "",
       width: 200,
-      renderCell: () => <EditModal />,
+      renderCell: ({ row }) => <EditModal idForm={row.id} folio={row.folio} estatus= {row.estatus} userId={userId} />,
     },
   ];
 
@@ -42,7 +43,6 @@ const RequestAll = () => {
         ? item.membretatedLetterDoc
         : item.nameEvent,
       estatus: item.status,
-      renderCell: () => <EditModal />,
     }));
   };
 
@@ -52,7 +52,7 @@ const RequestAll = () => {
      */
     getAllForms(userId).then((res) => {
       const data = transformData(res);
-      setRows(data);
+      dispatch(setRows(data));
     });
   }, []);
 

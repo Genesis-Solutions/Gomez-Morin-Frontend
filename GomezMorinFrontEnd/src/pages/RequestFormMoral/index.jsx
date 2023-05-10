@@ -15,6 +15,7 @@ import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
 const RequestAsMoral = () => {
   const methods = useForm();
   const navigate = useNavigate();
+
   const userId = useSelector((state) => state.auth.id);
   const [isChecked, setIsChecked] = useState(false);
   const today = new Date();
@@ -36,7 +37,7 @@ const RequestAsMoral = () => {
       await createRequestMoral({ ...data, userId: userId, date: todayString });
       navigate("/request");
     } catch (err) {
-      alert(err.response.data.message);
+      alert(err.message);
     }
   };
 

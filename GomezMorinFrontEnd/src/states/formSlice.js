@@ -10,6 +10,7 @@ const initialState = {
   specificForm: false,
   sendForm: false,
   typeEventForm: "",
+  rows : [],
 };
 
 /**
@@ -81,11 +82,21 @@ export const formSlice = createSlice({
     setTypeEventForm: (state, action) => {
       state.typeEventForm = action.payload;
     },
+    /**
+     * Updates the rows of the table.
+     * 
+     * @param {Object} state - The current state of the form.
+     * @param {Object} action - The action object to be dispatched.
+     */
+    setRows : (state, action) => {
+      state.rows = action.payload;
+    }
   },
 });
 
 export const {
   setFormState,
+  setRows,
   showUserForm,
   showInitialForm,
   showSendForm,

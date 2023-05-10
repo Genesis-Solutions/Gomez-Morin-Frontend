@@ -10,10 +10,9 @@ import { useSelector } from "react-redux";
  */
 
 const Navbar = () => {
-  const accessToken = localStorage.getItem("accessToken");
-  const userName = localStorage.getItem("userName");
-  const rol = localStorage.getItem("nameRol");
-  const userName2 = useSelector((state) => state.auth.userName);
+  const accessToken = useSelector((state) => state.auth.accessToken);
+  const userName = useSelector((state) => state.auth.userName);
+  const rol = useSelector((state) => state.auth.nameRol);
 
   return (
     <nav className="sticky top-0 flex gap-6 px-4 bg-gray-blue-500 w-full h-16 z-10">
@@ -34,7 +33,7 @@ const Navbar = () => {
           {rol === "S.P" ? (
             <NavbarItem navigation="/requestAll">Solicitudes</NavbarItem>
           ):( <NavbarItem navigation="/request">Mis solicitudes</NavbarItem>)}
-            <NavbarDropdownItem userName={userName ? userName : userName2} />
+            <NavbarDropdownItem userName={userName} />
           </>
         ) : (
           <NavbarItem navigation="/login">Iniciar Sesión</NavbarItem>

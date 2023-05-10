@@ -6,29 +6,55 @@ import { FormProvider, useForm } from "react-hook-form";
 import { Dialog, Transition } from "@headlessui/react";
 import { ModeEditOutline } from "@mui/icons-material";
 import DropdownInput from "./DropdownInput";
-
+import { updateForms } from "../queries/queryRequestForm";
+import { useNavigate } from "react-router-dom";
+import { useDispatch} from "react-redux";
+import { setRows } from "../states/formSlice";
 /**
  *  A React component that renders a modal with a form
- * 
+ *
  * @returns {Jsx.Element} - A React JSX element representing a modal with a form
  */
-const EditModal = () => {
+const EditModal = ({ idForm, folio, estatus, userId }) => {
+  const navigate = useNavigate();
   const methods = useForm();
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const transformData = (data) => {
+    return data.map((item) => ({
+      id: item._id,
+      fecha: item.requestDate,
+      folio: item.folio,
+      tipo: item.membretatedLetterDoc ? "Persona moral" : "Persona física",
+      evento: item.membretatedLetterDoc ? "-" : item.typeEvent,
+      nombre: item.membretatedLetterDoc
+        ? item.membretatedLetterDoc
+        : item.nameEvent,
+      estatus: item.status,
+    }));
+  };
 
   /**
    *  Handles the submit of the form
-   * 
+   *
    * @param {object} data
    */
-  const onSubmit = (data) => {
-    
+  const onSubmit = async (data) => {
+    try {
+      const response = await updateForms({ ...data, idForm: idForm, userId: userId });
+      const info = transformData(response);
+      dispatch(setRows(info));
+      navigate("/requestAll");
+    } catch (err) {
+      alert(err.response.data.message);
+    }
     setIsOpen(false);
   };
 
   /**
    * Handles the closing of the modal
-   * 
+   *
    * @returns {void}
    */
 
@@ -38,7 +64,7 @@ const EditModal = () => {
 
   /**
    * Handles the opening of the modal
-   * 
+   *
    * @returns {void}
    */
   const openModal = () => {
@@ -92,23 +118,28 @@ const EditModal = () => {
                     <FormProvider {...methods}>
                       <div className="flex flex-col justify-between h-full gap-4">
                         <form
-                          onSubmit={methods.handleSubmit(onSubmit)}
+                          onSubmit={methods.handleSubmit((data) =>
+                            onSubmit(data, idForm)
+                          )}
                           className="flex flex-col justify-between h-full gap-4"
                         >
                           <InputForm
                             label={"Folio"}
                             name={"folio"}
-                            type={"text"}
+                            type={"number"}
+                            required={false}
                             placeholder={"Folio"}
-                            defaultValue={""}
+                            defaultValue={folio}
                           />
                           <DropdownInput
                             label={"Estatus"}
-                            name={"tipoDocumento"}
-                            id={"tipoDocumento"}
+                            name={"estatus"}
+                            id={"estatus"}
+                            defaultValue={estatus}
                             options={[
-                              { value: "Aprobado", _id: "sdsadfsdf" },
-                              { value: "Cancelado", _id: "sdsadfsdsf" },
+                              { value: "En Proceso", _id: "1" },
+                              { value: "Aprobado", _id: "2" },
+                              { value: "Cancelado", _id: "3" },
                             ]}
                           />
                           <Button
