@@ -13,11 +13,13 @@ const baseUrl = import.meta.env.VITE_BASE_URL;
  * @returns {Promise} A Promise that resolves with the response data if the request is successful, or rejects with an error message if the request fails.
  */
 export const createRequestMoral = async (data) => {
+  console.log(data)
   const formData = new FormData();
   const { membretatedLetterDoc, userId, date } = data;
   formData.append("file", membretatedLetterDoc[0]);
   formData.append("userPtr", userId);
   formData.append("requestDate", date);
+
   try {
     const response = await axios({
       url: `${baseUrl}/solicitudes/request-letter`,

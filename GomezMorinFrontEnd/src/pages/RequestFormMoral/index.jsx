@@ -37,7 +37,7 @@ const RequestAsMoral = () => {
       await createRequestMoral({ ...data, userId: userId, date: todayString });
       navigate("/request");
     } catch (err) {
-      alert(err.response.data.message);
+      alert(err.message);
     }
   };
 
