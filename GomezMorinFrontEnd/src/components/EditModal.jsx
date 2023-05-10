@@ -6,29 +6,34 @@ import { FormProvider, useForm } from "react-hook-form";
 import { Dialog, Transition } from "@headlessui/react";
 import { ModeEditOutline } from "@mui/icons-material";
 import DropdownInput from "./DropdownInput";
+import { updateForms } from "../queries/queryRequestForm";
 
 /**
  *  A React component that renders a modal with a form
- * 
+ *
  * @returns {Jsx.Element} - A React JSX element representing a modal with a form
  */
-const EditModal = () => {
+const EditModal = ({ idForm }) => {
   const methods = useForm();
   const [isOpen, setIsOpen] = useState(false);
 
   /**
    *  Handles the submit of the form
-   * 
+   *
    * @param {object} data
    */
-  const onSubmit = (data) => {
-    
+  const onSubmit = async (data) => {
+    try {
+      await updateForms({ ...data, idForm: idForm });
+    } catch (err) {
+      alert(err.response.data.message);
+    }
     setIsOpen(false);
   };
 
   /**
    * Handles the closing of the modal
-   * 
+   *
    * @returns {void}
    */
 
@@ -38,7 +43,7 @@ const EditModal = () => {
 
   /**
    * Handles the opening of the modal
-   * 
+   *
    * @returns {void}
    */
   const openModal = () => {
@@ -92,7 +97,9 @@ const EditModal = () => {
                     <FormProvider {...methods}>
                       <div className="flex flex-col justify-between h-full gap-4">
                         <form
-                          onSubmit={methods.handleSubmit(onSubmit)}
+                          onSubmit={methods.handleSubmit((data) =>
+                            onSubmit(data, idForm)
+                          )}
                           className="flex flex-col justify-between h-full gap-4"
                         >
                           <InputForm

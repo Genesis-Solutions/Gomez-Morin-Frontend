@@ -222,3 +222,24 @@ export const getAllForms = async (userId) => {
     return Promise.reject(err);
   }
 };
+
+/**
+ * Updates the form with the given ID by sending a PATCH request to the server with the specified data.
+ *
+ * @param data an object containing the data to update the form with, including the form's folio number, status, and ID.
+ * @return a Promise that resolves with the updated form data if the request succeeds, or rejects with an error if the request fails.
+ */
+
+export const updateForms = async (data) => {
+  try {
+    const { folio, tipoDocumento, idForm } = data;
+    const response = await axios.patch(
+      `${baseURL}/solicitudes/updateRequest/${idForm}`,
+      { folio, tipoDocumento }
+    );
+
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
