@@ -4,6 +4,7 @@ import Button from "../../components/Button";
 import { useNavigate } from "react-router-dom";
 import DataGridComponent from "../../components/DataGridComponent";
 import { getForm } from "../../queries/queryRequestForm";
+import { useSelector } from "react-redux";
 
 /**
  * The PageRequest component displays the request page, including a header, a button to create a new request,
@@ -11,9 +12,9 @@ import { getForm } from "../../queries/queryRequestForm";
  */
 const PageRequest = () => {
   const navigate = useNavigate();
-  const rol = localStorage.getItem("nameRol");
+  const rol = useSelector((state) => state.auth.nameRol);
   const [rows, setRows] = useState([]);
-  const userPtr = localStorage.getItem("id");
+  const userPtr = useSelector((state) => state.auth.id);
 
   /**
    * Transforms the data received from the server into the appropriate format based on the user's role.
