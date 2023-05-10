@@ -10,7 +10,7 @@ import { useFormContext } from "react-hook-form";
  * @param {Array<Object>} options - An array of options for the dropdown.
  * @returns {JSX.Element} - The DropdownInput component
  */
-const DropdownInput = ({ name, label, id, options }) => {
+const DropdownInput = ({ name, label, id, options, defaultValue }) => {
   const { register } = useFormContext();
 
   return (
@@ -24,10 +24,17 @@ const DropdownInput = ({ name, label, id, options }) => {
         name={name}
         id={id}
       >
-        <option key={""} value={""}>- Selecciona -</option>
-        {options.map((option) => (
-          <option key={option._id} value={option.value}>{option.value}</option>
-        ))}
+        <option key={""} value={""}>
+          {defaultValue ? defaultValue : "- Selecciona -"}
+        </option>
+        {options.map((option) => {
+          if (option.value === defaultValue) return <div></div>;
+          return (
+            <option key={option._id} value={option.value}>
+              {option.value}
+            </option>
+          );
+        })}
       </select>
     </div>
   );

@@ -8,15 +8,32 @@ import { ModeEditOutline } from "@mui/icons-material";
 import DropdownInput from "./DropdownInput";
 import { updateForms } from "../queries/queryRequestForm";
 import { useNavigate } from "react-router-dom";
+import { useDispatch} from "react-redux";
+import { setRows } from "../states/formSlice";
 /**
  *  A React component that renders a modal with a form
  *
  * @returns {Jsx.Element} - A React JSX element representing a modal with a form
  */
-const EditModal = ({ idForm, userId }) => {
+const EditModal = ({ idForm, folio, estatus, userId }) => {
   const navigate = useNavigate();
   const methods = useForm();
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const transformData = (data) => {
+    return data.map((item) => ({
+      id: item._id,
+      fecha: item.requestDate,
+      folio: item.folio,
+      tipo: item.membretatedLetterDoc ? "Persona moral" : "Persona física",
+      evento: item.membretatedLetterDoc ? "-" : item.typeEvent,
+      nombre: item.membretatedLetterDoc
+        ? item.membretatedLetterDoc
+        : item.nameEvent,
+      estatus: item.status,
+    }));
+  };
 
   /**
    *  Handles the submit of the form
@@ -25,7 +42,9 @@ const EditModal = ({ idForm, userId }) => {
    */
   const onSubmit = async (data) => {
     try {
-      await updateForms({ ...data, idForm: idForm, userId: userId });
+      const response = await updateForms({ ...data, idForm: idForm, userId: userId });
+      const info = transformData(response);
+      dispatch(setRows(info));
       navigate("/requestAll");
     } catch (err) {
       alert(err.response.data.message);
@@ -107,14 +126,16 @@ const EditModal = ({ idForm, userId }) => {
                           <InputForm
                             label={"Folio"}
                             name={"folio"}
-                            type={"text"}
+                            type={"number"}
+                            required={false}
                             placeholder={"Folio"}
-                            defaultValue={""}
+                            defaultValue={folio}
                           />
                           <DropdownInput
                             label={"Estatus"}
                             name={"estatus"}
                             id={"estatus"}
+                            defaultValue={estatus}
                             options={[
                               { value: "En Proceso", _id: "1" },
                               { value: "Aprobado", _id: "2" },

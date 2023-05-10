@@ -8,10 +8,12 @@ import DataGridComponent from "../../components/DataGridComponent";
 import ImageTitleImage from "../../../public/images/ImageTitleImage.png";
 import EditModal from "../../components/EditModal";
 import { getAllForms } from "../../queries/queryRequestForm";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setRows } from "../../states/formSlice";
 const RequestAll = () => {
   const userId = useSelector((state) => state.auth.id);
-  const [rows, setRows] = useState([]);
+  const rows = useSelector((state) => state.form.rows) || [];
+  const dispatch = useDispatch();
   // Define columns to be displayed in the data grid component
   const columns = [
     { field: "fecha", headerName: "Fecha", width: 200 },
@@ -24,7 +26,7 @@ const RequestAll = () => {
       field: "actions",
       headerName: "",
       width: 200,
-      renderCell: ({ row }) => <EditModal idForm={row.id} userId={userId} />,
+      renderCell: ({ row }) => <EditModal idForm={row.id} folio={row.folio} estatus= {row.estatus} userId={userId} />,
     },
   ];
 
@@ -41,9 +43,6 @@ const RequestAll = () => {
         ? item.membretatedLetterDoc
         : item.nameEvent,
       estatus: item.status,
-      renderCell: ({ id }) => {
-        return <EditModal idForm={id} userId={userId} />;
-      },
     }));
   };
 
@@ -53,7 +52,7 @@ const RequestAll = () => {
      */
     getAllForms(userId).then((res) => {
       const data = transformData(res);
-      setRows(data);
+      dispatch(setRows(data));
     });
   }, []);
 
