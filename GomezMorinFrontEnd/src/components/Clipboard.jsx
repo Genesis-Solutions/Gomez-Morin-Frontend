@@ -8,7 +8,7 @@ import { FileCopy } from "@mui/icons-material";
  * @param {string} textToCopy - The text to be copied to clipboard
  * @returns {JSX.Element} - A React JSX element representing a clipboard UI
  */
-const Clipboard = ({ textToCopy }) => {
+const Clipboard = ({ textToCopy, label }) => {
   const textRef = useRef(null);
   const [isCopied, setIsCopied] = useState(false);
 
@@ -29,10 +29,14 @@ const Clipboard = ({ textToCopy }) => {
   };
 
   return (
+    <div className="flex flex-col gap-2 w-full h-full">
+      <label className="font-semibold text-md py-1">
+        {label}{" "}
+      </label>
     <div className="border border-gray-400 rounded-md flex items-center px-4 py-2">
       <p
         ref={textRef}
-        className="text-base flex-1 cursor-pointer select-none"
+        className="text-base flex-1 cursor-pointer select-none "
         onClick={handleResetCopyState}
       >
         {textToCopy}
@@ -46,6 +50,7 @@ const Clipboard = ({ textToCopy }) => {
       >
         {isCopied ? "Copiado!" : <FileCopy />}
       </Button>
+    </div>
     </div>
   );
 };

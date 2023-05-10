@@ -6,6 +6,7 @@ import RequestForm from "./pages/RequestForm";
 import PageRequest from "./pages/PageRequest";
 import RequestAsMoral from "./pages/RequestFormMoral";
 import RequestAll from "./pages/RequestAll";
+import RequestDetail from "./pages/RequestDetail";
 import { useSelector } from "react-redux";
 import PersistLogin from "./components/PersistLogin";
 
@@ -17,16 +18,15 @@ const App = () => {
     <div className="App w-full h-full">
       <BrowserRouter>
         <Routes>
-        <Route element={<PersistLogin />}>
-          <Route path="/" element={<Layout />}>
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-           
+          <Route element={<PersistLogin />}>
+            <Route path="/" element={<Layout />}>
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+
               <Route
                 path="/request-form"
                 element={
-                  (rol === "Física") &&
-                  (accessToken) ? (
+                  rol === "Física" && accessToken ? (
                     <RequestForm />
                   ) : (
                     <Navigate to="/" replace />
@@ -36,18 +36,13 @@ const App = () => {
               <Route
                 path="/request"
                 element={
-                  accessToken ? (
-                    <PageRequest />
-                  ) : (
-                    <Navigate to="/" replace />
-                  )
+                  accessToken ? <PageRequest /> : <Navigate to="/" replace />
                 }
               />
               <Route
                 path="/request-formMoral"
                 element={
-                  (rol === "Moral") &&
-                  (accessToken) ? (
+                  rol === "Moral" && accessToken ? (
                     <RequestAsMoral />
                   ) : (
                     <Navigate to="/" replace />
@@ -57,14 +52,14 @@ const App = () => {
               <Route
                 path="/requestAll"
                 element={
-                  (rol === "S.P") &&
-                  (accessToken) ? (
+                  rol === "S.P" && accessToken ? (
                     <RequestAll />
                   ) : (
                     <Navigate to="/" replace />
                   )
                 }
               />
+              <Route path="/requestDetail" element={<RequestDetail />} />
             </Route>
           </Route>
         </Routes>
