@@ -10,7 +10,7 @@ import EditModal from "../../components/EditModal";
 import { getAllForms } from "../../queries/queryRequestForm";
 import { useSelector } from "react-redux";
 const RequestAll = () => {
-    const userId = useSelector((state) => state.auth.id);
+  const userId = useSelector((state) => state.auth.id);
   const [rows, setRows] = useState([]);
   // Define columns to be displayed in the data grid component
   const columns = [

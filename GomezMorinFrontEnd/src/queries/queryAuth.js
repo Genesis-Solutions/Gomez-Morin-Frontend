@@ -86,6 +86,12 @@ export const logoutUser = async () => {
   }
 };
 
+/**
+ * Sends a GET request to refresh the user's access token.
+ * 
+ * @throws {Error} If an error occurs during the refresh process.
+ * @returns  {Promise<object>} A promise that resolves with the data returned by the server.
+ */
 export const useRefreshToken = () => {
   const dispatch = useDispatch();
   const refresh = async () => {
