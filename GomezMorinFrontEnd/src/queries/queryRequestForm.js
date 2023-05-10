@@ -238,9 +238,6 @@ export const updateForms = async (data) => {
       status: estatus,
       id: userId,
     };
-    console.log(folio);
-    console.log(estatus);
-    console.log(userId);
     const response = await axios.patch(
       `${baseURL}/solicitudes/updateRequest/${idForm}`,
       body
