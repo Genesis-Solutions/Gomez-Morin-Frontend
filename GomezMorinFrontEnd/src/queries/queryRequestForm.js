@@ -232,10 +232,18 @@ export const getAllForms = async (userId) => {
 
 export const updateForms = async (data) => {
   try {
-    const { folio, tipoDocumento, idForm } = data;
+    const { folio, estatus, idForm, userId } = data;
+    const body = {
+      folio: folio,
+      status: estatus,
+      id: userId,
+    };
+    console.log(folio);
+    console.log(estatus);
+    console.log(userId);
     const response = await axios.patch(
       `${baseURL}/solicitudes/updateRequest/${idForm}`,
-      { folio, tipoDocumento }
+      body
     );
 
     return response.data;

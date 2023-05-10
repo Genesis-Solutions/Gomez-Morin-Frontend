@@ -24,7 +24,7 @@ const RequestAll = () => {
       field: "actions",
       headerName: "",
       width: 200,
-      renderCell: ({ row }) => <EditModal idForm={row.id} />,
+      renderCell: ({ row }) => <EditModal idForm={row.id} userId={userId} />,
     },
   ];
 
@@ -42,7 +42,7 @@ const RequestAll = () => {
         : item.nameEvent,
       estatus: item.status,
       renderCell: ({ id }) => {
-        return <EditModal idForm={id} />;
+        return <EditModal idForm={id} userId={userId} />;
       },
     }));
   };

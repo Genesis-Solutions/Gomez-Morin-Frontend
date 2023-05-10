@@ -7,13 +7,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import { ModeEditOutline } from "@mui/icons-material";
 import DropdownInput from "./DropdownInput";
 import { updateForms } from "../queries/queryRequestForm";
-
+import { useNavigate } from "react-router-dom";
 /**
  *  A React component that renders a modal with a form
  *
  * @returns {Jsx.Element} - A React JSX element representing a modal with a form
  */
-const EditModal = ({ idForm }) => {
+const EditModal = ({ idForm, userId }) => {
+  const navigate = useNavigate();
   const methods = useForm();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -24,7 +25,8 @@ const EditModal = ({ idForm }) => {
    */
   const onSubmit = async (data) => {
     try {
-      await updateForms({ ...data, idForm: idForm });
+      await updateForms({ ...data, idForm: idForm, userId: userId });
+      navigate("/requestAll");
     } catch (err) {
       alert(err.response.data.message);
     }
@@ -111,8 +113,8 @@ const EditModal = ({ idForm }) => {
                           />
                           <DropdownInput
                             label={"Estatus"}
-                            name={"tipoDocumento"}
-                            id={"tipoDocumento"}
+                            name={"estatus"}
+                            id={"estatus"}
                             options={[
                               { value: "En Proceso", _id: "1" },
                               { value: "Aprobado", _id: "2" },
