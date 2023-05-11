@@ -2,9 +2,18 @@ import ImageTitle from "../../components/ImageTitle";
 import ImageTitleImage from "../../../public/images/ImageTitleImage.png";
 import Clipboard from "../../components/Clipboard";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { getRequestDetailed } from "../../queries/queryRequestDetail";
 
 const RequestDetail = () => {
+  const [data, setData] = useState({});
   const { idForm, userId } = useParams();
+  useEffect(() => {
+    getRequestDetailed(userId, idForm).then((res) => {
+      console.log(res);
+      setData(res);
+    });
+  }, []);
 
   return (
     <>
@@ -17,24 +26,13 @@ const RequestDetail = () => {
           />
         </div>
         <div className=" grid grid-cols-1 md:grid md:grid-cols-2 w-full">
-          <div className="m-2">
-            <Clipboard
-              label={"Email/Sitio del Evento: "}
-              textToCopy={"socialNetwork"}
-            />
-          </div>
-          <div className="m-2">
-            <Clipboard
-              label={"Email/Sitio del Evento: "}
-              textToCopy={"socialNetwork"}
-            />
-          </div>
-          <div className="m-2">
-            <Clipboard
-              label={"Email/Sitio del Evento: "}
-              textToCopy={"socialNetwork"}
-            />
-          </div>
+          {Object.entries(data).map(([key, value]) => {
+            return (
+              <div className="m-2">
+                <Clipboard label={key} textToCopy={value} />
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
