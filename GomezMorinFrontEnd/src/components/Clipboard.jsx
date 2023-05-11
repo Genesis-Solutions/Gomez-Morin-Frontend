@@ -36,7 +36,7 @@ const Clipboard = ({ textToCopy, label }) => {
     <div className="border border-gray-400 rounded-md flex items-center px-4 py-2">
       <p
         ref={textRef}
-        className="text-base flex-1 cursor-pointer select-none "
+        className="h-auto text-base flex-1 cursor-pointer select-none break-all "
         onClick={handleResetCopyState}
       >
         {textToCopy}
