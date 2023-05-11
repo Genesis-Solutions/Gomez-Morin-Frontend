@@ -53,13 +53,18 @@ const RequestDetail = () => {
           {data.publicEvent ? <Clipboard label="Tipo de público" textToCopy="Público" /> : <Clipboard label="Tipo de público" textToCopy="Privado" />}
           {data.requiredSpace ? <Clipboard label="Espacio requerido" textToCopy={data.requiredSpace} /> : null}
           <Clipboard label="Número de sillas" textToCopy={data.chairNumber} />
-          
-
-
-
-    
-
-
+          {data.inauguration ? <Clipboard label="¿Tiene inauguración?" textToCopy="Cuenta con inauguración" /> : <Clipboard label="¿Tiene inauguración?" textToCopy="No cuenta con inauguración" />}
+          {data.authorities ? <Clipboard label="Autoridades que estarán presentes" textToCopy={data.authorities} /> : null}
+          {data.equipment ? <Clipboard label="Equipo necesario" textToCopy={data.equipment} /> : null}
+          {data.selfEquipment ? <Clipboard label="Equipo personal para el evento" textToCopy={data.selfEquipment} /> : null}
+          {data.softInstallation  ? <Clipboard label="¿Necesitará instalación de software?" textToCopy="Sí" /> : <Clipboard label="¿Necesitará instalación de software?" textToCopy="No" />}
+          {data.electricInstallation ? <Clipboard label="Instalacion eléctrica" textToCopy={data.electricInstallation} /> : null}
+          {data.mounting ? <Clipboard label="Tipo de montaje" textToCopy={data.mounting} /> : null}
+          {data.tableNumber ? <Clipboard label="Número de mesas" textToCopy={data.tableNumber} /> : null}
+          {data.openingDayDate ? <Clipboard label="Fecha de inauguración" textToCopy={data.openingDayDate} /> : null}
+          {data.openingDayTime ? <Clipboard label="Hora de inauguración" textToCopy={data.openingDayTime} /> : null}
+          {data.sound  ? <Clipboard label="¿Necesitará instalación de sonido?" textToCopy="Sí" /> : <Clipboard label="¿Necesitará instalación de sonido?" textToCopy="No" />}
+          {data.microphone  ? <Clipboard label="¿Necesitará micrófonos?" textToCopy="Sí" /> : <Clipboard label="¿Necesitará micrófonos?" textToCopy="No" />}
 
         </div>
       </div>
