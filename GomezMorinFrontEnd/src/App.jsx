@@ -9,6 +9,7 @@ import RequestAll from "./pages/RequestAll";
 import RequestDetail from "./pages/RequestDetail";
 import { useSelector } from "react-redux";
 import PersistLogin from "./components/PersistLogin";
+import LandingPage from "./pages/LandingPage";
 
 const App = () => {
   const rol = useSelector((state) => state.auth.nameRol);
@@ -19,7 +20,8 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route element={<PersistLogin />}>
-            <Route path="/" element={<Layout />}>
+            <Route element={<Layout />}>
+              <Route path="/" element={<LandingPage />} />
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
 
@@ -61,7 +63,13 @@ const App = () => {
               />
               <Route
                 path="/requestDetail/:idForm/:userId"
-                element={<RequestDetail />}
+                element={
+                  rol === "S.P" && accessToken ? (
+                    <RequestDetail />
+                  ) : (
+                    <Navigate to="/" replace />
+                  )
+                }
               />
             </Route>
           </Route>

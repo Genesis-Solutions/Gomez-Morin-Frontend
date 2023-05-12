@@ -27,12 +27,14 @@ const Navbar = () => {
       </div>
 
       <div className="flex gap-4 ml-auto">
-        <NavbarItem navigation="/faq">Información</NavbarItem>
+        <NavbarItem navigation="/">Información</NavbarItem>
         {accessToken ? (
           <>
-          {rol === "S.P" ? (
-            <NavbarItem navigation="/requestAll">Solicitudes</NavbarItem>
-          ):( <NavbarItem navigation="/request">Mis solicitudes</NavbarItem>)}
+            {rol === "S.P" ? (
+              <NavbarItem navigation="/requestAll">Solicitudes</NavbarItem>
+            ) : (
+              <NavbarItem navigation="/request">Mis solicitudes</NavbarItem>
+            )}
             <NavbarDropdownItem userName={userName} />
           </>
         ) : (

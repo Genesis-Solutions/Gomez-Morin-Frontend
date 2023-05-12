@@ -25,7 +25,7 @@ const ImageCarousel = ({ title, images, height }) => {
           <div style={{ width: "100%", height: `${height}rem` }}>
             <img
               key={index}
-              className="brightness-50 object-cover object-center w-full h-full"
+              className="brightness-50 object-cover object-center w-full h-full opacity-80"
               src={image}
               alt={`Slide ${index}`}
             />
