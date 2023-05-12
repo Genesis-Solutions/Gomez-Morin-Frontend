@@ -10,10 +10,14 @@ import EditModal from "../../components/EditModal";
 import { getAllForms } from "../../queries/queryRequestForm";
 import { useSelector, useDispatch } from "react-redux";
 import { setRows } from "../../states/formSlice";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import { useNavigate } from "react-router-dom";
+
 const RequestAll = () => {
   const userId = useSelector((state) => state.auth.id);
   const rows = useSelector((state) => state.form.rows) || [];
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // Define columns to be displayed in the data grid component
   const columns = [
     { field: "fecha", headerName: "Fecha", width: 200 },
@@ -24,9 +28,31 @@ const RequestAll = () => {
     { field: "estatus", headerName: "Estatus", width: 200 },
     {
       field: "actions",
-      headerName: "",
+      headerName: "Editar",
       width: 200,
-      renderCell: ({ row }) => <EditModal idForm={row.id} folio={row.folio} estatus= {row.estatus} userId={userId} />,
+      renderCell: ({ row }) => (
+        <EditModal
+          idForm={row.id}
+          folio={row.folio}
+          estatus={row.estatus}
+          userId={userId}
+        />
+      ),
+    },
+    {
+      field: "details",
+      headerName: "Detalles",
+      width: 200,
+      renderCell: ({ row }) => (
+        <button
+          onClick={() => {
+            navigate(`/requestDetail/${row.id}/${userId}`);
+          }}
+        >
+          {" "}
+          <MoreHorizIcon />
+        </button>
+      ),
     },
   ];
 
