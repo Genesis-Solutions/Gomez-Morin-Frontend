@@ -19,6 +19,10 @@ const Clipboard = ({ textToCopy, label }) => {
     const text = textRef.current.textContent;
     navigator.clipboard.writeText(text);
     setIsCopied(true);
+    setTimeout(() => {
+      setIsCopied(false);
+    }
+    , 1000);
   };
 
   /**

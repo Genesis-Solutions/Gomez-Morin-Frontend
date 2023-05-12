@@ -15,3 +15,25 @@ export const getRequestDetailed = async (userId, idForm) => {
     return Promise.reject(err);
   }
 };
+
+/**
+ *  Function to retrieve documents 
+ * 
+ * @param {*} doc  - The document to retrieve
+ * @returns  response.data
+ */
+
+export const getDocuments = async (doc) => {
+  try {
+    console.log(doc)
+    const body = {
+      doc: doc,
+    }
+    const response = await axios.post(`${baseUrl}/solicitudes/request-documents/`, body, 
+      {responseType: "blob"}
+    );
+    return response.data;
+  } catch (err) {
+    return Promise.reject(err);
+  }
+};
