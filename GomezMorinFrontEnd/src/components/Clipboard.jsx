@@ -21,8 +21,7 @@ const Clipboard = ({ textToCopy, label }) => {
     setIsCopied(true);
     setTimeout(() => {
       setIsCopied(false);
-    }
-    , 1000);
+    }, 1000);
   };
 
   /**
@@ -34,27 +33,25 @@ const Clipboard = ({ textToCopy, label }) => {
 
   return (
     <div className="flex flex-col gap-2 w-full h-full">
-      <label className="font-semibold text-md py-1">
-        {label}{" "}
-      </label>
-    <div className="border border-gray-400 rounded-md flex items-center px-4 py-2">
-      <p
-        ref={textRef}
-        className="h-auto text-base flex-1 cursor-pointer select-none break-all "
-        onClick={handleResetCopyState}
-      >
-        {textToCopy}
-      </p>
-      <Button
-        aria-label="copiar"
-        variant="outlined"
-        size="small"
-        onClick={handleCopyToClipboard}
-        disabled={isCopied}
-      >
-        {isCopied ? "Copiado!" : <FileCopy />}
-      </Button>
-    </div>
+      <label className="font-semibold text-md py-1">{label} </label>
+      <div className="border border-gray-400 rounded-md flex items-center px-4 py-2">
+        <p
+          ref={textRef}
+          className="h-auto text-base flex-1 cursor-pointer select-none break-all "
+          onClick={handleResetCopyState}
+        >
+          {textToCopy}
+        </p>
+        <Button
+          aria-label="copiar"
+          variant="outlined"
+          size="small"
+          onClick={handleCopyToClipboard}
+          disabled={isCopied}
+        >
+          {isCopied ? "Copiado!" : <FileCopy />}
+        </Button>
+      </div>
     </div>
   );
 };

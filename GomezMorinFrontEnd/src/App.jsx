@@ -59,7 +59,10 @@ const App = () => {
                   )
                 }
               />
-              <Route path="/requestDetail/:idForm/:userId" element={<RequestDetail />} />
+              <Route
+                path="/requestDetail/:idForm/:userId"
+                element={<RequestDetail />}
+              />
             </Route>
           </Route>
         </Routes>
