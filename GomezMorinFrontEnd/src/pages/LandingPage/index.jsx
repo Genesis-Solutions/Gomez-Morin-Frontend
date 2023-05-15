@@ -6,7 +6,7 @@ import Carousel2 from "../../../public/images/image_carousel_2.jpeg";
 import Carousel3 from "../../../public/images/image_carousel_3.jpg";
 import Carousel4 from "../../../public/images/image_carousel_4.jpg";
 import Carousel5 from "../../../public/images/image_carousel_5.png";
-import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
+//import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
 
 const LandingPage = () => {
   const arrImg = [Carousel1, Carousel2, Carousel3, Carousel4, Carousel5];
