@@ -14,7 +14,7 @@ const LandingPage = () => {
     <div className="">
       <div>
         <ImageCarousel
-          title="Centro Educativo Cultural del Estado de Querétaro"
+          title="Centro Educativo y Cultural del Estado de Querétaro"
           images={arrImg}
           height={10}
         />
