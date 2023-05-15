@@ -23,12 +23,13 @@ const LandingPage = () => {
         {/*<div className="py-10">
           <Header tittle="Lineamientos" />
         </div>
-  <iframe src={guideLinesPdf} width="100%" height={"100%"} /> */}
+        <iframe src={guideLinesPdf} width="100%" height={"100%"} /> */}
 
         <div className="mt-6 pb-16">
           <Header tittle="Conócenos" />
         </div>
-        <div className="grid grid-cols-2 w-full items-center mb-20">
+        <div className="grid grid-cols-1 w-full items-center mb-20">
+          {/* Esta imagen en despliegue no se visualiza por la falta de dominio
           <div className="col-span-1 place-self-center">
             <a href="http://gomezmorin.queretaro.gob.mx/">
               <img
@@ -36,7 +37,7 @@ const LandingPage = () => {
                 src="../../../public/images/hexagono_cuadrado_LP.png"
               />
             </a>
-          </div>
+          </div>*/}
           <div className="col-span-1 place-self-center">
             <iframe
               width="560"
