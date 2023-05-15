@@ -36,7 +36,10 @@ const NavbarDropdownItem = ({ userName }) => {
 
   return (
     <>
-      <Menu as="div" className="relative inline-block text-left py-4 px-4">
+      <Menu
+        as="div"
+        className=" hidden md:relative md:inline-block md:text-left md:py-4 md:px-4"
+      >
         <div>
           <Menu.Button className="inline-flex w-full rounded-md gap-x-1.5 bg-gray-blue-500 px-3 py-2 text-sm font-semibold text-gray-100  hover:bg-gray-700">
             {userName}

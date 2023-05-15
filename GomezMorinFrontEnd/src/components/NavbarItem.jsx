@@ -1,5 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { disableSideBarState } from "../states/sideBarSlice";
 
 /**
  * This is a component for an item of the navbar.
@@ -14,6 +16,7 @@ const NavbarItem = ({ children, navigation, isLoggedOut }) => {
   const navigate = useNavigate();
 
   const currentLink = navigation === window.location.pathname;
+  const dispatch = useDispatch();
 
   return (
     <button
@@ -23,6 +26,7 @@ const NavbarItem = ({ children, navigation, isLoggedOut }) => {
           : "text-white hover:bg-blue-600 rounded-full p-1"
       }
       onClick={() => {
+        dispatch(disableSideBarState());
         navigate(navigation);
       }}
     >
