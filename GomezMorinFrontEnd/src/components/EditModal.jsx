@@ -8,7 +8,7 @@ import { ModeEditOutline } from "@mui/icons-material";
 import DropdownInput from "./DropdownInput";
 import { updateForms } from "../queries/queryRequestForm";
 import { useNavigate } from "react-router-dom";
-import { useDispatch} from "react-redux";
+import { useDispatch } from "react-redux";
 import { setRows } from "../states/formSlice";
 /**
  *  A React component that renders a modal with a form
@@ -42,7 +42,11 @@ const EditModal = ({ idForm, folio, estatus, userId }) => {
    */
   const onSubmit = async (data) => {
     try {
-      const response = await updateForms({ ...data, idForm: idForm, userId: userId });
+      const response = await updateForms({
+        ...data,
+        idForm: idForm,
+        userId: userId,
+      });
       const info = transformData(response);
       dispatch(setRows(info));
       navigate("/requestAll");
@@ -137,7 +141,7 @@ const EditModal = ({ idForm, folio, estatus, userId }) => {
                             id={"estatus"}
                             defaultValue={estatus}
                             options={[
-                              { value: "En Proceso", _id: "1" },
+                              { value: "En proceso", _id: "1" },
                               { value: "Aprobado", _id: "2" },
                               { value: "Cancelado", _id: "3" },
                             ]}

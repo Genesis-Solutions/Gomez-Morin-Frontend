@@ -6,7 +6,7 @@ import Carousel2 from "../../../public/images/image_carousel_2.jpeg";
 import Carousel3 from "../../../public/images/image_carousel_3.jpg";
 import Carousel4 from "../../../public/images/image_carousel_4.jpg";
 import Carousel5 from "../../../public/images/image_carousel_5.png";
-import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
+//import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
 
 const LandingPage = () => {
   const arrImg = [Carousel1, Carousel2, Carousel3, Carousel4, Carousel5];
@@ -14,7 +14,7 @@ const LandingPage = () => {
     <div className="">
       <div>
         <ImageCarousel
-          title="Centro Educativo Cultural del Estado de Querétaro"
+          title="Centro Educativo y Cultural del Estado de Querétaro"
           images={arrImg}
           height={10}
         />
@@ -23,12 +23,13 @@ const LandingPage = () => {
         {/*<div className="py-10">
           <Header tittle="Lineamientos" />
         </div>
-  <iframe src={guideLinesPdf} width="100%" height={"100%"} /> */}
+        <iframe src={guideLinesPdf} width="100%" height={"100%"} /> */}
 
         <div className="mt-6 pb-16">
           <Header tittle="Conócenos" />
         </div>
-        <div className="grid grid-cols-2 w-full items-center mb-20">
+        <div className="grid grid-cols-1 w-full items-center mb-20">
+          {/* Esta imagen en despliegue no se visualiza por la falta de dominio
           <div className="col-span-1 place-self-center">
             <a href="http://gomezmorin.queretaro.gob.mx/">
               <img
@@ -36,7 +37,7 @@ const LandingPage = () => {
                 src="../../../public/images/hexagono_cuadrado_LP.png"
               />
             </a>
-          </div>
+          </div>*/}
           <div className="col-span-1 place-self-center">
             <iframe
               width="560"
