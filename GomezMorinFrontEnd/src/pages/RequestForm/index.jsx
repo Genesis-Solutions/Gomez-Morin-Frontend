@@ -120,14 +120,14 @@ const RequestForm = () => {
     <div className="w-full h-full flex justify-between overflow-y-auto">
       <div className="flex flex-col items-center w-full h-full px-12 gap-5">
         <Header tittle={"Nueva Solicitud"} />
-        <div className="w-full h-12 flex">
+        <div className="w-full h-12 flex gap-x-2">
           <ButtonOptionForm text={"Información personal"} active={userForm} />
           <ButtonOptionForm
-            text={"Información general del evento"}
+            text={"Información general"}
             active={initialForm}
           />
           <ButtonOptionForm
-            text={"Información específica del evento"}
+            text={"Información específica"}
             active={specificForm}
           />
           <ButtonOptionForm text={"Envío del formulario"} active={sendForm} />
