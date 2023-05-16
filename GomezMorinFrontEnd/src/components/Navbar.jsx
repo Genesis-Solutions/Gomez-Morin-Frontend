@@ -51,19 +51,17 @@ const Navbar = () => {
 
             {accessToken ? (
               <>
-                {rol === "S.P" ? (
-                  <div className="hidden md:flex flex-center">
+                <div className="hidden md:flex flex-center">
+                  {rol === "S.P" ? (
                     <NavbarItem navigation="/requestAll">
                       Solicitudes
                     </NavbarItem>
-                  </div>
-                ) : (
-                  <div clasName="hidden md:flex flex-center">
+                  ) : (
                     <NavbarItem navigation="/request">
                       Mis solicitudes
                     </NavbarItem>
-                  </div>
-                )}
+                  )}
+                </div>
                 <div clasName="hidden md:flex flex-center">
                   <NavbarDropdownItem userName={userName} />
                 </div>
