@@ -31,7 +31,9 @@ const ImageCarousel = ({ title, images, height }) => {
           </div>
         ))}
       </Carousel>
-      <h2 className="absolute font-bold text-white text-4xl">{title}</h2>
+      <h2 className="text-center absolute font-bold text-white text-2xl pl-2 md:text-4xl ">
+        {title}
+      </h2>
         
     </div>
   );

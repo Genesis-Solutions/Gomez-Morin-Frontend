@@ -24,11 +24,10 @@ const LandingPage = () => {
           <Header tittle="Lineamientos" />
         </div>
         <iframe src={guideLinesPdf} width="100%" height={"100%"} /> */}
-
-        <div className="mt-6 pb-16">
+        <div className="mt-6 pb-6 md:pb-16">
           <Header tittle="Conócenos" />
         </div>
-        <div className="grid grid-cols-1 w-full items-center mb-20">
+        <div className="flex-1 h-full items-center mb-20">
           {/* Esta imagen en despliegue no se visualiza por la falta de dominio
           <div className="col-span-1 place-self-center">
             <a href="http://gomezmorin.queretaro.gob.mx/">
@@ -38,11 +37,10 @@ const LandingPage = () => {
               />
             </a>
           </div>*/}
-          <div className="col-span-1 place-self-center">
+          <div className="flex justify-center items-center">
             <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/SObhBoMKVDo"
+              className="w-full md:w-3/4 lg:w-1/2  h-56 md:h-96"
+              src="https://www.youtube.com/embed/gtyzXECIwnc"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -54,7 +52,7 @@ const LandingPage = () => {
         <div className="pb-16">
           <Header tittle="Galería de fotos" />
         </div>
-        <div className="grid grid-cols-3 justify-center items-center gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-12 mb-12">
           <div className="col-span-1 place-self-center">
             <img
               className="object-cover h-48 w-96 shadow-xl rounded-lg"
