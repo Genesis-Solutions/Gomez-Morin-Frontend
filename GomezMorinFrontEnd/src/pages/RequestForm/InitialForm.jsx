@@ -67,6 +67,7 @@ const InitialForm = () => {
         label="Descripción del evento"
         placeholder="Ejemplo: Descripción general del evento..."
         defaultValue=""
+        min="300"
       />
 
       <div className="md:flex flex-wrap sm:gap-14">
