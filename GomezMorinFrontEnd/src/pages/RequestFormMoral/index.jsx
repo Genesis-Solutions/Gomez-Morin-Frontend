@@ -42,11 +42,11 @@ const RequestAsMoral = () => {
   };
 
   return (
-    <div className="grid grid-cols-6 w-screen h-screen">
-      <div className="h-full col-span-1 bg-sideLeftBG bg-cover bg-center bg-no-repeat"></div>
-      <div className="col-span-4 h-full flex justify-between">
-        <div className="flex flex-col items-center w-full h-full px-16 py-14">
-          <div className="py-3 w-full">
+    <div className="grid grid-cols-1 md:grid-cols-6 w-screen h-screen">
+      <div className="md:h-full md:col-span-1 md:bg-sideLeftBG md:bg-cover md:bg-center md:bg-no-repeat"></div>
+      <div className="md:col-span-4 w-full h-full flex justify-between">
+        <div className="flex flex-col items-center w-full h-full px-6 md:px-10 lg:px-16 py-3">
+          <div className="py-3 pb-6 w-full">
             <Header tittle="Nueva solicitud" />
           </div>
           <iframe src={guideLinesPdf} width="100%" height={"100%"} />
@@ -68,7 +68,7 @@ const RequestAsMoral = () => {
                     readOnly={true}
                   />
                   <label htmlFor="sign" className="pl-3">
-                    Acepto los lineamientos de Gómez Morín
+                    Acepto los lineamientos de CECEQ
                   </label>
                 </div>
               </div>
@@ -102,7 +102,7 @@ const RequestAsMoral = () => {
           </FormProvider>
         </div>
       </div>
-      <div className="h-full col-span-1 bg-sideRightBG bg-cover bg-center bg-no-repeat"></div>
+      <div className="md:h-full md:col-span-1 md:bg-sideRightBG md:bg-cover md:bg-center md:bg-no-repeat"></div>
     </div>
   );
 };

@@ -27,9 +27,7 @@ const SendForm = () => {
             id="guideLines"
             readOnly={true}
           />
-          <label htmlFor="guideLines">
-            Acepto los lineamientos de Gómez Morín
-          </label>
+          <label htmlFor="guideLines">Acepto los lineamientos de CECEQ</label>
         </div>
       </div>
 
