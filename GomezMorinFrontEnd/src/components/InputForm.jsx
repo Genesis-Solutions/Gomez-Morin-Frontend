@@ -23,7 +23,7 @@ const InputForm = ({
   placeholder,
   defaultValue,
   pattern,
-  required = true,
+  required = false,
   accept,
   min,
   max,
