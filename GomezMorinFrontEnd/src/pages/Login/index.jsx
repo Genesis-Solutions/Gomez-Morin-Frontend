@@ -23,14 +23,13 @@ const Login = () => {
       await login(data);
       navigate("/");
       // reload page
-     
     } catch (err) {
       alert(err);
     }
   };
 
   return (
-    <div className="w-full h-full grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
+    <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 ">
       <div className=" h-full  mx-14 mt-4">
         <div className=" flex justify-start mt-8 ml-32">
           <IconTitle image={hexagono} headerText="Iniciar Sesión" />
@@ -79,7 +78,7 @@ const Login = () => {
           </form>
         </FormProvider>
       </div>
-      <div className="flex-1 bg-login bg-cover bg-center bg-no-repeat h-screen"></div>
+      <div className="md:flex-1 md:bg-login md:bg-cover md:bg-center md:bg-no-repeat md:h-screen"></div>
     </div>
   );
 };

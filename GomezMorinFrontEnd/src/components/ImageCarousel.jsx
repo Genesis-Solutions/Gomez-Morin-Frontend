@@ -1,4 +1,3 @@
-import { Height } from "@mui/icons-material";
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
@@ -25,14 +24,16 @@ const ImageCarousel = ({ title, images, height }) => {
           <div style={{ width: "100%", height: `${height}rem` }}>
             <img
               key={index}
-              className="brightness-50 object-cover object-center w-full h-full opacity-80"
+              className="brightness-50 object-cover object-center w-full h-full opacity-90"
               src={image}
               alt={`Slide ${index}`}
             />
           </div>
         ))}
       </Carousel>
-      <h2 className="absolute font-bold text-white text-3xl">{title}</h2>
+      <h2 className="text-center absolute font-bold text-white text-2xl pl-2 md:text-4xl ">
+        {title}
+      </h2>
         
     </div>
   );

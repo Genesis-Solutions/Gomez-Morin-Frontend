@@ -14,9 +14,10 @@ import LandingPage from "./pages/LandingPage";
 const App = () => {
   const rol = useSelector((state) => state.auth.nameRol);
   const accessToken = useSelector((state) => state.auth.accessToken);
-
   return (
+    
     <div className="App w-full h-full">
+
       <BrowserRouter>
         <Routes>
           <Route element={<PersistLogin />}>

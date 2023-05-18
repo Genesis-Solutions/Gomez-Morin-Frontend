@@ -102,7 +102,7 @@ const SpecificForm = () => {
             label="Descripción detallada del evento"
             placeholder="Se mostrarán diferentes bandas en rondas"
             defaultValue=""
-            min="50"
+            min="300"
           />
         </div>
 
