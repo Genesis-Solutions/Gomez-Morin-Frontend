@@ -97,8 +97,6 @@ const RequestForm = () => {
           );
         } else if (data.postalCode.length < 5) {
           alert("El código postal debe de ser mayor a 5 dígitos");
-        } else if (data.specificDescription.length < 50) {
-          alert("La descripción detallada debe tener al menos 50 caracteres");
         }
       }
     }

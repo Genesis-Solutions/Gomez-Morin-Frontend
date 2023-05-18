@@ -10,7 +10,7 @@ import { useFormContext } from "react-hook-form";
  * @param {string} defaultValue - The default value for the textarea.
  * @returns {JSX.Element} - The rendered component.
  */
-const TextArea = ({ label, name, placeholder, defaultValue }) => {
+const TextArea = ({ label, name, placeholder, defaultValue,min }) => {
   const { register } = useFormContext();
 
   return (
@@ -24,6 +24,7 @@ const TextArea = ({ label, name, placeholder, defaultValue }) => {
         className="p-1 rounded-md shadow-md ring-1 ring-gray-200 w-full h-20 px-3"
         id={name}
         placeholder={placeholder}
+        minLength={min}
         autoComplete="off"
       />
     </div>
