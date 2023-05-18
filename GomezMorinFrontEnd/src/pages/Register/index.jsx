@@ -126,7 +126,7 @@ const Register = () => {
           </form>
         </FormProvider>
       </div>
-      <div className="flex-1 bg-login bg-cover bg-center bg-no-repeat h-screen"></div>
+      <div className="md:flex-1 md:bg-login md:bg-cover md:bg-center md:bg-no-repeat md:h-screen"></div>
     </div>
   );
 };
