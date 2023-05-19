@@ -84,12 +84,12 @@ const RequestAll = () => {
 
   // Render the RequestAll component
   return (
-    <div className="flex flex-col items-center gap-9 w-full h-full">
-      <div className="h-1/6 w-full">
+    <div className="flex flex-col items-center gap-9 w-full h-full mb-4 md:mb-10">
+      <div className="h-1/6 w-full ">
         {/* Display an image title with the "Bandeja de Entrada" title and an image */}
         <ImageTitle title={"Bandeja de Entrada"} image={ImageTitleImage} />
       </div>
-      <div className="flex flex-col justify-center w-full pl-8 pr-8 ">
+      <div className="flex flex-col justify-center w-full px-6 ">
         {/* Display the data grid component with the columns and rows */}
         <DataGridComponent columns={columns} rows={rows} />
       </div>
