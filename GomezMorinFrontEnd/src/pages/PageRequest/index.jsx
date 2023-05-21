@@ -74,12 +74,12 @@ const PageRequest = () => {
    * @returns {JSX.Element} - The PageRequest component.
    */
   return (
-    <div className="grid grid-cols-6 w-screen h-screen">
-      <div className="h-full col-span-1 bg-sideLeftBG bg-cover bg-center bg-no-repeat"></div>
-      <div className="col-span-4 h-full flex justify-between">
-        <div className="flex flex-col items-center py-10 w-full h-full p-12 ">
+    <div className="grid grid-cols-1 md:grid-cols-6">
+      <div className="md:col-span-1 md:bg-sideLeftBG md:bg-cover md:bg-center md:bg-no-repeat"></div>
+      <div className="col-span-1 md:col-span-4 flex justify-between">
+        <div className="flex flex-col items-center py-10 w-full md:p-12">
           <Header tittle={"Solicitudes"} />
-          <div className="sm:flex py-12 w-96 h-36 p-12 sm:px-6 ">
+          <div className="flex py-12 w-52 h-36 md:w-96 md:h-36 md:p-12 md:px-6 ">
             <Button
               text={"Nueva Solicitud"}
               type={"button"}
@@ -97,7 +97,7 @@ const PageRequest = () => {
               }}
             ></Button>
           </div>
-          <div className="w-full">
+          <div className="px-6 w-full md:px-0">
             {rows.length > 0 ? (
               <DataGridComponent
                 rows={rows}
@@ -105,7 +105,7 @@ const PageRequest = () => {
               ></DataGridComponent>
             ) : (
               <div className="flex justify-center items-center w-full h-full">
-                <p className="text-2xl text-gray-400">
+                <p className="text-base md:text-2xl text-gray-400">
                   No hay solicitudes registradas
                 </p>
               </div>
@@ -113,7 +113,7 @@ const PageRequest = () => {
           </div>
         </div>
       </div>
-      <div className="h-full col-span-1 bg-sideRightBG bg-cover bg-center bg-no-repeat"></div>
+      <div className="md:col-span-1 md:bg-sideRightBG md:bg-cover md:bg-center md:bg-no-repeat"></div>
     </div>
   );
 };
