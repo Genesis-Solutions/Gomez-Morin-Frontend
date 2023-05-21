@@ -15,7 +15,7 @@ const ImageTitle = ({ image, title }) => {
         src={image}
         alt={``}
       />
-      <h2 className="absolute text-4xl text-gray-blue-600 font-gobold">{title}</h2>
+      <h2 className="absolute text-3xl md:text-4xl text-gray-blue-600 font-gobold">{title}</h2>
     </div>
   );
 };
