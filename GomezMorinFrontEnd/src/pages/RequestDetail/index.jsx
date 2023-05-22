@@ -67,6 +67,10 @@ const RequestDetail = () => {
             />
             <Clipboard label="Nombre del evento" textToCopy={data.nameEvent} />
             <Clipboard
+              label="Descripción general"
+              textToCopy={data.generalDescription}
+            />
+            <Clipboard
               label="Descripción del evento"
               textToCopy={data.specificDescription}
             />
