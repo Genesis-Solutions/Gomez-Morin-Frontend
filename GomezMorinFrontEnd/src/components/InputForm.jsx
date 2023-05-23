@@ -25,8 +25,10 @@ const InputForm = ({
   pattern,
   required = false,
   accept,
+  minLength,
+  maxLength,
   min,
-  max,
+  max
 }) => {
   const { register } = useFormContext();
 
@@ -45,8 +47,10 @@ const InputForm = ({
         autoComplete="off"
         required={required}
         accept={accept}
-        minLength={min}
-        maxLength={max}
+        minLength={minLength}
+        maxLength={maxLength}
+        min = {min}
+        max = {max}
       />
     </div>
   );
