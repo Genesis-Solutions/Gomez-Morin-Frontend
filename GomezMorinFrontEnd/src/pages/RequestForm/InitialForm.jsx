@@ -38,6 +38,16 @@ const InitialForm = () => {
   };
 
   const dispatch = useDispatch();
+  const [characterCount, setCharacterCount] = useState(0);
+
+   /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly. 
+    * @param {event} event - The event of the textArea input.
+   */
+   const handleTextAreaChange = (event) => {
+    const text = event.target.value;
+    //console.log(text.length);
+    setCharacterCount(text.length);
+  };
 
   return (
     <>
@@ -68,7 +78,9 @@ const InitialForm = () => {
         placeholder="Ejemplo: Descripción general del evento..."
         defaultValue=""
         min="300"
+        onChange={handleTextAreaChange}
       />
+      <p className="text-sm text-gray-500" >Caracteres Ingresados: {characterCount} Min:300 </p>
 
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
