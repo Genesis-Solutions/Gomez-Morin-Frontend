@@ -70,8 +70,6 @@ const RequestForm = () => {
     if (formState === "InitialForm") {
       if (data.cellphone.length >= 10) {
         dispatch(showInitialForm());
-      } else {
-        alert("El número de teléfono tiene que ser mayor o igual a 10 dígitos");
       }
     }
 
@@ -87,17 +85,9 @@ const RequestForm = () => {
       if (
         data.phoneEmergency.length >= 10 &&
         data.postalCode.length >= 5 &&
-        data.specificDescription.length >= 50
+        data.specificDescription.length >= 300
       ) {
         dispatch(showSendForm());
-      } else {
-        if (data.phoneEmergency.length < 10) {
-          alert(
-            "El número de teléfono tiene que ser mayor o igual a 10 dígitos"
-          );
-        } else if (data.postalCode.length < 5) {
-          alert("El código postal debe de ser mayor a 5 dígitos");
-        }
       }
     }
 
@@ -120,10 +110,7 @@ const RequestForm = () => {
         <Header tittle={"Nueva Solicitud"} />
         <div className="w-full h-12 flex gap-x-2">
           <ButtonOptionForm text={"Información personal"} active={userForm} />
-          <ButtonOptionForm
-            text={"Información general"}
-            active={initialForm}
-          />
+          <ButtonOptionForm text={"Información general"} active={initialForm} />
           <ButtonOptionForm
             text={"Información específica"}
             active={specificForm}

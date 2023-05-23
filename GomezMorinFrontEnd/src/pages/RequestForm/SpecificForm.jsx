@@ -46,6 +46,7 @@ const SpecificForm = () => {
             name="requestDate"
             label="Fecha de solicitud"
             defaultValue=""
+            required = {true}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -54,8 +55,11 @@ const SpecificForm = () => {
             name="phoneEmergency"
             label="Teléfono de emergencia"
             placeholder="4441234566"
-            min="10"
+            minLength="10"
             defaultValue=""
+            min = "1000000000"
+            max = "9999999999"
+            required = {true}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -65,6 +69,7 @@ const SpecificForm = () => {
             label="Dirección del solicitante"
             placeholder="Av. Parque Tecnológico #468"
             defaultValue=""
+            required = {true}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -74,6 +79,9 @@ const SpecificForm = () => {
             label="Código Postal"
             placeholder="76123"
             defaultValue=""
+            min = "10000"
+            max = "99999"
+            required = {true}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -92,6 +100,7 @@ const SpecificForm = () => {
             label="Colonia del solicitante"
             placeholder="El Sol"
             defaultValue=""
+            required = {true}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -103,7 +112,8 @@ const SpecificForm = () => {
             name="chairNumber"
             label="Número de sillas"
             placeholder="10"
-            defaultValue=""
+            min = "0"
+            defaultValue="0"
           />
         </div>
         <div className="col-span-2">
@@ -114,6 +124,7 @@ const SpecificForm = () => {
             placeholder="Se mostrarán diferentes bandas en rondas"
             defaultValue=""
             min="300"
+            required = {true}
             onChange={handleTextAreaChange}
           />
            <p className="text-sm text-gray-500" >Caracteres Ingresados: {characterCount} Min:300 </p>
@@ -128,7 +139,9 @@ const SpecificForm = () => {
                 name="assistance"
                 label="Número aproximado de asistentes"
                 placeholder="25"
-                defaultValue=""
+                defaultValue="1"
+                min = "1"
+                required = {true}
               />
             </div>
             <div className="md:col-span-1 col-span-2">
@@ -138,6 +151,7 @@ const SpecificForm = () => {
                 label="Rango de edades del público"
                 placeholder="18 - 25"
                 defaultValue=""
+                required = {true}
               />
             </div>
             <div className="md:col-span-1 col-span-2">
@@ -147,6 +161,7 @@ const SpecificForm = () => {
                 label="Equipo requerido de Gómez Morín"
                 placeholder="Computadoras, pantallas, proyectores, etc.."
                 defaultValue=""
+                required = {true}
               />
             </div>
             <div className="md:col-span-1 col-span-2">
@@ -180,7 +195,8 @@ const SpecificForm = () => {
                 name="tableNumber"
                 label="Número de mesas"
                 placeholder="5"
-                defaultValue=""
+                defaultValue="0"
+                min = "0"
               />
             </div>
           </>

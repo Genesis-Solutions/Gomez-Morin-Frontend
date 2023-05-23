@@ -67,6 +67,7 @@ const InitialForm = () => {
             label="Nombre del Evento"
             placeholder="Ejemplo: Taller de..."
             defaultValue=""
+            required = {true}
           />
         </div>
       </div>
@@ -77,6 +78,7 @@ const InitialForm = () => {
         label="Descripción del evento"
         placeholder="Ejemplo: Descripción general del evento..."
         defaultValue=""
+        required = {true}
         min="300"
         onChange={handleTextAreaChange}
       />
@@ -87,9 +89,10 @@ const InitialForm = () => {
           <InputForm
             type="date"
             name="startDay"
-            label="Dia de inicio del evento"
+            label="Día de inicio del evento"
             placeholder="Ejemplo: 04/24/2023"
             defaultValue=""
+            required = {true}
           />
         </div>
 
@@ -100,7 +103,8 @@ const InitialForm = () => {
             label="Hora de inicio del evento"
             placeholder="Ejemplo: 10:00pm"
             defaultValue=""
-            max="5"
+            maxLength="5"
+            required = {true}
           />
         </div>
       </div>
@@ -109,9 +113,10 @@ const InitialForm = () => {
           <InputForm
             type="date"
             name="endDay"
-            label="Dia de fin del evento"
+            label="Día de fin del evento"
             placeholder="Ejemplo: 04/25/2023"
             defaultValue=""
+            required = {true}
           />
         </div>
 
@@ -122,6 +127,7 @@ const InitialForm = () => {
             label="Hora de fin de evento"
             placeholder="Ejemplo: 11:00pm"
             defaultValue=""
+            required = {true}
           />
         </div>
       </div>
@@ -155,6 +161,7 @@ const InitialForm = () => {
             label="Lugar del evento"
             placeholder="Ejemplo: sala numero 3 de gomez morin"
             defaultValue=""
+            required = {true}
           />
         </div>
       </div>
@@ -174,6 +181,7 @@ const InitialForm = () => {
                 label="Especifica el costo por acceso"
                 placeholder="Ejemplo: 1000.."
                 defaultValue=""
+                min = {1}
               />
             )}
           </div>
@@ -186,6 +194,7 @@ const InitialForm = () => {
             label="Dirigido a"
             placeholder="Ejemplo: Adultos mayores de 18 años"
             defaultValue=""
+            required = {true}
           />
         </div>
       </div>
