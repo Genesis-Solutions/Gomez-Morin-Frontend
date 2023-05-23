@@ -63,8 +63,9 @@ const InputForm = ({
         maxLength={maxLength}
         min = {min}
         max = {max}
+        onChange={handleFileChange}
       />
-      {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+      {errorMessage && <p className="font-semibold text-red-400 text-sm">{errorMessage}</p>}
     </div>
   );
 };
