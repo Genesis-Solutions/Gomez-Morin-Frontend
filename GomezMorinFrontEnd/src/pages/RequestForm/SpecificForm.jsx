@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "../../components/Button";
 import InputForm from "../../components/InputForm";
 import TextArea from "../../components/TextArea";
@@ -24,6 +24,17 @@ import {
 const SpecificForm = () => {
   const dispatch = useDispatch();
   const typeEvent = useSelector((state) => state.form.typeEventForm);
+
+  const [characterCount, setCharacterCount] = useState(0);
+
+  /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly. 
+    * @param {event} event - The event of the textArea input.
+   */
+   const handleTextAreaChange = (event) => {
+    const text = event.target.value;
+    console.log(text.length);
+    setCharacterCount(text.length);
+  };
 
   return (
     <>
@@ -114,7 +125,9 @@ const SpecificForm = () => {
             defaultValue=""
             min="300"
             required = {true}
+            onChange={handleTextAreaChange}
           />
+           <p className="text-sm text-gray-500" >Caracteres Ingresados: {characterCount} Min:300 </p>
         </div>
 
         {/* Shared Between Evento and Taller Specific Questions */}
