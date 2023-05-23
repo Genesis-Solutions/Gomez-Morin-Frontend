@@ -77,7 +77,7 @@ const InitialForm = () => {
           <InputForm
             type="date"
             name="startDay"
-            label="Dia de inicio del evento"
+            label="Día de inicio del evento"
             placeholder="Ejemplo: 04/24/2023"
             defaultValue=""
             required = {true}
@@ -101,7 +101,7 @@ const InitialForm = () => {
           <InputForm
             type="date"
             name="endDay"
-            label="Dia de fin del evento"
+            label="Día de fin del evento"
             placeholder="Ejemplo: 04/25/2023"
             defaultValue=""
             required = {true}

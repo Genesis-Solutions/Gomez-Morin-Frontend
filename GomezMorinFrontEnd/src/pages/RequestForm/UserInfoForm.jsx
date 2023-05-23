@@ -31,7 +31,7 @@ const UserInfoForm = () => {
           <InputForm
             type="number"
             name="cellphone"
-            label="Número de telefono del solicitante"
+            label="Número de teléfono del solicitante"
             placeholder="Ejemplo: 777123443.."
             defaultValue=""
             min = {1000000000}
