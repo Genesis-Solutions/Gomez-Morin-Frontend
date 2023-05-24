@@ -87,9 +87,10 @@ const Register = () => {
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
-                pattern={
-                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&()_+}{"':;?/>.<,|=-]).{8,15}$/
-                }
+                pattern ={
+					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&()_+}{"':;?\/>.<,|=-]).{8,15}$/
+				} 
+
               />
               {errors.passwordRegister && (
                 <p className="text-red-500">
