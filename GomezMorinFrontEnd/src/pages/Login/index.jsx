@@ -41,10 +41,10 @@ const Login = () => {
           >
             <div className="mt-2">
               <InputForm
-                label="Usuario"
+                label="Usuario o correo"
                 name="userName"
                 type="text"
-                placeholder="Ingresa tu Usuario"
+                placeholder="Ingresa tu usuario o correo"
                 defaultValue=""
               />
             </div>
@@ -54,7 +54,7 @@ const Login = () => {
                 label="Contraseña"
                 name="password"
                 type="password"
-                placeholder="Ingresa tu Contraseña"
+                placeholder="Ingresa tu contraseña"
                 defaultValue=""
               />
             </div>
