@@ -101,7 +101,7 @@ const RequestAsMoral = () => {
                   type="file"
                   placeholder="Documento.pdf"
                   defaultValue=""
-                  accept="application/pdf"
+                  accept=".pdf"
                 />
               </div>
 

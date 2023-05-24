@@ -59,7 +59,7 @@ const UserInfoForm = () => {
         label="Sube la copia de tu INE"
         placeholder="Buscar..."
         defaultValue=""
-        accept="application/pdf"
+        accept=".pdf"
         required = {true}
       />
 
@@ -69,7 +69,7 @@ const UserInfoForm = () => {
         label="Sube la copia de tu comprobante de domicilio"
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
-        accept="application/pdf"
+        accept=".pdf"
         required = {true}
       />
 
@@ -79,7 +79,7 @@ const UserInfoForm = () => {
         label="Sube la copia de tu CURP"
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
-        accept="application/pdf"
+        accept=".pdf"
         required = {true}
       />
 
@@ -90,7 +90,7 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         required={false}
-        accept="application/pdf"
+        accept=".pdf"
       />
 
       {/* Form Navigation */}
