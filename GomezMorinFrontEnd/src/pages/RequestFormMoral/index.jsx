@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
 import { ClipLoader } from "react-spinners";
+import InputFileLabel from "../../components/InputFileLabel";
 
 /**
  * The RequestAsMoral functional component represents a form for creating
@@ -103,6 +104,9 @@ const RequestAsMoral = () => {
                   defaultValue=""
                   accept=".pdf"
                 />
+                <div className="pt-3">
+                <InputFileLabel />
+                </div>
               </div>
 
               <div className="flex justify-center">

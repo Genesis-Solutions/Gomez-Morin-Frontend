@@ -3,6 +3,7 @@ import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { setFormState } from "../../states/formSlice";
+import InputFileLabel from "../../components/InputFileLabel";
 
 /**
  * A React functional component that renders a form for collecting user information.
@@ -62,6 +63,7 @@ const UserInfoForm = () => {
         accept=".pdf"
         required = {true}
       />
+      <InputFileLabel />
 
       <InputForm
         type="file"
@@ -72,6 +74,7 @@ const UserInfoForm = () => {
         accept=".pdf"
         required = {true}
       />
+      <InputFileLabel />
 
       <InputForm
         type="file"
@@ -82,6 +85,7 @@ const UserInfoForm = () => {
         accept=".pdf"
         required = {true}
       />
+      <InputFileLabel />
 
       <InputForm
         type="file"
@@ -92,6 +96,7 @@ const UserInfoForm = () => {
         required={false}
         accept=".pdf"
       />
+      <InputFileLabel />
 
       {/* Form Navigation */}
       <div className="flex justify-end">

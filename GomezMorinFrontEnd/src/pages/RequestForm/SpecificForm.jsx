@@ -127,7 +127,7 @@ const SpecificForm = () => {
             required = {true}
             onChange={handleTextAreaChange}
           />
-           <p className="text-sm text-gray-500" >Caracteres Ingresados: {characterCount} Min:300 </p>
+           <p className="text-sm text-gray-600 font-bold" >Caracteres Ingresados: {characterCount} Min:300 </p>
         </div>
 
         {/* Shared Between Evento and Taller Specific Questions */}

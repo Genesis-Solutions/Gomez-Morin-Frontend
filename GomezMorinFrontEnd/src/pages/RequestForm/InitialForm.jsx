@@ -82,7 +82,7 @@ const InitialForm = () => {
         min="300"
         onChange={handleTextAreaChange}
       />
-      <p className="text-sm text-gray-500" >Caracteres Ingresados: {characterCount} Min:300 </p>
+      <p className="text-sm text-gray-600 font-bold" >Caracteres Ingresados: {characterCount} Min:300 </p>
 
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
