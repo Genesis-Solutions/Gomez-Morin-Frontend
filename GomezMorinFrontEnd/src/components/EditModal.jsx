@@ -134,6 +134,7 @@ const EditModal = ({ idForm, folio, estatus, userId }) => {
                             required={false}
                             placeholder={"Folio"}
                             defaultValue={folio}
+                            min={1}
                           />
                           <DropdownInput
                             label={"Estatus"}
