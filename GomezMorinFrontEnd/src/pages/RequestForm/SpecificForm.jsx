@@ -24,7 +24,7 @@ import {
 const SpecificForm = () => {
   const dispatch = useDispatch();
   const typeEvent = useSelector((state) => state.form.typeEventForm);
-
+  const currentDate = new Date().toISOString().split('T')[0]; 
   const [characterCount, setCharacterCount] = useState(0);
 
   /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly. 
@@ -47,6 +47,7 @@ const SpecificForm = () => {
             label="Fecha de solicitud"
             defaultValue=""
             required = {true}
+			min={currentDate} 
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -228,6 +229,7 @@ const SpecificForm = () => {
                 name="openingDayDate"
                 label="Fecha de inauguración"
                 defaultValue=""
+				min={currentDate}
               />
             </div>
             <div className="md:col-span-1 col-span-2">
