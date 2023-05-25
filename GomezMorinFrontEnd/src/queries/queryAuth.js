@@ -25,8 +25,11 @@ export const postUser = async(data) => {
         password: passwordRegister,
     };
     if (isMoralRegister) {
+        //The ones above are for production.
+        //body.ptrRol = "646f9d298506765ede040d16";
         body.ptrRol = "6451a03436c62efad459f3b4";
     } else {
+        //body.ptrRol = "646fa0f9c2fda4000ff84c7f";
         body.ptrRol = "6451f22a0e8703af7a4a87b7";
     }
 
