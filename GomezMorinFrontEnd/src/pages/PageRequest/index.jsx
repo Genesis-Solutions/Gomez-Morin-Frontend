@@ -6,6 +6,7 @@ import DataGridComponent from "../../components/DataGridComponent";
 import { getForm } from "../../queries/queryRequestForm";
 import { useSelector } from "react-redux";
 
+
 /**
  * The PageRequest component displays the request page, including a header, a button to create a new request,
  * and a data grid component to display existing requests.
@@ -74,7 +75,7 @@ const PageRequest = () => {
    * @returns {JSX.Element} - The PageRequest component.
    */
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6">
+    <div className={`grid grid-cols-1 md:grid-cols-6 ${rows.length === 0 ? 'lg:h-full' : ''}`}>
       <div className="md:col-span-1 md:bg-sideLeftBG md:bg-cover md:bg-center md:bg-no-repeat"></div>
       <div className="col-span-1 md:col-span-4 flex justify-between">
         <div className="flex flex-col items-center py-10 w-full md:p-12">
@@ -104,7 +105,7 @@ const PageRequest = () => {
                 columns={rol === "Moral" ? columnsMoral : columns}
               ></DataGridComponent>
             ) : (
-              <div className="flex justify-center items-center w-full h-full">
+              <div className="flex justify-center items-center w-full">
                 <p className="text-base md:text-2xl text-gray-400">
                   No hay solicitudes registradas
                 </p>
