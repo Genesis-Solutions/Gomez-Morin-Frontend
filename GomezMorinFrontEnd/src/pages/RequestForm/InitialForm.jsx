@@ -128,7 +128,7 @@ const InitialForm = () => {
             placeholder="Ejemplo: 04/25/2023"
             defaultValue=""
             required={true}
-            min={startDay || currentDate} 
+            min={startDay || currentDate}
           />
         </div>
 
