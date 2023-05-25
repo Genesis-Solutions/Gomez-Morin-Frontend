@@ -53,10 +53,10 @@ const RequestAsMoral = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-6 w-screen h-screen">
-      <div className="md:h-full md:col-span-1 md:bg-sideLeftBG md:bg-cover md:bg-center md:bg-no-repeat"></div>
-      <div className="md:col-span-4 w-full h-full flex justify-between">
-        <div className="flex flex-col items-center w-full h-full px-6 md:px-10 lg:px-16 py-3">
+    <div className="grid grid-cols-1 lg:grid-cols-6 w-screen lg:h-screen">
+      <div className="lg:h-full lg:col-span-1 lg:bg-sideLeftBG lg:bg-cover lg:bg-center lg:bg-no-repeat"></div>
+      <div className="lg:col-span-4 w-full h-full flex justify-between">
+        <div className="flex flex-col items-center w-full h-full px-6 lg:px-10 xl:px-16 py-3">
           <div className="py-3 pb-6 w-full">
             <Header tittle="Nueva solicitud" />
           </div>
@@ -128,7 +128,7 @@ const RequestAsMoral = () => {
           </FormProvider>
         </div>
       </div>
-      <div className="md:h-full md:col-span-1 md:bg-sideRightBG md:bg-cover md:bg-center md:bg-no-repeat"></div>
+      <div className="lg:h-full lg:col-span-1 lg:bg-sideRightBG lg:bg-cover lg:bg-center lg:bg-no-repeat"></div>
     </div>
   );
 };
