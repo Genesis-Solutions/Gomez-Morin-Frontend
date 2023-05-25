@@ -75,9 +75,9 @@ const PageRequest = () => {
    * @returns {JSX.Element} - The PageRequest component.
    */
   return (
-    <div className={`grid grid-cols-1 md:grid-cols-6 ${rows.length === 0 ? 'lg:h-full' : ''}`}>
-      <div className="md:col-span-1 md:bg-sideLeftBG md:bg-cover md:bg-center md:bg-no-repeat"></div>
-      <div className="col-span-1 md:col-span-4 flex justify-between">
+    <div className={`grid grid-cols-1 lg:grid-cols-6 ${rows.length === 0 ? 'lg:h-full' : ''}`}>
+      <div className="lg:col-span-1 lg:bg-sideLeftBG lg:bg-cover lg:bg-center lg:bg-no-repeat"></div>
+      <div className="col-span-1 lg:col-span-4 flex justify-between">
         <div className="flex flex-col items-center py-10 w-full md:p-12">
           <Header tittle={"Solicitudes"} />
           <div className="flex py-12 w-52 h-36 md:w-96 md:h-36 md:p-12 md:px-6 ">
@@ -114,7 +114,7 @@ const PageRequest = () => {
           </div>
         </div>
       </div>
-      <div className="md:col-span-1 md:bg-sideRightBG md:bg-cover md:bg-center md:bg-no-repeat"></div>
+      <div className="lg:col-span-1 lg:bg-sideRightBG lg:bg-cover lg:bg-center lg:bg-no-repeat"></div>
     </div>
   );
 };

@@ -53,7 +53,7 @@ const RequestAsMoral = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-6 w-screen lg:h-screen">
+    <div className="grid grid-cols-1 lg:grid-cols-6 w-screen md:h-screen">
       <div className="lg:h-full lg:col-span-1 lg:bg-sideLeftBG lg:bg-cover lg:bg-center lg:bg-no-repeat"></div>
       <div className="lg:col-span-4 w-full h-full flex justify-between">
         <div className="flex flex-col items-center w-full h-full px-6 lg:px-10 xl:px-16 py-3">
