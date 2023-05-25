@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Button from "../../components/Button";
 import InputForm from "../../components/InputForm";
 import TextArea from "../../components/TextArea";
@@ -24,13 +24,13 @@ import {
 const SpecificForm = () => {
   const dispatch = useDispatch();
   const typeEvent = useSelector((state) => state.form.typeEventForm);
-
+  const currentDate = new Date().toISOString().split("T")[0];
   const [characterCount, setCharacterCount] = useState(0);
 
-  /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly. 
-    * @param {event} event - The event of the textArea input.
+  /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly.
+   * @param {event} event - The event of the textArea input.
    */
-   const handleTextAreaChange = (event) => {
+  const handleTextAreaChange = (event) => {
     const text = event.target.value;
     console.log(text.length);
     setCharacterCount(text.length);
@@ -46,7 +46,8 @@ const SpecificForm = () => {
             name="requestDate"
             label="Fecha de solicitud"
             defaultValue=""
-            required = {true}
+            required={true}
+            min={currentDate}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -57,9 +58,9 @@ const SpecificForm = () => {
             placeholder="4441234566"
             minLength="10"
             defaultValue=""
-            min = "1000000000"
-            max = "9999999999"
-            required = {true}
+            min="1000000000"
+            max="9999999999"
+            required={true}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -69,7 +70,7 @@ const SpecificForm = () => {
             label="Dirección del solicitante"
             placeholder="Av. Parque Tecnológico #468"
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -79,9 +80,9 @@ const SpecificForm = () => {
             label="Código Postal"
             placeholder="76123"
             defaultValue=""
-            min = "10000"
-            max = "99999"
-            required = {true}
+            min="10000"
+            max="99999"
+            required={true}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -100,7 +101,7 @@ const SpecificForm = () => {
             label="Colonia del solicitante"
             placeholder="El Sol"
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -112,7 +113,7 @@ const SpecificForm = () => {
             name="chairNumber"
             label="Número de sillas"
             placeholder="10"
-            min = "0"
+            min="0"
             defaultValue="0"
           />
         </div>
@@ -124,10 +125,12 @@ const SpecificForm = () => {
             placeholder="Se mostrarán diferentes bandas en rondas"
             defaultValue=""
             min="300"
-            required = {true}
+            required={true}
             onChange={handleTextAreaChange}
           />
-           <p className="text-sm text-gray-600 font-bold" >Caracteres Ingresados: {characterCount} Min:300 </p>
+          <p className="text-sm text-gray-600 font-bold">
+            Caracteres Ingresados: {characterCount} Min:300{" "}
+          </p>
         </div>
 
         {/* Shared Between Evento and Taller Specific Questions */}
@@ -140,8 +143,8 @@ const SpecificForm = () => {
                 label="Número aproximado de asistentes"
                 placeholder="25"
                 defaultValue="1"
-                min = "1"
-                required = {true}
+                min="1"
+                required={true}
               />
             </div>
             <div className="md:col-span-1 col-span-2">
@@ -151,7 +154,7 @@ const SpecificForm = () => {
                 label="Rango de edades del público"
                 placeholder="18 - 25"
                 defaultValue=""
-                required = {true}
+                required={true}
               />
             </div>
             <div className="md:col-span-1 col-span-2">
@@ -161,7 +164,7 @@ const SpecificForm = () => {
                 label="Equipo requerido de Gómez Morín"
                 placeholder="Computadoras, pantallas, proyectores, etc.."
                 defaultValue=""
-                required = {true}
+                required={true}
               />
             </div>
             <div className="md:col-span-1 col-span-2">
@@ -196,7 +199,7 @@ const SpecificForm = () => {
                 label="Número de mesas"
                 placeholder="5"
                 defaultValue="0"
-                min = "0"
+                min="0"
               />
             </div>
           </>
@@ -228,6 +231,7 @@ const SpecificForm = () => {
                 name="openingDayDate"
                 label="Fecha de inauguración"
                 defaultValue=""
+                min={currentDate}
               />
             </div>
             <div className="md:col-span-1 col-span-2">

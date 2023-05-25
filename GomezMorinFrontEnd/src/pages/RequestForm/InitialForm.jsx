@@ -39,11 +39,17 @@ const InitialForm = () => {
 
   const dispatch = useDispatch();
   const [characterCount, setCharacterCount] = useState(0);
+  const currentDate = new Date().toISOString().split("T")[0];
+  const [startDay, setStartDay] = useState("");
 
-   /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly. 
-    * @param {event} event - The event of the textArea input.
+  const handleStartDayChange = (event) => {
+    setStartDay(event.target.value);
+  };
+
+  /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly.
+   * @param {event} event - The event of the textArea input.
    */
-   const handleTextAreaChange = (event) => {
+  const handleTextAreaChange = (event) => {
     const text = event.target.value;
     //console.log(text.length);
     setCharacterCount(text.length);
@@ -67,7 +73,7 @@ const InitialForm = () => {
             label="Nombre del Evento"
             placeholder="Ejemplo: Taller de..."
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
       </div>
@@ -78,11 +84,13 @@ const InitialForm = () => {
         label="Descripción del evento"
         placeholder="Ejemplo: Descripción general del evento..."
         defaultValue=""
-        required = {true}
+        required={true}
         min="300"
         onChange={handleTextAreaChange}
       />
-      <p className="text-sm text-gray-600 font-bold" >Caracteres Ingresados: {characterCount} Min:300 </p>
+      <p className="text-sm text-gray-600 font-bold">
+        Caracteres Ingresados: {characterCount} Min:300{" "}
+      </p>
 
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
@@ -92,7 +100,10 @@ const InitialForm = () => {
             label="Día de inicio del evento"
             placeholder="Ejemplo: 04/24/2023"
             defaultValue=""
-            required = {true}
+            required={true}
+            min={currentDate}
+            value={startDay}
+            onChange={handleStartDayChange}
           />
         </div>
 
@@ -104,7 +115,7 @@ const InitialForm = () => {
             placeholder="Ejemplo: 10:00pm"
             defaultValue=""
             maxLength="5"
-            required = {true}
+            required={true}
           />
         </div>
       </div>
@@ -116,7 +127,8 @@ const InitialForm = () => {
             label="Día de fin del evento"
             placeholder="Ejemplo: 04/25/2023"
             defaultValue=""
-            required = {true}
+            required={true}
+            min={startDay || currentDate}
           />
         </div>
 
@@ -127,7 +139,7 @@ const InitialForm = () => {
             label="Hora de fin de evento"
             placeholder="Ejemplo: 11:00pm"
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
       </div>
@@ -161,7 +173,7 @@ const InitialForm = () => {
             label="Lugar del evento"
             placeholder="Ejemplo: sala numero 3 de gomez morin"
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
       </div>
@@ -181,7 +193,7 @@ const InitialForm = () => {
                 label="Especifica el costo por acceso"
                 placeholder="Ejemplo: 1000.."
                 defaultValue=""
-                min = {1}
+                min={1}
               />
             )}
           </div>
@@ -194,7 +206,7 @@ const InitialForm = () => {
             label="Dirigido a"
             placeholder="Ejemplo: Adultos mayores de 18 años"
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
       </div>
