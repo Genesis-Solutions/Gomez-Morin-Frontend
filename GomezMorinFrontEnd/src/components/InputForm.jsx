@@ -25,6 +25,7 @@ const InputForm = ({
   pattern,
   required = false,
   accept,
+  value,
   minLength,
   maxLength,
   min,
