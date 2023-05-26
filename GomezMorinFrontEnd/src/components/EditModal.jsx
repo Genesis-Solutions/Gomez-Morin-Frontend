@@ -142,7 +142,7 @@ const EditModal = ({ idForm, folio, estatus, userId }) => {
                             id={"estatus"}
                             defaultValue={estatus}
                             options={[
-                              { value: "En proceso", _id: "1" },
+							  { value: "En Comité", _id: "1" },
                               { value: "Aprobado", _id: "2" },
                               { value: "Cancelado", _id: "3" },
                             ]}
