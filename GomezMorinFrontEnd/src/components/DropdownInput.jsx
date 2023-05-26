@@ -24,7 +24,7 @@ const DropdownInput = ({ name, label, id, options, defaultValue }) => {
         name={name}
         id={id}
       >
-        <option key={""} value={""}>
+        <option key={""} value={defaultValue}>
           {defaultValue ? defaultValue : "- Selecciona -"}
         </option>
         {options.map((option) => {

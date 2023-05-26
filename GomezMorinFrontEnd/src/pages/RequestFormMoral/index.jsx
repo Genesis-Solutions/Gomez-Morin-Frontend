@@ -7,6 +7,8 @@ import { useForm, FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
+import { ClipLoader } from "react-spinners";
+import InputFileLabel from "../../components/InputFileLabel";
 
 /**
  * The RequestAsMoral functional component represents a form for creating
@@ -15,7 +17,7 @@ import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
 const RequestAsMoral = () => {
   const methods = useForm();
   const navigate = useNavigate();
-
+  const [isLoading, setIsLoading] = useState(true);
   const userId = useSelector((state) => state.auth.id);
   const [isChecked, setIsChecked] = useState(false);
   const today = new Date();
@@ -37,8 +39,17 @@ const RequestAsMoral = () => {
       await createRequestMoral({ ...data, userId: userId, date: todayString });
       navigate("/request");
     } catch (err) {
-      alert(err.message);
+      alert("Por favor sube un documento.");
     }
+  };
+
+  /**
+   * The handlePdfLoad function handles the loading of the pdf.
+   *
+   * @returns {void}
+   */
+  const handlePdfLoad = () => {
+    setIsLoading(false);
   };
 
   return (
@@ -49,7 +60,19 @@ const RequestAsMoral = () => {
           <div className="py-3 pb-6 w-full">
             <Header tittle="Nueva solicitud" />
           </div>
-          <iframe src={guideLinesPdf} width="100%" height={"100%"} />
+
+          <iframe
+            src={guideLinesPdf}
+            onLoad={handlePdfLoad}
+            width="100%"
+            height={"100%"}
+          />
+          {isLoading && (
+            <div className="text-center">
+              <ClipLoader size={35} color="#000000" loading={isLoading} />
+            </div>
+          )}
+
           <br />
           <FormProvider {...methods}>
             <form
@@ -79,8 +102,11 @@ const RequestAsMoral = () => {
                   type="file"
                   placeholder="Documento.pdf"
                   defaultValue=""
-                  accept="application/pdf"
+                  accept=".pdf"
                 />
+                <div className="pt-3">
+                  <InputFileLabel />
+                </div>
               </div>
 
               <div className="flex justify-center">

@@ -3,6 +3,7 @@ import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { setFormState } from "../../states/formSlice";
+import InputFileLabel from "../../components/InputFileLabel";
 
 /**
  * A React functional component that renders a form for collecting user information.
@@ -23,6 +24,7 @@ const UserInfoForm = () => {
             label="Nombre del solicitante"
             placeholder="Ejemplo: Juan Alcántara.."
             defaultValue=""
+            required = {true}
           />
         </div>
 
@@ -30,9 +32,12 @@ const UserInfoForm = () => {
           <InputForm
             type="number"
             name="cellphone"
-            label="Número de telefono del solicitante"
+            label="Número de teléfono del solicitante"
             placeholder="Ejemplo: 777123443.."
             defaultValue=""
+            min = {1000000000}
+            max = {9999999999}
+            required = {true}
           />
         </div>
       </div>
@@ -45,6 +50,7 @@ const UserInfoForm = () => {
             label="Correo del solicitante"
             placeholder="Ejemplo: Juan@gmail.com.."
             defaultValue=""
+            required = {true}
           />
         </div>
       </div>
@@ -54,8 +60,10 @@ const UserInfoForm = () => {
         label="Sube la copia de tu INE"
         placeholder="Buscar..."
         defaultValue=""
-        accept="application/pdf"
+        accept=".pdf"
+        required = {true}
       />
+      <InputFileLabel />
 
       <InputForm
         type="file"
@@ -63,8 +71,10 @@ const UserInfoForm = () => {
         label="Sube la copia de tu comprobante de domicilio"
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
-        accept="application/pdf"
+        accept=".pdf"
+        required = {true}
       />
+      <InputFileLabel />
 
       <InputForm
         type="file"
@@ -72,8 +82,10 @@ const UserInfoForm = () => {
         label="Sube la copia de tu CURP"
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
-        accept="application/pdf"
+        accept=".pdf"
+        required = {true}
       />
+      <InputFileLabel />
 
       <InputForm
         type="file"
@@ -82,8 +94,9 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         required={false}
-        accept="application/pdf"
+        accept=".pdf"
       />
+      <InputFileLabel />
 
       {/* Form Navigation */}
       <div className="flex justify-end">

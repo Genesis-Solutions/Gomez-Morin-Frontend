@@ -20,16 +20,16 @@ const RequestAll = () => {
   const navigate = useNavigate();
   // Define columns to be displayed in the data grid component
   const columns = [
-    { field: "fecha", headerName: "Fecha", width: 200 },
-    { field: "folio", headerName: "Folio", width: 200 },
-    { field: "tipo", headerName: "Tipo", width: 200 },
-    { field: "evento", headerName: "Evento", width: 200 },
-    { field: "nombre", headerName: "Nombre", width: 200 },
-    { field: "estatus", headerName: "Estatus", width: 200 },
+    { field: "fecha", headerName: "Fecha", width: 125 },
+    { field: "folio", headerName: "Folio", width: 150 },
+    { field: "tipo", headerName: "Tipo", width: 150 },
+    { field: "evento", headerName: "Evento", width: 125 },
+    { field: "nombre", headerName: "Nombre", width: 300 },
+    { field: "estatus", headerName: "Estatus", width: 150 },
     {
       field: "actions",
       headerName: "Editar",
-      width: 200,
+      width: 125,
       renderCell: ({ row }) => (
         <EditModal
           idForm={row.id}
@@ -42,7 +42,7 @@ const RequestAll = () => {
     {
       field: "details",
       headerName: "Detalles",
-      width: 200,
+      width: 100,
       renderCell: ({ row }) => (
         <button
           onClick={() => {
@@ -84,12 +84,12 @@ const RequestAll = () => {
 
   // Render the RequestAll component
   return (
-    <div className="flex flex-col items-center gap-9 w-full h-full">
-      <div className="h-1/6 w-full">
+    <div className="flex flex-col items-center gap-9 w-full h-full mb-4 md:mb-10">
+      <div className="h-1/6 w-full ">
         {/* Display an image title with the "Bandeja de Entrada" title and an image */}
         <ImageTitle title={"Bandeja de Entrada"} image={ImageTitleImage} />
       </div>
-      <div className="flex flex-col justify-center w-full pl-8 pr-8 ">
+      <div className="flex flex-col justify-center w-full xl:w-auto px-6 ">
         {/* Display the data grid component with the columns and rows */}
         <DataGridComponent columns={columns} rows={rows} />
       </div>

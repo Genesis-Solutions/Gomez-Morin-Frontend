@@ -42,14 +42,14 @@ const Register = () => {
   };
 
   return (
-    <div className="w-full h-full grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mb-6">
-      <div className=" h-full grid grid-rows-7 mx-14 mt-4">
+    <div className="w-full grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 mb-6">
+      <div className="h-full grid grid-rows-7 mx-14 mt-4">
         <div className="flex justify-center ">
           <IconTitle image={hexagono} headerText="Registrarse" />
         </div>
         <FormProvider {...methods}>
           <form onSubmit={methods.handleSubmit(onSubmitUser)}>
-            <div className="">
+            <div>
               <CheckBoxInput
                 label="Soy persona moral"
                 name="isMoralRegister"
@@ -87,9 +87,10 @@ const Register = () => {
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
-                pattern={
-                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&()_+}{"':;?/>.<,|=-]).{8,15}$/
-                }
+                pattern ={
+					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&()_+}{"':;?\/>.<,|=-]).{8,15}$/
+				} 
+
               />
               {errors.passwordRegister && (
                 <p className="text-red-500">
@@ -126,7 +127,7 @@ const Register = () => {
           </form>
         </FormProvider>
       </div>
-      <div className="md:flex-1 md:bg-login md:bg-cover md:bg-center md:bg-no-repeat md:h-screen"></div>
+      <div className="lg:flex-1 lg:bg-login lg:bg-cover lg:bg-center lg:bg-no-repeat lg:h-screen"></div>
     </div>
   );
 };

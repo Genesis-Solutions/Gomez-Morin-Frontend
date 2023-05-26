@@ -29,9 +29,9 @@ const Login = () => {
   };
 
   return (
-    <div className="w-full h-full grid grid-cols-1 md:grid-cols-2 ">
+    <div className="w-full grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 ">
       <div className=" h-full  mx-14 mt-4">
-        <div className=" flex justify-start mt-8 ml-32">
+        <div className=" flex lg:justify-start md:justify-center sm:justify-start lg:ml-32 ml-32 md:ml-5 mt-8">
           <IconTitle image={hexagono} headerText="Iniciar Sesión" />
         </div>
         <FormProvider {...methods}>
@@ -41,10 +41,10 @@ const Login = () => {
           >
             <div className="mt-2">
               <InputForm
-                label="Usuario"
+                label="Usuario o correo"
                 name="userName"
                 type="text"
-                placeholder="Ingresa tu Usuario"
+                placeholder="Ingresa tu usuario o correo"
                 defaultValue=""
               />
             </div>
@@ -54,7 +54,7 @@ const Login = () => {
                 label="Contraseña"
                 name="password"
                 type="password"
-                placeholder="Ingresa tu Contraseña"
+                placeholder="Ingresa tu contraseña"
                 defaultValue=""
               />
             </div>
@@ -78,7 +78,7 @@ const Login = () => {
           </form>
         </FormProvider>
       </div>
-      <div className="md:flex-1 md:bg-login md:bg-cover md:bg-center md:bg-no-repeat md:h-screen"></div>
+      <div className="lg:flex-1 lg:bg-login lg:bg-cover lg:bg-center lg:bg-no-repeat lg:h-screen"></div>
     </div>
   );
 };
