@@ -2,7 +2,7 @@ import axios from "axios";
 import { useDispatch } from "react-redux";
 import jwt_decode from "jwt-decode";
 import { setAccessToken, setUser } from "../states/authSlice";
-import viteConfig from "../../vite.config";
+
 const baseUrl = import.meta.env.VITE_BASE_URL;
 
 const fisico = import.meta.env.VITE_PTR_FISICO;
