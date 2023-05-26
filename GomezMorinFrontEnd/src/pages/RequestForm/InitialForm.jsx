@@ -41,9 +41,16 @@ const InitialForm = () => {
   const [characterCount, setCharacterCount] = useState(0);
   const currentDate = new Date().toISOString().split("T")[0];
   const [startDay, setStartDay] = useState("");
+  const [endDay, setEndDay] = useState("");
 
   const handleStartDayChange = (event) => {
-    setStartDay(event.target.value);
+    const selectedStartDay = event.target.value;
+    setStartDay(selectedStartDay);
+    setEndDay(""); // Reiniciar el valor de endDay cuando se cambia startDay
+  };
+
+  const handleEndDayChange = (event) => {
+    setEndDay(event.target.value);
   };
 
   /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly.
@@ -94,19 +101,23 @@ const InitialForm = () => {
 
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
-          <InputForm
-            type="date"
-            name="startDay"
-            label="Día de inicio del evento"
-            placeholder="Ejemplo: 04/24/2023"
-            defaultValue=""
-            required={true}
-            min={currentDate}
-            value={startDay}
-            onChange={handleStartDayChange}
-          />
+          <div className="flex flex-col gap-2 w-full h-full">
+            <label htmlFor="startDay" className="font-semibold text-md py-1">
+              Día de inicio del evento:
+            </label>
+            <input
+              className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+              type="date"
+              id="startDay"
+              name="startDay"
+              placeholder="Ejemplo: 04/24/2023"
+              required={true}
+              min={currentDate}
+              value={startDay}
+              onChange={handleStartDayChange}
+            />
+          </div>
         </div>
-
         <div className="flex-1">
           <InputForm
             type="time"
@@ -121,15 +132,23 @@ const InitialForm = () => {
       </div>
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
-          <InputForm
-            type="date"
-            name="endDay"
-            label="Día de fin del evento"
-            placeholder="Ejemplo: 04/25/2023"
-            defaultValue=""
-            required={true}
-            min={startDay || currentDate}
-          />
+          <div className="flex flex-col gap-2 w-full h-full">
+            <label htmlFor="endDay" className="font-semibold text-md py-1">
+              Día de fin del evento:
+            </label>
+            <input
+              className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+              type="date"
+              id="endDay"
+              name="endDay"
+              placeholder="Ejemplo: 04/25/2023"
+              required={true}
+              min={startDay} // Utiliza startDay como el límite mínimo para endDay
+              value={endDay}
+              onChange={handleEndDayChange}
+              disabled={!startDay} // Deshabilita endDay hasta que se seleccione startDay
+            />
+          </div>
         </div>
 
         <div className="flex-1">
