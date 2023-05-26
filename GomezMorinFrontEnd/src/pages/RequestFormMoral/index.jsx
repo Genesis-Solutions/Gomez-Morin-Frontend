@@ -39,7 +39,7 @@ const RequestAsMoral = () => {
       await createRequestMoral({ ...data, userId: userId, date: todayString });
       navigate("/request");
     } catch (err) {
-      alert(err.message);
+      alert("Por favor sube un documento.");
     }
   };
 
@@ -105,7 +105,7 @@ const RequestAsMoral = () => {
                   accept=".pdf"
                 />
                 <div className="pt-3">
-                <InputFileLabel />
+                  <InputFileLabel />
                 </div>
               </div>
 
