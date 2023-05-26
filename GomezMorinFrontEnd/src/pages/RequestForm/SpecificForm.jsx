@@ -61,6 +61,9 @@ const SpecificForm = () => {
             min="1000000000"
             max="9999999999"
             required={true}
+            onChange={(event) => {
+              event.target.value = event.target.value.replace(/\D/, "");
+            }}
           />
         </div>
         <div className="md:col-span-1 col-span-2">

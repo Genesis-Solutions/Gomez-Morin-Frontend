@@ -41,7 +41,6 @@ const InitialForm = () => {
   const [characterCount, setCharacterCount] = useState(0);
   const currentDate = new Date().toISOString().split("T")[0];
   const [startDay, setStartDay] = useState("");
-
   const handleStartDayChange = (event) => {
     setStartDay(event.target.value);
   };
@@ -128,7 +127,7 @@ const InitialForm = () => {
             placeholder="Ejemplo: 04/25/2023"
             defaultValue=""
             required={true}
-            min={startDay || currentDate}
+            min={currentDate}
           />
         </div>
 

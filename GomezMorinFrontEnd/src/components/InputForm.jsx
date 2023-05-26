@@ -28,7 +28,7 @@ const InputForm = ({
   minLength,
   maxLength,
   min,
-  max
+  max,
 }) => {
   const { register } = useFormContext();
   const [errorMessage, setErrorMessage] = useState("");
@@ -61,11 +61,13 @@ const InputForm = ({
         accept={accept}
         minLength={minLength}
         maxLength={maxLength}
-        min = {min}
-        max = {max}
+        min={min}
+        max={max}
         onChange={handleFileChange}
       />
-      {errorMessage && <p className="font-semibold text-red-400 text-sm">{errorMessage}</p>}
+      {errorMessage && (
+        <p className="font-semibold text-red-400 text-sm">{errorMessage}</p>
+      )}
     </div>
   );
 };
