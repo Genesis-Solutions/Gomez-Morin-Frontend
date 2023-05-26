@@ -27,9 +27,9 @@ export const postUser = async (data) => {
     password: passwordRegister,
   };
   if (isMoralRegister) {
-    body.ptrRol = fisico;
-  } else {
     body.ptrRol = moral;
+  } else {
+    body.ptrRol = fisico;
   }
 
   try {
