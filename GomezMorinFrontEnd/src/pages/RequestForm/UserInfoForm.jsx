@@ -24,7 +24,7 @@ const UserInfoForm = () => {
             label="Nombre del solicitante"
             placeholder="Ejemplo: Juan Alcántara.."
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
 
@@ -35,9 +35,9 @@ const UserInfoForm = () => {
             label="Número de teléfono del solicitante"
             placeholder="Ejemplo: 777123443.."
             defaultValue=""
-            min = {1000000000}
-            max = {9999999999}
-            required = {true}
+            min={1000000000}
+            max={9999999999}
+            required={true}
           />
         </div>
       </div>
@@ -50,7 +50,7 @@ const UserInfoForm = () => {
             label="Correo del solicitante"
             placeholder="Ejemplo: Juan@gmail.com.."
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
       </div>
@@ -61,7 +61,7 @@ const UserInfoForm = () => {
         placeholder="Buscar..."
         defaultValue=""
         accept=".pdf"
-        required = {true}
+        required={true}
       />
       <InputFileLabel />
 
@@ -72,7 +72,7 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         accept=".pdf"
-        required = {true}
+        required={true}
       />
       <InputFileLabel />
 
@@ -83,7 +83,7 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         accept=".pdf"
-        required = {true}
+        required={true}
       />
       <InputFileLabel />
 
