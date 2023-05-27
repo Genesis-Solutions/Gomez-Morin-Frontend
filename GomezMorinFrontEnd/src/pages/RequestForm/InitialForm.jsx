@@ -9,7 +9,6 @@ import { setFormState, showUserForm } from "../../states/formSlice";
 import { typeEvent } from "../../utils/RequestForm/options";
 import { useFormContext } from "react-hook-form";
 
-
 /**
  * A React functional component that renders a form for collecting initial information about an event.
  *
@@ -104,17 +103,17 @@ const InitialForm = () => {
 
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
-            <InputForm
-              type="date"
-			  label="Dia de inicio del evento"
-              id="startDay"
-              name="startDay"
-              placeholder="Ejemplo: 04/24/2023"
-              required={true}
-              min={currentDate}
-              value={startDay}
-              onChange={handleStartDayChange}
-            />
+          <InputForm
+            type="date"
+            label="Dia de inicio del evento"
+            id="startDay"
+            name="startDay"
+            placeholder="Ejemplo: 04/24/2023"
+            required={true}
+            min={currentDate}
+            value={startDay}
+            onChange={handleStartDayChange}
+          />
         </div>
         <div className="flex-1">
           <InputForm
@@ -130,18 +129,18 @@ const InitialForm = () => {
       </div>
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
-            <InputForm
-              type="date"
-              id="endDay"
-			  label="Dia de fin del evento"
-              name="endDay"
-              placeholder="Ejemplo: 04/25/2023"
-              required={true}
-              min={startDay} // Utiliza startDay como el límite mínimo para endDay
-              value={endDay}
-              onChange={handleEndDayChange}
-              disabled={!startDay} // Deshabilita endDay hasta que se seleccione startDay
-            />
+          <InputForm
+            type="date"
+            id="endDay"
+            label="Dia de fin del evento"
+            name="endDay"
+            placeholder="Ejemplo: 04/25/2023"
+            required={true}
+            min={startDay} // Utiliza startDay como el límite mínimo para endDay
+            value={endDay}
+            onChange={handleEndDayChange}
+            disabled={!startDay} // Deshabilita endDay hasta que se seleccione startDay
+          />
         </div>
 
         <div className="flex-1">

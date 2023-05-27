@@ -29,7 +29,7 @@ const InputForm = ({
   maxLength,
   min,
   max,
-  onChange
+  onChange,
 }) => {
   const { register } = useFormContext();
   const [errorMessage, setErrorMessage] = useState("");

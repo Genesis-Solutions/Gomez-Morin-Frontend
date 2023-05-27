@@ -48,7 +48,7 @@ const SpecificForm = () => {
             defaultValue=""
             required={true}
             min={currentDate}
-			max={currentDate}
+            max={currentDate}
           />
         </div>
         <div className="md:col-span-1 col-span-2">

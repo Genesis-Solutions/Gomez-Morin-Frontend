@@ -116,11 +116,11 @@ const RequestAsMoral = () => {
                   type="file"
                   placeholder="Documento.pdf"
                   defaultValue=""
-		  		  onChange={handleFileChange}
+                  onChange={handleFileChange}
                   accept=".pdf"
                 />
                 <div className="pt-3">
-                <InputFileLabel />
+                  <InputFileLabel />
                 </div>
               </div>
 

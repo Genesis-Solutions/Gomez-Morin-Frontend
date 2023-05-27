@@ -11,19 +11,19 @@ import InputFileLabel from "../../components/InputFileLabel";
  * @returns The JSX element that renders the user info form.
  */
 
-  const handleFileChange = (event) => {
-    if (event.target.files) {
-      const file = event.target.files[0];
-      const allowedExtensions = /(\.pdf)$/i;
+const handleFileChange = (event) => {
+  if (event.target.files) {
+    const file = event.target.files[0];
+    const allowedExtensions = /(\.pdf)$/i;
 
-      if (!allowedExtensions.test(file.name)) {
-        setErrorMessage("Solo se permiten archivos PDF.");
-      } else {
-        setErrorMessage("");
-      }
+    if (!allowedExtensions.test(file.name)) {
+      setErrorMessage("Solo se permiten archivos PDF.");
+    } else {
+      setErrorMessage("");
     }
-    return;
-  };
+  }
+  return;
+};
 
 const UserInfoForm = () => {
   const dispatch = useDispatch();
@@ -38,7 +38,7 @@ const UserInfoForm = () => {
             label="Nombre del solicitante"
             placeholder="Ejemplo: Juan Alcántara.."
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
 
@@ -49,9 +49,9 @@ const UserInfoForm = () => {
             label="Número de teléfono del solicitante"
             placeholder="Ejemplo: 777123443.."
             defaultValue=""
-            min = {1000000000}
-            max = {9999999999}
-            required = {true}
+            min={1000000000}
+            max={9999999999}
+            required={true}
           />
         </div>
       </div>
@@ -64,7 +64,7 @@ const UserInfoForm = () => {
             label="Correo del solicitante"
             placeholder="Ejemplo: Juan@gmail.com.."
             defaultValue=""
-            required = {true}
+            required={true}
           />
         </div>
       </div>
@@ -75,8 +75,8 @@ const UserInfoForm = () => {
         placeholder="Buscar..."
         defaultValue=""
         accept=".pdf"
-		onChange={handleFileChange}
-        required = {true}
+        onChange={handleFileChange}
+        required={true}
       />
       <InputFileLabel />
 
@@ -87,8 +87,8 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         accept=".pdf"
-		onChange={handleFileChange}
-        required = {true}
+        onChange={handleFileChange}
+        required={true}
       />
       <InputFileLabel />
 
@@ -99,8 +99,8 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         accept=".pdf"
-		onChange={handleFileChange}
-        required = {true}
+        onChange={handleFileChange}
+        required={true}
       />
       <InputFileLabel />
 
@@ -111,7 +111,7 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         required={false}
-		onChange={handleFileChange}
+        onChange={handleFileChange}
         accept=".pdf"
       />
       <InputFileLabel />
