@@ -43,8 +43,7 @@ const InitialForm = () => {
   const currentDate = new Date().toISOString().split("T")[0];
   const [startDay, setStartDay] = useState("");
   const [endDay, setEndDay] = useState("");
-  const { register } = useFormContext();
-
+  
   const handleStartDayChange = (event) => {
     const selectedStartDay = event.target.value;
     setStartDay(selectedStartDay);
