@@ -7,6 +7,8 @@ import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { setFormState, showUserForm } from "../../states/formSlice";
 import { typeEvent } from "../../utils/RequestForm/options";
+import { useFormContext } from "react-hook-form";
+
 
 /**
  * A React functional component that renders a form for collecting initial information about an event.
@@ -42,6 +44,7 @@ const InitialForm = () => {
   const currentDate = new Date().toISOString().split("T")[0];
   const [startDay, setStartDay] = useState("");
   const [endDay, setEndDay] = useState("");
+  const { register } = useFormContext();
 
   const handleStartDayChange = (event) => {
     const selectedStartDay = event.target.value;
@@ -101,13 +104,9 @@ const InitialForm = () => {
 
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
-          <div className="flex flex-col gap-2 w-full h-full">
-            <label htmlFor="startDay" className="font-semibold text-md py-1">
-              Día de inicio del evento:
-            </label>
-            <input
-              className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+            <InputForm
               type="date"
+			  label="Dia de inicio del evento"
               id="startDay"
               name="startDay"
               placeholder="Ejemplo: 04/24/2023"
@@ -116,7 +115,6 @@ const InitialForm = () => {
               value={startDay}
               onChange={handleStartDayChange}
             />
-          </div>
         </div>
         <div className="flex-1">
           <InputForm
@@ -132,14 +130,10 @@ const InitialForm = () => {
       </div>
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
-          <div className="flex flex-col gap-2 w-full h-full">
-            <label htmlFor="endDay" className="font-semibold text-md py-1">
-              Día de fin del evento:
-            </label>
-            <input
-              className="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+            <InputForm
               type="date"
               id="endDay"
+			  label="Dia de fin del evento"
               name="endDay"
               placeholder="Ejemplo: 04/25/2023"
               required={true}
@@ -148,7 +142,6 @@ const InitialForm = () => {
               onChange={handleEndDayChange}
               disabled={!startDay} // Deshabilita endDay hasta que se seleccione startDay
             />
-          </div>
         </div>
 
         <div className="flex-1">
