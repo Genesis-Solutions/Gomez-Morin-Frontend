@@ -82,7 +82,8 @@ const Register = () => {
                 pattern={/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
               />
               <p className="text-sm italic font-thin thin mb-2 text-gray-500">
-              Asegúrate de tener acceso al correo que registres, la comunicación será por este medio.
+                Asegúrate de tener acceso al correo que registres, la
+                comunicación será por este medio.
               </p>
               {errors.mailRegister && (
                 <p className="text-red-500">
@@ -107,10 +108,9 @@ const Register = () => {
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
-                pattern ={
-					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&()_+}{"':;?\/>.<,|=-]).{8,15}$/
-				} 
-
+                pattern={
+                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&()_+}{"':;?\/>.<,|=-]).{8,15}$/
+                }
               />
               {errors.passwordRegister && (
                 <p className="text-red-500">
@@ -135,7 +135,9 @@ const Register = () => {
             )}
             {emailValidator && (
               <div className="w-full bg-red-400 drop-shadow-md mt-7 rounded-lg flex flex-col items-center">
-                <p className="text-gray-500 py-2">¡Los correcos no coinciden!</p>
+                <p className="text-gray-500 py-2">
+                  ¡Los correos no coinciden!
+                </p>
               </div>
             )}
 
