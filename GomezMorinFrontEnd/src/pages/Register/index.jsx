@@ -135,9 +135,7 @@ const Register = () => {
             )}
             {emailValidator && (
               <div className="w-full bg-red-400 drop-shadow-md mt-7 rounded-lg flex flex-col items-center">
-                <p className="text-gray-500 py-2">
-                  ¡Los correos no coinciden!
-                </p>
+                <p className="text-gray-500 py-2">¡Los correos no coinciden!</p>
               </div>
             )}
 
