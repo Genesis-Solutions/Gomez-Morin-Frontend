@@ -10,6 +10,7 @@ import { updateForms } from "../queries/queryRequestForm";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setRows } from "../states/formSlice";
+import { postEmail } from "../queries/queryApi";
 /**
  *  A React component that renders a modal with a form
  *
@@ -54,6 +55,18 @@ const EditModal = ({ idForm, folio, estatus, userId }) => {
       alert(err.response.data.message);
     }
     setIsOpen(false);
+    if (estatus != data.estatus) {
+      try {
+        const emailData = {
+          title: "Cambio de estatus",
+          message: `<p>El estatus de la solicitud con folio: ${data.folio} ha sido modificado a ${data.estatus}</p>`,
+          userId: userId,
+        };
+        await postEmail(emailData);
+      } catch (err) {
+        alert(err.response.data.message);
+      }
+    }
   };
 
   /**
