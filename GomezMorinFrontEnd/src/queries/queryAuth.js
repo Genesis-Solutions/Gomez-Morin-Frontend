@@ -36,8 +36,7 @@ export const postUser = async (data) => {
     const response = await axios.post(`${baseUrl}/users/`, body);
     return response.data;
   } catch (err) {
-    console.log(response);
-    return Promise.reject(err);
+    return Promise.reject(err.response.data.message);
   }
 };
 

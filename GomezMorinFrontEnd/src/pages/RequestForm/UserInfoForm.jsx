@@ -11,6 +11,20 @@ import InputFileLabel from "../../components/InputFileLabel";
  * @returns The JSX element that renders the user info form.
  */
 
+const handleFileChange = (event) => {
+  if (event.target.files) {
+    const file = event.target.files[0];
+    const allowedExtensions = /(\.pdf)$/i;
+
+    if (!allowedExtensions.test(file.name)) {
+      setErrorMessage("Solo se permiten archivos PDF.");
+    } else {
+      setErrorMessage("");
+    }
+  }
+  return;
+};
+
 const UserInfoForm = () => {
   const dispatch = useDispatch();
 
@@ -61,6 +75,7 @@ const UserInfoForm = () => {
         placeholder="Buscar..."
         defaultValue=""
         accept=".pdf"
+        onChange={handleFileChange}
         required={true}
       />
       <InputFileLabel />
@@ -72,6 +87,7 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         accept=".pdf"
+        onChange={handleFileChange}
         required={true}
       />
       <InputFileLabel />
@@ -83,6 +99,7 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         accept=".pdf"
+        onChange={handleFileChange}
         required={true}
       />
       <InputFileLabel />
@@ -94,6 +111,7 @@ const UserInfoForm = () => {
         placeholder="Ejemplo: Buscar..."
         defaultValue=""
         required={false}
+        onChange={handleFileChange}
         accept=".pdf"
       />
       <InputFileLabel />

@@ -43,6 +43,20 @@ const RequestAsMoral = () => {
     }
   };
 
+  const handleFileChange = (event) => {
+    if (event.target.files) {
+      const file = event.target.files[0];
+      const allowedExtensions = /(\.pdf)$/i;
+
+      if (!allowedExtensions.test(file.name)) {
+        setErrorMessage("Solo se permiten archivos PDF.");
+      } else {
+        setErrorMessage("");
+      }
+    }
+    return;
+  };
+
   /**
    * The handlePdfLoad function handles the loading of the pdf.
    *
@@ -102,6 +116,7 @@ const RequestAsMoral = () => {
                   type="file"
                   placeholder="Documento.pdf"
                   defaultValue=""
+                  onChange={handleFileChange}
                   accept=".pdf"
                 />
                 <div className="pt-3">
