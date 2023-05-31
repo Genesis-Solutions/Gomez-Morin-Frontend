@@ -7,6 +7,7 @@ import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { setFormState, showUserForm } from "../../states/formSlice";
 import { typeEvent } from "../../utils/RequestForm/options";
+import { useFormContext } from "react-hook-form";
 
 /**
  * A React functional component that renders a form for collecting initial information about an event.
@@ -41,8 +42,16 @@ const InitialForm = () => {
   const [characterCount, setCharacterCount] = useState(0);
   const currentDate = new Date().toISOString().split("T")[0];
   const [startDay, setStartDay] = useState("");
+  const [endDay, setEndDay] = useState("");
+  
   const handleStartDayChange = (event) => {
-    setStartDay(event.target.value);
+    const selectedStartDay = event.target.value;
+    setStartDay(selectedStartDay);
+    setEndDay(""); // Reiniciar el valor de endDay cuando se cambia startDay
+  };
+
+  const handleEndDayChange = (event) => {
+    setEndDay(event.target.value);
   };
 
   /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly.
@@ -95,17 +104,16 @@ const InitialForm = () => {
         <div className="flex-1">
           <InputForm
             type="date"
+            label="Dia de inicio del evento"
+            id="startDay"
             name="startDay"
-            label="Día de inicio del evento"
             placeholder="Ejemplo: 04/24/2023"
-            defaultValue=""
             required={true}
             min={currentDate}
             value={startDay}
             onChange={handleStartDayChange}
           />
         </div>
-
         <div className="flex-1">
           <InputForm
             type="time"
@@ -122,12 +130,15 @@ const InitialForm = () => {
         <div className="flex-1">
           <InputForm
             type="date"
+            id="endDay"
+            label="Dia de fin del evento"
             name="endDay"
-            label="Día de fin del evento"
             placeholder="Ejemplo: 04/25/2023"
-            defaultValue=""
             required={true}
-            min={currentDate}
+            min={startDay} // Utiliza startDay como el límite mínimo para endDay
+            value={endDay}
+            onChange={handleEndDayChange}
+            disabled={!startDay} // Deshabilita endDay hasta que se seleccione startDay
           />
         </div>
 
