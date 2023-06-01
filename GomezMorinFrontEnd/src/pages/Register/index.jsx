@@ -17,6 +17,7 @@ const Register = () => {
   const methods = useForm();
   const errors = methods.formState.errors;
   const [passwordValidator, setPasswordValidator] = useState(false);
+  const [emailValidator, setEmailValidator] = useState(false);
   const navigate = useNavigate();
 
   /**
@@ -33,11 +34,17 @@ const Register = () => {
     } else {
       setPasswordValidator(false);
     }
+    if (data.mailRegister !== data.mailRegister2) {
+      setEmailValidator(true);
+      return;
+    } else {
+      setEmailValidator(false);
+    }
     try {
       await postUser(data);
       navigate("/login");
     } catch (err) {
-      alert("Usuario o email ya registrado");
+      alert(err);
     }
   };
 
@@ -74,6 +81,10 @@ const Register = () => {
                 defaultValue=""
                 pattern={/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
               />
+              <p className="text-sm italic font-thin thin mb-2 text-gray-500">
+                Asegúrate de tener acceso al correo que registres, la
+                comunicación será por este medio.
+              </p>
               {errors.mailRegister && (
                 <p className="text-red-500">
                   El correo debe tener un formato válido
@@ -82,15 +93,24 @@ const Register = () => {
             </div>
             <div className=" mt-2">
               <InputForm
+                label="Confirmar correo"
+                name="mailRegister2"
+                type="email"
+                placeholder="Ingresa tu Correo"
+                defaultValue=""
+                pattern={/^[^\s@]+@[^\s@]+\.[^\s@]+$/}
+              />
+            </div>
+            <div className=" mt-2">
+              <InputForm
                 label="Contraseña"
                 name="passwordRegister"
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
-                pattern ={
-					/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&()_+}{"':;?\/>.<,|=-]).{8,15}$/
-				} 
-
+                pattern={
+                  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&()_+}{"':;?\/>.<,|=-]).{8,15}$/
+                }
               />
               {errors.passwordRegister && (
                 <p className="text-red-500">
@@ -111,6 +131,11 @@ const Register = () => {
             {passwordValidator && (
               <div className="w-full bg-red-400 drop-shadow-md mt-7 rounded-lg flex flex-col items-center">
                 <p className="text-gray-500 py-2">¡Contraseñas no coinciden!</p>
+              </div>
+            )}
+            {emailValidator && (
+              <div className="w-full bg-red-400 drop-shadow-md mt-7 rounded-lg flex flex-col items-center">
+                <p className="text-gray-500 py-2">¡Los correos no coinciden!</p>
               </div>
             )}
 

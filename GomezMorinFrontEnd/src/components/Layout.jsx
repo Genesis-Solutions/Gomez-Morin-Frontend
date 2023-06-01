@@ -9,10 +9,10 @@ import Footer from "./Footer";
  * 
  * @returns {JSX.Element} The JSX element representing the layout UI.
  */
-
+const isGray = import.meta.env.VITE_GRAYSCALE === 'true';
 const Layout = () => {
   return (
-    <div className="w-full h-full flex flex-col justify-between overflow-y-auto">
+    <div className={isGray ? "filter grayscale w-full h-full flex flex-col justify-between overflow-y-auto" : "w-full h-full flex flex-col justify-between overflow-y-auto"}>
       <Navbar />
       <Outlet />
       <Footer/>
