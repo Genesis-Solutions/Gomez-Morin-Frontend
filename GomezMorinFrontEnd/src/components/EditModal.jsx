@@ -16,7 +16,7 @@ import { postEmail } from "../queries/queryApi";
  *
  * @returns {Jsx.Element} - A React JSX element representing a modal with a form
  */
-const EditModal = ({ idForm, folio, estatus, userId }) => {
+const EditModal = ({ idForm, folio, estatus, userId, userPtr }) => {
   const navigate = useNavigate();
   const methods = useForm();
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +27,7 @@ const EditModal = ({ idForm, folio, estatus, userId }) => {
       id: item._id,
       fecha: item.requestDate,
       folio: item.folio,
+      userPtr: item.userPtr,
       tipo: item.membretatedLetterDoc ? "Persona moral" : "Persona física",
       evento: item.membretatedLetterDoc ? "-" : item.typeEvent,
       nombre: item.membretatedLetterDoc
@@ -60,7 +61,7 @@ const EditModal = ({ idForm, folio, estatus, userId }) => {
         const emailData = {
           title: "Cambio de estatus",
           message: `<p>El estatus de la solicitud con folio: ${data.folio} ha sido modificado a ${data.estatus}</p>`,
-          userId: userId,
+          userId: userPtr,
         };
         await postEmail(emailData);
       } catch (err) {

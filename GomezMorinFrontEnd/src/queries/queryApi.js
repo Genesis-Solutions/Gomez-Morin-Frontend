@@ -1,6 +1,13 @@
 import axios from "axios";
-const baseUrl = import.meta.env.VITE_BASE_URL
+const baseUrl = import.meta.env.VITE_BASE_URL;
 
+/**
+ * Sends an email notification.
+ *
+ * @param {Object} data - The data object containing title, userId, and message.
+ * @returns {Promise<Object>} - A promise that resolves to the response object.
+ * @throws {Error} - If an error occurs during the API call.
+ */
 export const postEmail = async (data) => {
   const { title, userId, message } = data;
   const user = await axios.get(`${baseUrl}/users/${userId}`);
