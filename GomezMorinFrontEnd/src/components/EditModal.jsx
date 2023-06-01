@@ -64,6 +64,7 @@ const EditModal = ({ idForm, folio, estatus, userId, userPtr }) => {
           userId: userPtr,
         };
         await postEmail(emailData);
+		alert("Correo con modificación de estatus enviado");
       } catch (err) {
         alert(err.response.data.message);
       }
