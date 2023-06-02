@@ -15,10 +15,21 @@ import { useNavigate } from "react-router-dom";
  */
 const Register = () => {
   const methods = useForm();
+  const [password, setPassword] = useState("");
+
   const errors = methods.formState.errors;
   const [passwordValidator, setPasswordValidator] = useState(false);
+  const [confirmPasswordValidator, setConfirmPasswordValidator] = useState("");
   const [emailValidator, setEmailValidator] = useState(false);
   const navigate = useNavigate();
+
+  const onChangeHandlerPassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const onChangeHandlerConfirmPassword = (e) => {
+    setConfirmPasswordValidator(e.target.value);
+  };
 
   /**
    * Handles form submission for user registration.
@@ -28,7 +39,7 @@ const Register = () => {
    * @returns {Promise} A promise that resolves with the response from the server.
    */
   const onSubmitUser = async (data) => {
-    if (data.passwordRegister !== data.password2Register) {
+    if (password !== confirmPasswordValidator) {
       setPasswordValidator(true);
       return;
     } else {
@@ -108,6 +119,7 @@ const Register = () => {
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
+                onChange={onChangeHandlerPassword}
                 pattern={
                   /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&()_+}{"':;?\/>.<,|=-]).{8,15}$/
                 }
@@ -126,6 +138,7 @@ const Register = () => {
                 type="password"
                 placeholder="Ingresa tu Contraseña"
                 defaultValue=""
+                onChange={onChangeHandlerConfirmPassword}
               />
             </div>
             {passwordValidator && (
