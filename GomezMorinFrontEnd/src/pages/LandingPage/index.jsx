@@ -1,11 +1,18 @@
 import React from "react";
 import Header from "../../components/Header.jsx";
 import ImageCarousel from "../../components/ImageCarousel.jsx";
-import Carousel1 from "../../../public/images/image_carousel_1.jpg";
-import Carousel2 from "../../../public/images/image_carousel_2.jpeg";
-import Carousel3 from "../../../public/images/image_carousel_3.jpg";
-import Carousel4 from "../../../public/images/image_carousel_4.jpg";
-import Carousel5 from "../../../public/images/image_carousel_5.png";
+import Carousel1 from "../../../public/images/gomez-morin-1.jpg";
+import Carousel2 from "../../../public/images/gomez-morin-2.jpg";
+import Carousel3 from "../../../public/images/gomez-morin-3.jpg";
+import Carousel4 from "../../../public/images/gomez-morin-4.jpg";
+import Carousel5 from "../../../public/images/gomez-morin-5.jpg";
+import Carousel6 from "../../../public/images/gomez-morin-6.jpg";
+import Carousel7 from "../../../public/images/gomez-morin-7.jpg";
+import Carousel8 from "../../../public/images/gomez-morin-8.jpg";
+import Carousel9 from "../../../public/images/gomez-morin-9.jpg";
+import Carousel10 from "../../../public/images/gomez-morin-10.jpg";
+import Carousel11 from "../../../public/images/gomez-morin-11.jpg";
+import Carousel12 from "../../../public/images/gomez-morin-12.jpg";
 //import guideLinesPdf from "../../assets/Lineamientos de uso y disfrute.pdf";
 
 const LandingPage = () => {
@@ -86,7 +93,43 @@ const LandingPage = () => {
           <div className="col-span-1 place-self-center">
             <img
               className="object-cover h-48 w-96 shadow-xl rounded-lg"
-              src={Carousel1}
+              src={Carousel6}
+            />
+          </div>
+          <div className="col-span-1 place-self-center">
+            <img
+              className="object-cover h-48 w-96 shadow-xl rounded-lg"
+              src={Carousel7}
+            />
+          </div>
+          <div className="col-span-1 place-self-center">
+            <img
+              className="object-cover h-48 w-96 shadow-xl rounded-lg"
+              src={Carousel8}
+            />
+          </div>
+          <div className="col-span-1 place-self-center">
+            <img
+              className="object-cover h-48 w-96 shadow-xl rounded-lg"
+              src={Carousel9}
+            />
+          </div>
+          <div className="col-span-1 place-self-center">
+            <img
+              className="object-cover h-48 w-96 shadow-xl rounded-lg"
+              src={Carousel10}
+            />
+          </div>
+          <div className="col-span-1 place-self-center">
+            <img
+              className="object-cover h-48 w-96 shadow-xl rounded-lg"
+              src={Carousel11}
+            />
+          </div>
+          <div className="col-span-1 place-self-center">
+            <img
+              className="object-cover h-48 w-96 shadow-xl rounded-lg"
+              src={Carousel12}
             />
           </div>
         </div>
