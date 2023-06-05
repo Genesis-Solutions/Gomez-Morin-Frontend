@@ -7,6 +7,9 @@ export const typeEvent = [
   { value: "Evento", _id: "1" },
   { value: "Taller", _id: "2" },
   { value: "Exposición", _id: "3" },
+  { value: "Curso", _id: "4" },
+  { value: "Conferencia", _id: "5" },
+  { value: "Seminario", _id: "6" },
 ];
 
 /**

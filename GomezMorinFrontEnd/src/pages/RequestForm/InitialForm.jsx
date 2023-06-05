@@ -43,7 +43,7 @@ const InitialForm = () => {
   const currentDate = new Date().toISOString().split("T")[0];
   const [startDay, setStartDay] = useState("");
   const [endDay, setEndDay] = useState("");
-  
+
   const handleStartDayChange = (event) => {
     const selectedStartDay = event.target.value;
     setStartDay(selectedStartDay);
@@ -85,20 +85,6 @@ const InitialForm = () => {
           />
         </div>
       </div>
-
-      <TextArea
-        type="text"
-        name="generalDescription"
-        label="Descripción del evento"
-        placeholder="Ejemplo: Descripción general del evento..."
-        defaultValue=""
-        required={true}
-        min="300"
-        onChange={handleTextAreaChange}
-      />
-      <p className="text-sm text-gray-600 font-bold">
-        Caracteres Ingresados: {characterCount} Min:300{" "}
-      </p>
 
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
@@ -152,6 +138,23 @@ const InitialForm = () => {
             required={true}
           />
         </div>
+
+        <div className="flex-1">
+          <InputForm
+            type="text"
+            name="weekDays"
+            label="Días del evento"
+            placeholder="Ejemplo: Lunes, Miércoles, Viernes"
+            pattern={/^(lunes|martes|miércoles|jueves|viernes|sábado|domingo)(\s*,\s*(lunes|martes|miércoles|jueves|viernes|sábado|domingo))*$/i}
+            defaultValue=""
+            required={true}
+          />
+                        {errors.weekDays && (
+                <p className="text-red-500">
+                  Por favor, ingresa días de la semana separados con comas (,).
+                </p>
+              )}
+        </div>
       </div>
 
       <div className="md:flex flex-wrap sm:gap-14">
@@ -174,17 +177,6 @@ const InitialForm = () => {
               />
             )}
           </div>
-        </div>
-
-        <div className="flex-1">
-          <InputForm
-            type="text"
-            name="place"
-            label="Lugar del evento"
-            placeholder="Ejemplo: sala numero 3 de gomez morin"
-            defaultValue=""
-            required={true}
-          />
         </div>
       </div>
 

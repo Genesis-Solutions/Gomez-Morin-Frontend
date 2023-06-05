@@ -46,7 +46,19 @@ const UserInfoForm = () => {
           <InputForm
             type="number"
             name="cellphone"
-            label="Número de teléfono del solicitante"
+            label="Celular del solicitante"
+            placeholder="Ejemplo: 777123443.."
+            defaultValue=""
+            min={1000000000}
+            max={9999999999}
+            required={true}
+          />
+        </div>
+        <div className="flex-1">
+          <InputForm
+            type="number"
+            name="telephone"
+            label="Teléfono fijo del solicitante"
             placeholder="Ejemplo: 777123443.."
             defaultValue=""
             min={1000000000}
