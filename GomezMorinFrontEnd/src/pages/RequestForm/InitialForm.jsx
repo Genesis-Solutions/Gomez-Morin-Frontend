@@ -75,13 +75,20 @@ const InitialForm = () => {
   return (
     <>
       <div className="md:flex flex-wrap sm:gap-14">
-        <div className="flex-1">
+        <div className="flex-1 pb-4">
           <DropdownInput
             name="typeEvent"
             label="Tipo de evento"
             options={typeEvent}
+            pattern = {/^(?!- Selecciona -).*/}
           />
+          {errors.typeEvent && (
+          <p className="text-red-500">
+            Por favor, selecciona una opción de la lista.
+          </p>
+        )}
         </div>
+        
 
         <div className="flex-1">
           <InputForm

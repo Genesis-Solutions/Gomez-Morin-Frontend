@@ -3,6 +3,7 @@ import Button from "../../components/Button";
 import InputForm from "../../components/InputForm";
 import TextArea from "../../components/TextArea";
 import RadioButtonForm from "../../components/RadioButtonForm";
+import { useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { setFormState, showInitialForm } from "../../states/formSlice";
 import DropdownInput from "../../components/DropdownInput";
@@ -36,6 +37,15 @@ const SpecificForm = () => {
     const text = event.target.value;
     setCharacterCount(text.length);
   };
+
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = useFormContext();
+
+  const handleNext = handleSubmit(() => {
+    dispatch(setFormState("SendForm"));
+  });
 
   return (
     <>
@@ -93,19 +103,31 @@ const SpecificForm = () => {
             required={true}
           />
         </div>
-        <div className="md:col-span-1 col-span-2">
+        <div className="md:col-span-1 col-span-2 pb-4">
           <DropdownInput
             name="publicType"
             label="Tipo de público al que está dirigido"
             options={publicType}
+            pattern={/^(?!- Selecciona -).*/}
           />
+          {errors.publicType && (
+          <p className="text-red-500">
+            Por favor, selecciona una opción de la lista.
+          </p>
+        )}
         </div>
-        <div className="md:col-span-1 col-span-2">
+        <div className="md:col-span-1 col-span-2 pb-4">
           <DropdownInput
             name="chairNumber"
             label="Número de sillas"
             options={chairNumber}
+            pattern={/^(?!- Selecciona -).*/}
           />
+          {errors.chairNumber && (
+          <p className="text-red-500">
+            Por favor, selecciona una opción de la lista.
+          </p>
+        )}
         </div>
         <div className="col-span-2">
           <TextArea
@@ -145,12 +167,18 @@ const SpecificForm = () => {
             required={true}
           />
         </div>
-        <div className="md:col-span-1 col-span-2">
+        <div className="md:col-span-1 col-span-2 pb-4">
           <DropdownInput
             name="equipment"
             label="Equipo requerido de CECEQ"
             options={requiredEquipment}
+            pattern={/^(?!- Selecciona -).*/}
           />
+          {errors.requiredEquipment && (
+          <p className="text-red-500">
+            Por favor, selecciona una opción de la lista.
+          </p>
+        )}
         </div>
         <div className="md:col-span-1 col-span-2">
           <RadioButtonForm
@@ -170,28 +198,46 @@ const SpecificForm = () => {
             options={electricOptions}
           />
         </div>
-        <div className="md:col-span-1 col-span-2">
+        <div className="md:col-span-1 col-span-2 pb-4">
           <DropdownInput
             name="mounting"
             label="Tipo de montaje"
             options={mountingTypes}
+            pattern={/^(?!- Selecciona -).*/}
           />
+          {errors.mounting && (
+          <p className="text-red-500">
+            Por favor, selecciona una opción de la lista.
+          </p>
+        )}
         </div>
-        <div className="md:col-span-1 col-span-2">
+        <div className="md:col-span-1 col-span-2 pb-4">
           <DropdownInput
             name="tableNumber"
             label="Número de mesas"
             options={tableNumber}
+            pattern={/^(?!- Selecciona -).*/}
           />
+          {errors.tableNumber && (
+          <p className="text-red-500">
+            Por favor, selecciona una opción de la lista.
+          </p>
+        )}
         </div>
 
         {/* Shared Between Evento and Exposición Specific Questions */}
-        <div className="md:col-span-1 col-span-2">
+        <div className="md:col-span-1 col-span-2 pb-4">
           <DropdownInput
             name="requiredSpace"
             label="Espacio requerido para el evento"
             options={requiredSpace}
+            pattern={/^(?!- Selecciona -).*/}
           />
+          {errors.requiredSpace && (
+          <p className="text-red-500">
+            Por favor, selecciona una opción de la lista.
+          </p>
+        )}
         </div>
 
         {/* Form Navigation */}
@@ -211,7 +257,7 @@ const SpecificForm = () => {
             colorBg="bg-light-blue-500"
             colorHoverBg="bg-light-blue-700"
             action={() => {
-              dispatch(setFormState("SendForm"));
+              handleNext();
             }}
           />
         </div>
