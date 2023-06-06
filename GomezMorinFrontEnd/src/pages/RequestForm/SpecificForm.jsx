@@ -12,8 +12,10 @@ import {
   softwareOptions,
   publicType,
   mountingTypes,
-  soundOptions,
-  microphoneOptions,
+  chairNumber,
+  tableNumber,
+  requiredEquipment,
+  requiredSpace,
 } from "../../utils/RequestForm/options";
 
 /**
@@ -109,16 +111,17 @@ const SpecificForm = () => {
           />
         </div>
         <div className="md:col-span-1 col-span-2">
-          <RadioButtonForm question={"Tipo de público"} options={publicType} />
+          <DropdownInput
+            name="publicType"
+            label="Tipo de público al que está dirigido"
+            options={publicType}
+          />
         </div>
         <div className="md:col-span-1 col-span-2">
-          <InputForm
-            type="number"
+          <DropdownInput
             name="chairNumber"
             label="Número de sillas"
-            placeholder="10"
-            min="0"
-            defaultValue="0"
+            options={chairNumber}
           />
         </div>
         <div className="col-span-2">
@@ -160,13 +163,10 @@ const SpecificForm = () => {
           />
         </div>
         <div className="md:col-span-1 col-span-2">
-          <InputForm
-            type="text"
+          <DropdownInput
             name="equipment"
-            label="Equipo requerido de Gómez Morín"
-            placeholder="Computadoras, pantallas, proyectores, etc.."
-            defaultValue=""
-            required={true}
+            label="Equipo requerido de CECEQ"
+            options={requiredEquipment}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -195,26 +195,19 @@ const SpecificForm = () => {
           />
         </div>
         <div className="md:col-span-1 col-span-2">
-          <InputForm
-            type="number"
+          <DropdownInput
             name="tableNumber"
             label="Número de mesas"
-            placeholder="5"
-            defaultValue="0"
-            min="0"
+            options={tableNumber}
           />
         </div>
 
         {/* Shared Between Evento and Exposición Specific Questions */}
         <div className="md:col-span-1 col-span-2">
-          <InputForm
-            type="text"
+          <DropdownInput
             name="requiredSpace"
-            label={`Espacio requerido para el ${
-              typeEvent === "Evento" ? "evento" : "exposición"
-            }`}
-            placeholder="50 mts"
-            defaultValue=""
+            label="Espacio requerido para el evento"
+            options={requiredSpace}
           />
         </div>
 

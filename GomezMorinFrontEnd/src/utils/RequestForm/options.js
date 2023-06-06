@@ -74,22 +74,16 @@ export const softwareOptions = [
 
 /**
  * An array of public type options.
- *
- * Each option is an object containing a label, a name and a value.
- * The label represents the text to display, the name represents the name of the field and
- * the value represents the boolean value of the option.
+ * Each option is an object containing a label and an ID.
+ * The label represents the text to display for the option,
+ * and the ID is a unique identifier for the option.
  */
 export const publicType = [
-  {
-    label: "Público",
-    name: "publicEvent",
-    value: true,
-  },
-  {
-    label: "Privado",
-    name: "publicEvent",
-    value: true,
-  },
+  { value: "Todo público", _id: "1" },
+  { value: "Privado", _id: "2" },
+  { value: "Locales", _id: "3" },
+  { value: "Nacionales", _id: "4" },
+  { value: "Internacionales", _id: "5" },
 ];
 
 /**
@@ -105,42 +99,41 @@ export const mountingTypes = [
   { value: "Herradura Tipo U", _id: "4" },
 ];
 
-/**
- * An array of sound options.
- *
- * Each option is an object containing a label, a name and a value.
- * The label represents the text to display, the name represents the name of the field and
- * the value represents the boolean value of the option.
- */
-export const soundOptions = [
-  {
-    label: "Si",
-    name: "sound",
-    value: true,
-  },
-  {
-    label: "No",
-    name: "sound",
-    value: false,
-  },
+export const chairNumber = [
+  { value: 6, _id: "1" },
+  { value: 9, _id: "2" },
+  { value: 10, _id: "3" },
+  { value: 15, _id: "4" },
+  { value: 40, _id: "5" },
 ];
 
-/**
- * An array of microphone options.
- *
- * Each option is an object containing a label, a name and a value.
- * The label represents the text to display, the name represents the name of the field and
- * the value represents the boolean value of the option.
- */
-export const microphoneOptions = [
-  {
-    label: "Si",
-    name: "microphone",
-    value: true,
-  },
-  {
-    label: "No",
-    name: "microphone",
-    value: false,
-  },
+export const tableNumber = [
+  { value: 6, _id: "1" },
+  { value: 9, _id: "2" },
+  { value: 10, _id: "3" },
+  { value: 15, _id: "4" },
+  { value: 40, _id: "5" },
+];
+
+export const requiredEquipment = [
+  { value: "Computadora/Laptop", _id: "1" },
+  { value: "Proyector", _id: "2" },
+  { value: "Pantalla", _id: "3" },
+  { value: "Pizarrón", _id: "4" },
+  { value: "Equipo de Sonido", _id: "5" },
+  { value: "Bocinas", _id: "6" },
+];
+
+export const requiredSpace = [
+  { value: "Aula 1 (6 Personas)", _id: "1" },
+  { value: "Aula 2 (9 Personas)", _id: "2" },
+  { value: "Aula 3 (6 Personas)", _id: "3" },
+  { value: "Aula 4 (6 Personas)", _id: "4" },
+  { value: "Aula 5 (20 Personas)", _id: "5" },
+  { value: "Aula 6 (6 Personas)", _id: "6" },
+  { value: "Aula 7 (6 Personas)", _id: "7" },
+  { value: "Aula 9 (20 Personas)", _id: "8" },
+  { value: "Aula 11 (9 Personas)", _id: "9" },
+  { value: "Aula 14 (10 Personas)", _id: "10" },
+  { value: "Auditorio Principal (100 Personas)", _id: "11" },
 ];
