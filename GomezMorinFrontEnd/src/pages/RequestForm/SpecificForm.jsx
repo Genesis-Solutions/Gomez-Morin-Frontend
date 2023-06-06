@@ -138,8 +138,6 @@ const SpecificForm = () => {
         </div>
 
         {/* Shared Between Evento and Taller Specific Questions */}
-        {(typeEvent === "Evento" || typeEvent === "Taller") && (
-          <>
             <div className="md:col-span-1 col-span-2">
               <InputForm
                 type="number"
@@ -206,12 +204,9 @@ const SpecificForm = () => {
                 min="0"
               />
             </div>
-          </>
-        )}
+
 
         {/* Shared Between Evento and Exposición Specific Questions */}
-        {(typeEvent === "Evento" || typeEvent === "Exposición") && (
-          <>
             <div className="md:col-span-1 col-span-2">
               <InputForm
                 type="text"
@@ -223,12 +218,9 @@ const SpecificForm = () => {
                 defaultValue=""
               />
             </div>
-          </>
-        )}
+
 
         {/* Questions of Exposicion */}
-        {typeEvent === "Exposición" && (
-          <>
             <div className="md:col-span-1 col-span-2">
               <InputForm
                 type="date"
@@ -259,8 +251,6 @@ const SpecificForm = () => {
                 options={microphoneOptions}
               />
             </div>
-          </>
-        )}
 
         {/* Form Navigation */}
         <div className="col-span-2 flex justify-end gap-5">
