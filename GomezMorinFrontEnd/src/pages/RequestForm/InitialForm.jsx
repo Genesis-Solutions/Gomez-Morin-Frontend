@@ -38,7 +38,16 @@ const InitialForm = () => {
     });
   };
 
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = useFormContext();
   const dispatch = useDispatch();
+
+  const handleNext = handleSubmit(() => {
+    dispatch(setFormState("SpecificForm"));
+  });
+
   const [characterCount, setCharacterCount] = useState(0);
   const currentDate = new Date().toISOString().split("T")[0];
   const [startDay, setStartDay] = useState("");
@@ -145,15 +154,17 @@ const InitialForm = () => {
             name="weekDays"
             label="Días del evento"
             placeholder="Ejemplo: Lunes, Miércoles, Viernes"
-            pattern={/^(lunes|martes|miércoles|jueves|viernes|sábado|domingo)(\s*,\s*(lunes|martes|miércoles|jueves|viernes|sábado|domingo))*$/i}
+            pattern={
+              /^(lunes|martes|miércoles|jueves|viernes|sábado|domingo)(\s*,\s*(lunes|martes|miércoles|jueves|viernes|sábado|domingo))*$/i
+            }
             defaultValue=""
             required={true}
           />
-                        {errors.weekDays && (
-                <p className="text-red-500">
-                  Por favor, ingresa días de la semana separados con comas (,).
-                </p>
-              )}
+          {errors.weekDays && (
+            <p className="text-red-500">
+              Por favor, ingresa días de la semana separados con comas (,).
+            </p>
+          )}
         </div>
       </div>
 
@@ -238,7 +249,7 @@ const InitialForm = () => {
           colorBg="bg-light-blue-500"
           colorHoverBg="bg-light-blue-700"
           action={() => {
-            dispatch(setFormState("SpecificForm"));
+            handleNext();
           }}
         />
       </div>
