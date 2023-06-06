@@ -83,7 +83,6 @@ const RequestForm = () => {
 
     if (formState === "SendForm") {
       if (
-        data.phoneEmergency.length >= 10 &&
         data.postalCode.length >= 5 &&
         data.specificDescription.length >= 300
       ) {

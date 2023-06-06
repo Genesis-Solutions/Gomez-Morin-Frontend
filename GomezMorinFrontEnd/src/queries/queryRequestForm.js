@@ -6,20 +6,16 @@ const baseURL = import.meta.env.VITE_BASE_URL;
  * Creates an Axios request with the given data
  *
  * @param {object} data - An object containing the data required to create the request
+ * @param {string} data.weekDays - Week days of the event
  * @param {string} data.typeEvent - Type of the event
  * @param {string} data.nameEvent - Name of the event
  * @param {string} data.targetAudience - Target audience of the event
- * @param {string} data.generalDescription - General description of the event
  * @param {string} data.startDay - Start day of the event
  * @param {string} data.startTime - Start time of the event
  * @param {string} data.endDay - End day of the event
  * @param {string} data.endTime - End time of the event
- * @param {string} data.openingDay - Opening day of the event
- * @param {string} data.inauguration - Inauguration of the event
  * @param {string} data.authorities - Authorities of the event
- * @param {string} data.place - Place of the event
  * @param {string} data.cost - Cost of the event
- * @param {string} data.fee - Fee of the event
  * @param {string} data.socialNetwork - Social network of the event
  * @param {string} data.ineDoc - INE document of the requester
  * @param {string} data.addressDoc - Address document of the requester
@@ -28,13 +24,13 @@ const baseURL = import.meta.env.VITE_BASE_URL;
  * @param {string} data.requestDate - Date of the request
  * @param {string} data.nameRequester - Name of the requester
  * @param {string} data.cellphone - Cellphone number of the requester
- * @param {string} data.phoneEmergency - Emergency phone number of the requester
+ * @param {string} data.telephone - Phone number of the requester
  * @param {string} data.email - Email of the requester
  * @param {string} data.direction - Direction of the event
  * @param {string} data.postalCode - Postal code of the event
  * @param {string} data.street - Street of the event
  * @param {string} data.colony - Colony of the event
- * @param {string} data.publicEvent - Public or private event
+ * @param {string} data.publicType - Public type of the event
  * @param {string} data.chairNumber - Number of chairs required for the event
  * @param {string} data.specificDescription - Specific description of the event
  * @param {string} data.assistance - Assistance required for the event
@@ -46,10 +42,6 @@ const baseURL = import.meta.env.VITE_BASE_URL;
  * @param {string} data.electricInstallation - Electric installation for the event
  * @param {string} data.mounting - Mounting for the event
  * @param {string} data.tableNumber - Number of tables required for the event
- * @param {string} data.openingDayDate - Opening day date of the event
- * @param {string} data.openingDayTime - Opening day time of the event
- * @param {string} data.sound - Sound required for the event
- * @param {string} data.microphone - Microphone required for the event
  * @returns {Promise} A promise that resolves with the response data from the server
  */
 
@@ -58,18 +50,14 @@ export const createRequest = async (data) => {
   const {
     typeEvent,
     nameEvent,
+    weekDays,
     targetAudience,
-    generalDescription,
     startDay,
     startTime,
     endDay,
     endTime,
-    openingDay,
-    inauguration,
     authorities,
-    place,
     cost,
-    fee,
     socialNetwork,
     ineDoc,
     addressDoc,
@@ -78,13 +66,13 @@ export const createRequest = async (data) => {
     requestDate,
     nameRequester,
     cellphone,
-    phoneEmergency,
+    telephone,
     email,
     direction,
     postalCode,
     street,
     colony,
-    publicEvent,
+    publicType,
     chairNumber,
     specificDescription,
     assistance,
@@ -96,66 +84,44 @@ export const createRequest = async (data) => {
     electricInstallation,
     mounting,
     tableNumber,
-    openingDayDate,
-    openingDayTime,
-    sound,
-    microphone,
     userId,
   } = data;
 
   if (authorities) {
     formData.append("authorities", authorities);
   }
-
-  if (fee) {
-    formData.append("fee", fee);
+  if (cost) {
+    formData.append("cost", cost);
   }
 
-  if (typeEvent === "Evento" || typeEvent === "Taller") {
-    formData.append("assistance", assistance);
-    formData.append("ages", ages);
-    formData.append("equipment", equipment);
-    formData.append("selfEquipment", selfEquipment);
-    formData.append("softInstallation", softInstallation);
-    formData.append("electricInstallation", electricInstallation);
-    formData.append("mounting", mounting);
-    formData.append("tableNumber", tableNumber);
-  }
-
-  if (typeEvent === "Evento" || typeEvent === "Exposición") {
-    formData.append("requiredSpace", requiredSpace);
-  }
-
-  if (typeEvent === "Exposición") {
-    formData.append("openingDayDate", openingDayDate);
-    formData.append("openingDayTime", openingDayTime);
-    formData.append("sound", sound);
-    formData.append("microphone", microphone);
-  }
-
+  formData.append("assistance", assistance);
+  formData.append("weekDays", weekDays);
+  formData.append("ages", ages);
+  formData.append("equipment", equipment);
+  formData.append("selfEquipment", selfEquipment);
+  formData.append("softInstallation", softInstallation);
+  formData.append("electricInstallation", electricInstallation);
+  formData.append("mounting", mounting);
+  formData.append("tableNumber", tableNumber);
+  formData.append("requiredSpace", requiredSpace);
   formData.append("typeEvent", typeEvent);
   formData.append("nameEvent", nameEvent);
   formData.append("targetAudience", targetAudience);
-  formData.append("generalDescription", generalDescription);
   formData.append("startDay", startDay);
   formData.append("startTime", startTime);
   formData.append("endDay", endDay);
   formData.append("endTime", endTime);
-  formData.append("openingDay", openingDay);
-  formData.append("inauguration", inauguration);
-  formData.append("place", place);
-  formData.append("cost", cost);
   formData.append("socialNetwork", socialNetwork);
   formData.append("requestDate", requestDate);
   formData.append("nameRequester", nameRequester);
   formData.append("cellphone", cellphone);
-  formData.append("phoneEmergency", phoneEmergency);
+  formData.append("telephone", telephone);
   formData.append("email", email);
   formData.append("direction", direction);
   formData.append("postalCode", postalCode);
   formData.append("street", street);
   formData.append("colony", colony);
-  formData.append("publicEvent", publicEvent);
+  formData.append("publicType", publicType);
   formData.append("chairNumber", chairNumber);
   formData.append("specificDescription", specificDescription);
   formData.append("userPtr", userId);
@@ -168,7 +134,7 @@ export const createRequest = async (data) => {
   arrayFile.map((file) => {
     formData.append("file", file);
   });
-
+  console.log(data);
   try {
     const response = await axios({
       url: `${baseURL}/solicitudes/solicitud`,

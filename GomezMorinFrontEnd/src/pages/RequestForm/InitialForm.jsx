@@ -195,14 +195,14 @@ const InitialForm = () => {
         <div className="flex-1">
           <div className="flex flex-col gap-4">
             <CheckBoxInput
-              name="cost"
+              name="precio"
               label="¿El evento tiene costo de admisión?"
               onChange={(isChecked) => handleCheckBoxChange("costo", isChecked)}
             />
             {formData.costo && (
               <InputForm
                 type="number"
-                name="fee"
+                name="cost"
                 label="Especifica el costo por acceso"
                 placeholder="Ejemplo: 1000.."
                 defaultValue=""
