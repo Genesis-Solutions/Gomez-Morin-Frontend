@@ -138,119 +138,85 @@ const SpecificForm = () => {
         </div>
 
         {/* Shared Between Evento and Taller Specific Questions */}
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="number"
-                name="assistance"
-                label="Número aproximado de asistentes"
-                placeholder="25"
-                defaultValue="1"
-                min="1"
-                required={true}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="text"
-                name="ages"
-                label="Rango de edades del público"
-                placeholder="18 - 25"
-                defaultValue=""
-                required={true}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="text"
-                name="equipment"
-                label="Equipo requerido de Gómez Morín"
-                placeholder="Computadoras, pantallas, proyectores, etc.."
-                defaultValue=""
-                required={true}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"¿Usará equipo propio?"}
-                options={equipmentOptions}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"Instalación de software"}
-                options={softwareOptions}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"Instalación eléctrica"}
-                options={electricOptions}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <DropdownInput
-                name="mounting"
-                label="Tipo de montaje"
-                options={mountingTypes}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="number"
-                name="tableNumber"
-                label="Número de mesas"
-                placeholder="5"
-                defaultValue="0"
-                min="0"
-              />
-            </div>
-
+        <div className="md:col-span-1 col-span-2">
+          <InputForm
+            type="number"
+            name="assistance"
+            label="Número aproximado de asistentes"
+            placeholder="25"
+            defaultValue="1"
+            min="1"
+            required={true}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <InputForm
+            type="text"
+            name="ages"
+            label="Rango de edades del público"
+            placeholder="18 - 25"
+            defaultValue=""
+            required={true}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <InputForm
+            type="text"
+            name="equipment"
+            label="Equipo requerido de Gómez Morín"
+            placeholder="Computadoras, pantallas, proyectores, etc.."
+            defaultValue=""
+            required={true}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <RadioButtonForm
+            question={"¿Usará equipo propio?"}
+            options={equipmentOptions}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <RadioButtonForm
+            question={"Instalación de software"}
+            options={softwareOptions}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <RadioButtonForm
+            question={"Instalación eléctrica"}
+            options={electricOptions}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <DropdownInput
+            name="mounting"
+            label="Tipo de montaje"
+            options={mountingTypes}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <InputForm
+            type="number"
+            name="tableNumber"
+            label="Número de mesas"
+            placeholder="5"
+            defaultValue="0"
+            min="0"
+          />
+        </div>
 
         {/* Shared Between Evento and Exposición Specific Questions */}
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="text"
-                name="requiredSpace"
-                label={`Espacio requerido para el ${
-                  typeEvent === "Evento" ? "evento" : "exposición"
-                }`}
-                placeholder="50 mts"
-                defaultValue=""
-              />
-            </div>
-
-
-        {/* Questions of Exposicion */}
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="date"
-                name="openingDayDate"
-                label="Fecha de inauguración"
-                defaultValue=""
-                min={currentDate}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="time"
-                name="openingDayTime"
-                label="Hora de inauguración (Formato 24hrs)"
-                placeholder="13:00"
-                defaultValue=""
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"Requiere sonido"}
-                options={soundOptions}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"Requiere microfono"}
-                options={microphoneOptions}
-              />
-            </div>
+        <div className="md:col-span-1 col-span-2">
+          <InputForm
+            type="text"
+            name="requiredSpace"
+            label={`Espacio requerido para el ${
+              typeEvent === "Evento" ? "evento" : "exposición"
+            }`}
+            placeholder="50 mts"
+            defaultValue=""
+          />
+        </div>
 
         {/* Form Navigation */}
         <div className="col-span-2 flex justify-end gap-5">
