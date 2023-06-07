@@ -26,7 +26,10 @@ import {
  */
 const SpecificForm = () => {
   const dispatch = useDispatch();
-  const currentDate = new Date().toISOString().split("T")[0];
+  const currentDate = new Date()
+    .toISOString()
+    .toLocaleString("en-US", { timeZone: "America/Mexico_City" })
+    .split("T")[0];
   const [characterCount, setCharacterCount] = useState(0);
 
   /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly.
@@ -110,10 +113,10 @@ const SpecificForm = () => {
             pattern={/^(?!- Selecciona -).*/}
           />
           {errors.publicType && (
-          <p className="text-red-500">
-            Por favor, selecciona una opción de la lista.
-          </p>
-        )}
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
         </div>
         <div className="md:col-span-1 col-span-2 pb-4">
           <DropdownInput
@@ -123,10 +126,10 @@ const SpecificForm = () => {
             pattern={/^(?!- Selecciona -).*/}
           />
           {errors.chairNumber && (
-          <p className="text-red-500">
-            Por favor, selecciona una opción de la lista.
-          </p>
-        )}
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
         </div>
         <div className="col-span-2">
           <TextArea
@@ -175,10 +178,10 @@ const SpecificForm = () => {
             defaultValue="- Selecciona -"
           />
           {errors.equipment && (
-          <p className="text-red-500">
-            Por favor, selecciona una opción de la lista.
-          </p>
-        )}
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
         </div>
         <div className="md:col-span-1 col-span-2">
           <RadioButtonForm
@@ -206,10 +209,10 @@ const SpecificForm = () => {
             pattern={/^(?!- Selecciona -).*/}
           />
           {errors.mounting && (
-          <p className="text-red-500">
-            Por favor, selecciona una opción de la lista.
-          </p>
-        )}
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
         </div>
         <div className="md:col-span-1 col-span-2 pb-4">
           <DropdownInput
@@ -219,10 +222,10 @@ const SpecificForm = () => {
             pattern={/^(?!- Selecciona -).*/}
           />
           {errors.tableNumber && (
-          <p className="text-red-500">
-            Por favor, selecciona una opción de la lista.
-          </p>
-        )}
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
         </div>
 
         {/* Shared Between Evento and Exposición Specific Questions */}
@@ -234,10 +237,10 @@ const SpecificForm = () => {
             pattern={/^(?!- Selecciona -).*/}
           />
           {errors.requiredSpace && (
-          <p className="text-red-500">
-            Por favor, selecciona una opción de la lista.
-          </p>
-        )}
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
         </div>
 
         {/* Form Navigation */}

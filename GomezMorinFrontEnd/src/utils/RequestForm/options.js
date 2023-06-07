@@ -98,7 +98,12 @@ export const mountingTypes = [
   { value: "Mesa Rusa", _id: "3" },
   { value: "Herradura Tipo U", _id: "4" },
 ];
-
+/**
+ * An array of chair numbers.
+ *
+ * Each option is an object containing a value and an id.
+ * The value represents the text to display and the id represents the identifier of the option.
+ */
 export const chairNumber = [
   { value: 6, _id: "1" },
   { value: 9, _id: "2" },
@@ -106,6 +111,13 @@ export const chairNumber = [
   { value: 15, _id: "4" },
   { value: 40, _id: "5" },
 ];
+
+/**
+ * An array of table numbers.
+ *
+ * Each option is an object containing a value and an id.
+ * The value represents the text to display and the id represents the identifier of the option.
+ */
 
 export const tableNumber = [
   { value: 6, _id: "1" },
@@ -115,6 +127,13 @@ export const tableNumber = [
   { value: 40, _id: "5" },
 ];
 
+/**
+ * An array of table numbers.
+ *
+ * Each option is an object containing a value and an id.
+ * The value represents the text to display and the id represents the identifier of the option.
+ */
+
 export const requiredEquipment = [
   { value: "Computadora/Laptop", _id: "1" },
   { value: "Proyector", _id: "2" },
@@ -123,6 +142,13 @@ export const requiredEquipment = [
   { value: "Equipo de Sonido", _id: "5" },
   { value: "Bocinas", _id: "6" },
 ];
+
+/**
+ * An array of required spaces.
+ *
+ * Each option is an object containing a value and an id.
+ * The value represents the text to display and the id represents the identifier of the option.
+ */
 
 export const requiredSpace = [
   { value: "Aula 1 (6 Personas)", _id: "1" },

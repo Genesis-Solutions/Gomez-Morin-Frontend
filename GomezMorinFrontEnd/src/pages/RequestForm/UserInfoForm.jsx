@@ -75,10 +75,8 @@ const UserInfoForm = () => {
             type="email"
             name="email"
             label="Correo del solicitante"
-            defaultValue = {userEmail}
+            placeholder={userEmail}
             required={true}
-            disabled={true}
-
           />
         </div>
       </div>
