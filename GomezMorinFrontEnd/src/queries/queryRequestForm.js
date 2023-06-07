@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const baseURL = import.meta.env.VITE_BASE_URL;
 
@@ -47,6 +48,7 @@ const baseURL = import.meta.env.VITE_BASE_URL;
 
 export const createRequest = async (data) => {
   const formData = new FormData();
+  const userEmail = useSelector((state) => state.auth.email);
   const {
     typeEvent,
     nameEvent,
@@ -116,7 +118,7 @@ export const createRequest = async (data) => {
   formData.append("nameRequester", nameRequester);
   formData.append("cellphone", cellphone);
   formData.append("telephone", telephone);
-  formData.append("email", email);
+  formData.append("email", userEmail);
   formData.append("direction", direction);
   formData.append("postalCode", postalCode);
   formData.append("street", street);

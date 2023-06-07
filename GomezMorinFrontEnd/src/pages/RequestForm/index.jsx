@@ -49,10 +49,6 @@ const RequestForm = () => {
     setValue("electricInstallation", "");
     setValue("mounting", "");
     setValue("tableNumber", "");
-    setValue("openingDayDate", "");
-    setValue("openingDayTime", "");
-    setValue("sound", "");
-    setValue("microphone", "");
   };
 
   /**
@@ -74,10 +70,7 @@ const RequestForm = () => {
     }
 
     if (formState === "SpecificForm") {
-      if (typeEvent !== data.typeEvent) {
-        dispatch(setTypeEventForm(data.typeEvent));
-        resetHandler();
-      }
+     
       dispatch(showSpecificForm());
     }
 

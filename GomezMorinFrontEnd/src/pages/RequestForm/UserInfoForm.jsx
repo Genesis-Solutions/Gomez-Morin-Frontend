@@ -75,10 +75,10 @@ const UserInfoForm = () => {
             type="email"
             name="email"
             label="Correo del solicitante"
-            placeholder="Ejemplo: Juan@gmail.com.."
-            defaultValue={userEmail}
+            defaultValue = {userEmail}
             required={true}
             disabled={true}
+
           />
         </div>
       </div>
