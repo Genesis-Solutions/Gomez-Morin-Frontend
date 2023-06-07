@@ -26,7 +26,6 @@ import {
  */
 const SpecificForm = () => {
   const dispatch = useDispatch();
-  const typeEvent = useSelector((state) => state.form.typeEventForm);
   const currentDate = new Date().toISOString().split("T")[0];
   const [characterCount, setCharacterCount] = useState(0);
 
@@ -173,8 +172,9 @@ const SpecificForm = () => {
             label="Equipo requerido de CECEQ"
             options={requiredEquipment}
             pattern={/^(?!- Selecciona -).*/}
+            defaultValue="- Selecciona -"
           />
-          {errors.requiredEquipment && (
+          {errors.equipment && (
           <p className="text-red-500">
             Por favor, selecciona una opción de la lista.
           </p>
