@@ -11,7 +11,6 @@ const RetrievePass = () => {
   const methods = useForm();
   const navigate = useNavigate();
 
-
   const onSubmit = async (data) => {
     try {
       const emailData = {
@@ -69,9 +68,9 @@ const RetrievePass = () => {
     
     <p>Hemos recibido una solicitud para recuperar la contraseña de tu cuenta. Si no realizaste esta solicitud, por favor ignora este correo.</p>
     
-    <p>Ingresa a nuestra página de eventos Goméz Morín:</p>
+    <p>Pulsa el siguiente botón para ingresar a nuestra página de eventos Goméz Morín:</p>
     <p>
-      <a class="button" href="http://eventos-ceceq.com" target="_blank">Cambiar Contraseña</a>
+      <a class="button" href="http://eventos-ceceq.com" target="_blank">Eventos CECEQ</a>
     </p>
     
     
@@ -79,7 +78,7 @@ const RetrievePass = () => {
     
     <p>¡Gracias y que tengas un buen día!</p>
     
-    <p>Tu contraseña es: </p>`,
+    <p>Tu nueva contraseña es: </p>`,
         email: data.email,
         username: data.username,
       };
