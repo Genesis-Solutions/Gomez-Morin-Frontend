@@ -60,7 +60,62 @@ const EditModal = ({ idForm, folio, estatus, userId, userPtr }) => {
       try {
         const emailData = {
           title: "Cambio de estatus",
-          message: `<p>El estatus de la solicitud con folio: ${data.folio} ha sido modificado a ${data.estatus}</p>`,
+          message: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Notificación de Cambio de Estatus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    p {
+      margin-bottom: 10px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0492C2;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Notificación de Cambio de Estatus</h1>
+    <p>Estimado/a usuario,</p>
+    
+    <p>Queremos informarte que el estatus de la solicitud con folio: <strong>${data.folio}</strong> ha sido modificado a <strong>${data.estatus}</strong>.</p>
+    
+    <p>Para obtener más detalles y acceder a la página de eventos, haz clic en el siguiente botón:</p>
+    
+    <p>
+      <a class="button" href="http://eventos-ceceq.com" target="_blank">Ir a Eventos CECEQ</a>
+    </p>
+    
+    <p>¡Gracias y que tengas un buen día!</p>
+    
+    <p>Atentamente,</p>
+    <p>Goméz Morín</p>
+  </div>
+</body>
+</html>`,
           userId: userPtr,
         };
         await postEmail(emailData);
