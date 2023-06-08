@@ -81,12 +81,15 @@ const Login = () => {
               <div className="w-full max-w-xs flex justify-center">
                 <TextButton text="Crear una Cuenta" path={"/register"} />
               </div>
-			</div>
-			<div className="flex justify-center mt-6">
-			  <div className="w-full max-w-xs flex justify-center">
-				<TextButton text="¿Olvidaste tu contraseña?" path={"/retrievepass"} />
+            </div>
+            <div className="flex justify-center mt-6">
+              <div className="w-full max-w-xs flex justify-center">
+                <TextButton
+                  text="¿Olvidaste tu contraseña?"
+                  path={"/retrievepass"}
+                />
               </div>
-			</div>
+            </div>
           </form>
         </FormProvider>
       </div>
