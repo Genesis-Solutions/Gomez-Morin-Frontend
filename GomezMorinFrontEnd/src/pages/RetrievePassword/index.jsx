@@ -1,3 +1,9 @@
+/**
+* This component represents the password retrieval feature.
+* It allows users to enter their username and email to receive a password recovery email.
+* Once the email is sent successfully, the user is redirected to the login page.
+*/
+
 import React, { useState } from "react";
 import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
@@ -7,9 +13,21 @@ import { useForm, FormProvider } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { postEmailPassword } from "../../queries/queryApi";
 
+/**
+* RetrievePass component.
+*/
+
 const RetrievePass = () => {
   const methods = useForm();
   const navigate = useNavigate();
+
+/**
+* Handles the form submission when the user requests to retrieve their password.
+* Sends a password recovery email with the user's username and email.
+* Displays an alert when the email is sent successfully.
+* Redirects the user to the login page.
+* @param {Object} data - The form data containing the user's username and email.
+*/
 
   const onSubmit = async (data) => {
     try {
