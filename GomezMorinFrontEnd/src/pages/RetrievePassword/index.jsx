@@ -121,7 +121,7 @@ const RetrievePass = () => {
             <div className="mt-2">
               <InputForm
                 label="Usuario"
-                name="userName"
+                name="username"
                 type="text"
                 placeholder="Ingresa tu usuario"
                 defaultValue=""
