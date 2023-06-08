@@ -91,12 +91,11 @@ const RetrievePass = () => {
       <a class="button" href="http://eventos-ceceq.com" target="_blank">Eventos CECEQ</a>
     </p>
     
-    
-    <p>Si tienes alguna pregunta o necesitas más información, no dudes en contactarnos. Estamos aquí para ayudarte.</p>
-    
     <p>¡Gracias y que tengas un buen día!</p>
+
+	<p>*Tip* Utiliza copiar y pegar (Ctrl + C, Ctrl + V)</p>
     
-    <p>Tu nueva contraseña es: </p>`,
+    <p>Tu nueva contraseña es:  </p>`,
         email: data.email,
         username: data.username,
       };
