@@ -49,10 +49,6 @@ const RequestForm = () => {
     setValue("electricInstallation", "");
     setValue("mounting", "");
     setValue("tableNumber", "");
-    setValue("openingDayDate", "");
-    setValue("openingDayTime", "");
-    setValue("sound", "");
-    setValue("microphone", "");
   };
 
   /**
@@ -74,16 +70,12 @@ const RequestForm = () => {
     }
 
     if (formState === "SpecificForm") {
-      if (typeEvent !== data.typeEvent) {
-        dispatch(setTypeEventForm(data.typeEvent));
-        resetHandler();
-      }
+     
       dispatch(showSpecificForm());
     }
 
     if (formState === "SendForm") {
       if (
-        data.phoneEmergency.length >= 10 &&
         data.postalCode.length >= 5 &&
         data.specificDescription.length >= 300
       ) {

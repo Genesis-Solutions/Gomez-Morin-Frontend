@@ -30,6 +30,7 @@ const InputForm = ({
   min,
   max,
   onChange,
+  disabled
 }) => {
   const { register } = useFormContext();
   const [errorMessage, setErrorMessage] = useState("");
@@ -54,6 +55,7 @@ const InputForm = ({
         min={min}
         max={max}
         onChange={onChange}
+        disabled={disabled}
       />
       {errorMessage && (
         <p className="font-semibold text-red-400 text-sm">{errorMessage}</p>
