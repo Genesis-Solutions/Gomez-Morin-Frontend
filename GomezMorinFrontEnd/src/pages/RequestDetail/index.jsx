@@ -53,13 +53,10 @@ const RequestDetail = () => {
               textToCopy={data.nameRequester}
             />
             <Clipboard
-              label="Teléfono del solicitante"
+              label="Celular del solicitante"
               textToCopy={data.cellphone}
             />
-            <Clipboard
-              label="Teléfono de emergencia"
-              textToCopy={data.phoneEmergency}
-            />
+            <Clipboard label="Teléfono fijo" textToCopy={data.telephone} />
             <Clipboard label="Correo electrónico" textToCopy={data.email} />
             <Clipboard
               label="Fecha de solicitud"
@@ -67,17 +64,13 @@ const RequestDetail = () => {
             />
             <Clipboard label="Nombre del evento" textToCopy={data.nameEvent} />
             <Clipboard
-              label="Descripción general"
-              textToCopy={data.generalDescription}
-            />
-            <Clipboard
               label="Descripción del evento"
               textToCopy={data.specificDescription}
             />
             <Clipboard label="Tipo de evento" textToCopy={data.typeEvent} />
             <Clipboard label="Dirigido a" textToCopy={data.targetAudience} />
             {data.fee ? (
-              <Clipboard label="Cuota" textToCopy={data.fee} />
+              <Clipboard label="Cuota" textToCopy={data.cost} />
             ) : null}
             <Clipboard label="Redes sociales" textToCopy={data.socialNetwork} />
             <Clipboard
@@ -96,7 +89,7 @@ const RequestDetail = () => {
               label="Hora de fin del evento"
               textToCopy={data.endTime}
             />
-            <Clipboard label="Lugar del evento" textToCopy={data.place} />
+            <Clipboard label="Días del evento" textToCopy={data.weekDays} />
             {data.assistance ? (
               <Clipboard label="Personas" textToCopy={data.assistance} />
             ) : null}
@@ -109,11 +102,9 @@ const RequestDetail = () => {
             <Clipboard label="Código Postal" textToCopy={data.postalCode} />
             <Clipboard label="Calle" textToCopy={data.street} />
             <Clipboard label="Colonia" textToCopy={data.colony} />
-            {data.publicEvent ? (
-              <Clipboard label="Tipo de público" textToCopy="Público" />
-            ) : (
-              <Clipboard label="Tipo de público" textToCopy="Privado" />
-            )}
+
+            <Clipboard label="Tipo de público" textToCopy={data.publicType} />
+
             {data.requiredSpace ? (
               <Clipboard
                 label="Espacio requerido"
@@ -121,7 +112,7 @@ const RequestDetail = () => {
               />
             ) : null}
             <Clipboard label="Número de sillas" textToCopy={data.chairNumber} />
-            {data.inauguration ? (
+            {data.authorities ? (
               <Clipboard
                 label="¿Tiene inauguración?"
                 textToCopy="Cuenta con inauguración"
@@ -173,34 +164,6 @@ const RequestDetail = () => {
                 textToCopy={data.tableNumber}
               />
             ) : null}
-            {data.openingDayDate ? (
-              <Clipboard
-                label="Fecha de inauguración"
-                textToCopy={data.openingDayDate}
-              />
-            ) : null}
-            {data.openingDayTime ? (
-              <Clipboard
-                label="Hora de inauguración"
-                textToCopy={data.openingDayTime}
-              />
-            ) : null}
-            {data.sound ? (
-              <Clipboard
-                label="¿Necesitará instalación de sonido?"
-                textToCopy="Sí"
-              />
-            ) : (
-              <Clipboard
-                label="¿Necesitará instalación de sonido?"
-                textToCopy="No"
-              />
-            )}
-            {data.microphone ? (
-              <Clipboard label="¿Necesitará micrófonos?" textToCopy="Sí" />
-            ) : (
-              <Clipboard label="¿Necesitará micrófonos?" textToCopy="No" />
-            )}
             {data.ineDoc && (
               <DownloadInput
                 label="INE"

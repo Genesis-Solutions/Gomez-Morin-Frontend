@@ -10,6 +10,7 @@ import RequestDetail from "./pages/RequestDetail";
 import { useSelector } from "react-redux";
 import PersistLogin from "./components/PersistLogin";
 import LandingPage from "./pages/LandingPage";
+import RetrievePass from "./pages/RetrievePassword";
 
 const App = () => {
   const rol = useSelector((state) => state.auth.nameRol);
@@ -24,6 +25,7 @@ const App = () => {
             <Route element={<Layout />}>
               <Route path="/" element={<LandingPage />} />
               <Route path="/register" element={<Register />} />
+			  <Route path="/retrievepass" element={<RetrievePass />} />
               <Route path="/login" element={<Login />} />
 
               <Route

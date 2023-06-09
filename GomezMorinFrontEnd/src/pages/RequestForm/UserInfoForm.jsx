@@ -1,9 +1,10 @@
 import React from "react";
 import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setFormState } from "../../states/formSlice";
 import InputFileLabel from "../../components/InputFileLabel";
+import { useAccordion } from "@material-tailwind/react";
 
 /**
  * A React functional component that renders a form for collecting user information.
@@ -27,7 +28,7 @@ const handleFileChange = (event) => {
 
 const UserInfoForm = () => {
   const dispatch = useDispatch();
-
+  const userEmail = useSelector((state) => state.auth.email);
   return (
     <>
       <div className="md:flex flex-wrap sm:gap-14">
@@ -46,7 +47,19 @@ const UserInfoForm = () => {
           <InputForm
             type="number"
             name="cellphone"
-            label="Número de teléfono del solicitante"
+            label="Celular del solicitante"
+            placeholder="Ejemplo: 777123443.."
+            defaultValue=""
+            min={1000000000}
+            max={9999999999}
+            required={true}
+          />
+        </div>
+        <div className="flex-1">
+          <InputForm
+            type="number"
+            name="telephone"
+            label="Teléfono fijo del solicitante"
             placeholder="Ejemplo: 777123443.."
             defaultValue=""
             min={1000000000}
@@ -62,8 +75,7 @@ const UserInfoForm = () => {
             type="email"
             name="email"
             label="Correo del solicitante"
-            placeholder="Ejemplo: Juan@gmail.com.."
-            defaultValue=""
+            placeholder={userEmail}
             required={true}
           />
         </div>
