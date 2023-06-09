@@ -29,20 +29,11 @@ const InputForm = ({
   maxLength,
   min,
   max,
+  onChange,
+  disabled
 }) => {
   const { register } = useFormContext();
   const [errorMessage, setErrorMessage] = useState("");
-
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    const allowedExtensions = /(\.pdf)$/i;
-
-    if (!allowedExtensions.test(file.name)) {
-      setErrorMessage("Solo se permiten archivos PDF.");
-    } else {
-      setErrorMessage("");
-    }
-  };
 
   return (
     <div className="flex flex-col gap-2 w-full h-full">
@@ -63,7 +54,8 @@ const InputForm = ({
         maxLength={maxLength}
         min={min}
         max={max}
-        onChange={handleFileChange}
+        onChange={onChange}
+        disabled={disabled}
       />
       {errorMessage && (
         <p className="font-semibold text-red-400 text-sm">{errorMessage}</p>

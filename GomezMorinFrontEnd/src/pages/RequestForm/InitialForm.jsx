@@ -7,6 +7,7 @@ import Button from "../../components/Button";
 import { useDispatch } from "react-redux";
 import { setFormState, showUserForm } from "../../states/formSlice";
 import { typeEvent } from "../../utils/RequestForm/options";
+import { useFormContext } from "react-hook-form";
 
 /**
  * A React functional component that renders a form for collecting initial information about an event.
@@ -37,12 +38,29 @@ const InitialForm = () => {
     });
   };
 
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = useFormContext();
   const dispatch = useDispatch();
+
+  const handleNext = handleSubmit(() => {
+    dispatch(setFormState("SpecificForm"));
+  });
+
   const [characterCount, setCharacterCount] = useState(0);
   const currentDate = new Date().toISOString().split("T")[0];
   const [startDay, setStartDay] = useState("");
+  const [endDay, setEndDay] = useState("");
+
   const handleStartDayChange = (event) => {
-    setStartDay(event.target.value);
+    const selectedStartDay = event.target.value;
+    setStartDay(selectedStartDay);
+    setEndDay(""); // Reiniciar el valor de endDay cuando se cambia startDay
+  };
+
+  const handleEndDayChange = (event) => {
+    setEndDay(event.target.value);
   };
 
   /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly.
@@ -57,13 +75,20 @@ const InitialForm = () => {
   return (
     <>
       <div className="md:flex flex-wrap sm:gap-14">
-        <div className="flex-1">
+        <div className="flex-1 pb-4">
           <DropdownInput
             name="typeEvent"
             label="Tipo de evento"
             options={typeEvent}
+            pattern = {/^(?!- Selecciona -).*/}
           />
+          {errors.typeEvent && (
+          <p className="text-red-500">
+            Por favor, selecciona una opción de la lista.
+          </p>
+        )}
         </div>
+        
 
         <div className="flex-1">
           <InputForm
@@ -77,35 +102,20 @@ const InitialForm = () => {
         </div>
       </div>
 
-      <TextArea
-        type="text"
-        name="generalDescription"
-        label="Descripción del evento"
-        placeholder="Ejemplo: Descripción general del evento..."
-        defaultValue=""
-        required={true}
-        min="300"
-        onChange={handleTextAreaChange}
-      />
-      <p className="text-sm text-gray-600 font-bold">
-        Caracteres Ingresados: {characterCount} Min:300{" "}
-      </p>
-
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
           <InputForm
             type="date"
+            label="Dia de inicio del evento"
+            id="startDay"
             name="startDay"
-            label="Día de inicio del evento"
             placeholder="Ejemplo: 04/24/2023"
-            defaultValue=""
             required={true}
             min={currentDate}
             value={startDay}
             onChange={handleStartDayChange}
           />
         </div>
-
         <div className="flex-1">
           <InputForm
             type="time"
@@ -122,12 +132,15 @@ const InitialForm = () => {
         <div className="flex-1">
           <InputForm
             type="date"
+            id="endDay"
+            label="Dia de fin del evento"
             name="endDay"
-            label="Día de fin del evento"
             placeholder="Ejemplo: 04/25/2023"
-            defaultValue=""
             required={true}
-            min={currentDate}
+            min={startDay} // Utiliza startDay como el límite mínimo para endDay
+            value={endDay}
+            onChange={handleEndDayChange}
+            disabled={!startDay} // Deshabilita endDay hasta que se seleccione startDay
           />
         </div>
 
@@ -140,6 +153,25 @@ const InitialForm = () => {
             defaultValue=""
             required={true}
           />
+        </div>
+
+        <div className="flex-1">
+          <InputForm
+            type="text"
+            name="weekDays"
+            label="Días del evento"
+            placeholder="Ejemplo: Lunes, Miércoles, Viernes"
+            pattern={
+              /^(lunes|martes|miércoles|jueves|viernes|sábado|domingo)(\s*,\s*(lunes|martes|miércoles|jueves|viernes|sábado|domingo))*$/i
+            }
+            defaultValue=""
+            required={true}
+          />
+          {errors.weekDays && (
+            <p className="text-red-500">
+              Por favor, ingresa días de la semana separados con comas (,).
+            </p>
+          )}
         </div>
       </div>
 
@@ -164,31 +196,20 @@ const InitialForm = () => {
             )}
           </div>
         </div>
-
-        <div className="flex-1">
-          <InputForm
-            type="text"
-            name="place"
-            label="Lugar del evento"
-            placeholder="Ejemplo: sala numero 3 de gomez morin"
-            defaultValue=""
-            required={true}
-          />
-        </div>
       </div>
 
       <div className="md:flex flex-wrap sm:gap-14">
         <div className="flex-1">
           <div className="flex flex-col gap-4">
             <CheckBoxInput
-              name="cost"
+              name="precio"
               label="¿El evento tiene costo de admisión?"
               onChange={(isChecked) => handleCheckBoxChange("costo", isChecked)}
             />
             {formData.costo && (
               <InputForm
                 type="number"
-                name="fee"
+                name="cost"
                 label="Especifica el costo por acceso"
                 placeholder="Ejemplo: 1000.."
                 defaultValue=""
@@ -235,7 +256,7 @@ const InitialForm = () => {
           colorBg="bg-light-blue-500"
           colorHoverBg="bg-light-blue-700"
           action={() => {
-            dispatch(setFormState("SpecificForm"));
+            handleNext();
           }}
         />
       </div>

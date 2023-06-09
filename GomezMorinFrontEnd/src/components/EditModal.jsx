@@ -10,12 +10,13 @@ import { updateForms } from "../queries/queryRequestForm";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setRows } from "../states/formSlice";
+import { postEmail } from "../queries/queryApi";
 /**
  *  A React component that renders a modal with a form
  *
  * @returns {Jsx.Element} - A React JSX element representing a modal with a form
  */
-const EditModal = ({ idForm, folio, estatus, userId }) => {
+const EditModal = ({ idForm, folio, estatus, userId, userPtr }) => {
   const navigate = useNavigate();
   const methods = useForm();
   const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +27,7 @@ const EditModal = ({ idForm, folio, estatus, userId }) => {
       id: item._id,
       fecha: item.requestDate,
       folio: item.folio,
+      userPtr: item.userPtr,
       tipo: item.membretatedLetterDoc ? "Persona moral" : "Persona física",
       evento: item.membretatedLetterDoc ? "-" : item.typeEvent,
       nombre: item.membretatedLetterDoc
@@ -54,6 +56,74 @@ const EditModal = ({ idForm, folio, estatus, userId }) => {
       alert(err.response.data.message);
     }
     setIsOpen(false);
+    if (estatus != data.estatus) {
+      try {
+        const emailData = {
+          title: "Cambio de estatus",
+          message: `<!DOCTYPE html>
+<html>
+<head>
+  <title>Notificación de Cambio de Estatus</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    h1 {
+      color: #333;
+    }
+    
+    p {
+      margin-bottom: 10px;
+    }
+    
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #0492C2;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Notificación de Cambio de Estatus</h1>
+    <p>Estimado/a usuario,</p>
+    
+    <p>Queremos informarte que el estatus de la solicitud con folio: <strong>${data.folio}</strong> ha sido modificado a <strong>${data.estatus}</strong>.</p>
+    
+    <p>Para obtener más detalles y acceder a la página de eventos, haz clic en el siguiente botón:</p>
+    
+    <p>
+      <a class="button" href="http://eventos-ceceq.com" target="_blank">Ir a Eventos CECEQ</a>
+    </p>
+    
+    <p>¡Gracias y que tengas un buen día!</p>
+    
+    <p>Atentamente,</p>
+    <p>Goméz Morín</p>
+  </div>
+</body>
+</html>`,
+          userId: userPtr,
+        };
+        await postEmail(emailData);
+        alert("Correo con modificación de estatus enviado");
+      } catch (err) {
+        alert(err.response.data.message);
+      }
+    }
   };
 
   /**

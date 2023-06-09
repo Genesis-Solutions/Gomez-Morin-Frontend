@@ -24,10 +24,10 @@ const Footer = () => {
           C.P.76000. Santiago de Querétaro.
         </p>
       </div>
-      <div className=" hidden md:px-4 md:pt-2">
+      <div className="md:px-4 md:pt-2">
         <img
           className="object-scale-down h-12"
-          src="/images/gomez_morin_blanco.png"
+          src="/images/Contigo.png"
         />
       </div>
     </div>

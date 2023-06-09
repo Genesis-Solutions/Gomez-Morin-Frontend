@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import InputForm from "../../components/InputForm";
 import Button from "../../components/Button";
 import IconTitle from "../../components/IconTitle";
@@ -18,9 +18,15 @@ const Login = () => {
   const methods = useForm();
   const navigate = useNavigate();
   const login = useLoginUser();
+  const [password, setPassword] = useState("");
+
+  const onChangeHandler = (e) => {
+    setPassword(e.target.value);
+  };
   const onSubmitUser = async (data) => {
+    const newData = { userName: data.userName, password: password };
     try {
-      await login(data);
+      await login(newData);
       navigate("/");
       // reload page
     } catch (err) {
@@ -54,6 +60,7 @@ const Login = () => {
                 label="Contraseña"
                 name="password"
                 type="password"
+                onChange={onChangeHandler}
                 placeholder="Ingresa tu contraseña"
                 defaultValue=""
               />
@@ -73,6 +80,14 @@ const Login = () => {
             <div className="flex justify-center mt-6">
               <div className="w-full max-w-xs flex justify-center">
                 <TextButton text="Crear una Cuenta" path={"/register"} />
+              </div>
+            </div>
+            <div className="flex justify-center mt-6">
+              <div className="w-full max-w-s flex justify-center">
+                <TextButton
+                  text="¿Olvidaste tu contraseña?"
+                  path={"/retrievepass"}
+                />
               </div>
             </div>
           </form>

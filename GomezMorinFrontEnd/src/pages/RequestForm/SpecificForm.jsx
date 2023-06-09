@@ -3,6 +3,7 @@ import Button from "../../components/Button";
 import InputForm from "../../components/InputForm";
 import TextArea from "../../components/TextArea";
 import RadioButtonForm from "../../components/RadioButtonForm";
+import { useFormContext } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { setFormState, showInitialForm } from "../../states/formSlice";
 import DropdownInput from "../../components/DropdownInput";
@@ -12,8 +13,10 @@ import {
   softwareOptions,
   publicType,
   mountingTypes,
-  soundOptions,
-  microphoneOptions,
+  chairNumber,
+  tableNumber,
+  requiredEquipment,
+  requiredSpace,
 } from "../../utils/RequestForm/options";
 
 /**
@@ -23,8 +26,10 @@ import {
  */
 const SpecificForm = () => {
   const dispatch = useDispatch();
-  const typeEvent = useSelector((state) => state.form.typeEventForm);
-  const currentDate = new Date().toISOString().split("T")[0];
+  const currentDate = new Date()
+    .toISOString()
+    .toLocaleString("en-US", { timeZone: "America/Mexico_City" })
+    .split("T")[0];
   const [characterCount, setCharacterCount] = useState(0);
 
   /** A function that handles changes to the textArea inputs in the form and updates the Character counter accordingly.
@@ -32,9 +37,17 @@ const SpecificForm = () => {
    */
   const handleTextAreaChange = (event) => {
     const text = event.target.value;
-    console.log(text.length);
     setCharacterCount(text.length);
   };
+
+  const {
+    handleSubmit,
+    formState: { errors },
+  } = useFormContext();
+
+  const handleNext = handleSubmit(() => {
+    dispatch(setFormState("SendForm"));
+  });
 
   return (
     <>
@@ -48,22 +61,7 @@ const SpecificForm = () => {
             defaultValue=""
             required={true}
             min={currentDate}
-          />
-        </div>
-        <div className="md:col-span-1 col-span-2">
-          <InputForm
-            type="number"
-            name="phoneEmergency"
-            label="Teléfono de emergencia"
-            placeholder="4441234566"
-            minLength="10"
-            defaultValue=""
-            min="1000000000"
-            max="9999999999"
-            required={true}
-            onChange={(event) => {
-              event.target.value = event.target.value.replace(/\D/, "");
-            }}
+            max={currentDate}
           />
         </div>
         <div className="md:col-span-1 col-span-2">
@@ -107,18 +105,31 @@ const SpecificForm = () => {
             required={true}
           />
         </div>
-        <div className="md:col-span-1 col-span-2">
-          <RadioButtonForm question={"Tipo de público"} options={publicType} />
+        <div className="md:col-span-1 col-span-2 pb-4">
+          <DropdownInput
+            name="publicType"
+            label="Tipo de público al que está dirigido"
+            options={publicType}
+            pattern={/^(?!- Selecciona -).*/}
+          />
+          {errors.publicType && (
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
         </div>
-        <div className="md:col-span-1 col-span-2">
-          <InputForm
-            type="number"
+        <div className="md:col-span-1 col-span-2 pb-4">
+          <DropdownInput
             name="chairNumber"
             label="Número de sillas"
-            placeholder="10"
-            min="0"
-            defaultValue="0"
+            options={chairNumber}
+            pattern={/^(?!- Selecciona -).*/}
           />
+          {errors.chairNumber && (
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
         </div>
         <div className="col-span-2">
           <TextArea
@@ -137,129 +148,100 @@ const SpecificForm = () => {
         </div>
 
         {/* Shared Between Evento and Taller Specific Questions */}
-        {(typeEvent === "Evento" || typeEvent === "Taller") && (
-          <>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="number"
-                name="assistance"
-                label="Número aproximado de asistentes"
-                placeholder="25"
-                defaultValue="1"
-                min="1"
-                required={true}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="text"
-                name="ages"
-                label="Rango de edades del público"
-                placeholder="18 - 25"
-                defaultValue=""
-                required={true}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="text"
-                name="equipment"
-                label="Equipo requerido de Gómez Morín"
-                placeholder="Computadoras, pantallas, proyectores, etc.."
-                defaultValue=""
-                required={true}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"¿Usará equipo propio?"}
-                options={equipmentOptions}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"Instalación de software"}
-                options={softwareOptions}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"Instalación eléctrica"}
-                options={electricOptions}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <DropdownInput
-                name="mounting"
-                label="Tipo de montaje"
-                options={mountingTypes}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="number"
-                name="tableNumber"
-                label="Número de mesas"
-                placeholder="5"
-                defaultValue="0"
-                min="0"
-              />
-            </div>
-          </>
-        )}
+        <div className="md:col-span-1 col-span-2">
+          <InputForm
+            type="number"
+            name="assistance"
+            label="Número aproximado de asistentes"
+            placeholder="25"
+            defaultValue="1"
+            min="1"
+            required={true}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <InputForm
+            type="text"
+            name="ages"
+            label="Rango de edades del público"
+            placeholder="18 - 25"
+            defaultValue=""
+            required={true}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2 pb-4">
+          <DropdownInput
+            name="equipment"
+            label="Equipo requerido de CECEQ"
+            options={requiredEquipment}
+            pattern={/^(?!- Selecciona -).*/}
+            defaultValue="- Selecciona -"
+          />
+          {errors.equipment && (
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <RadioButtonForm
+            question={"¿Usará equipo propio?"}
+            options={equipmentOptions}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <RadioButtonForm
+            question={"Instalación de software"}
+            options={softwareOptions}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2">
+          <RadioButtonForm
+            question={"Instalación eléctrica"}
+            options={electricOptions}
+          />
+        </div>
+        <div className="md:col-span-1 col-span-2 pb-4">
+          <DropdownInput
+            name="mounting"
+            label="Tipo de montaje"
+            options={mountingTypes}
+            pattern={/^(?!- Selecciona -).*/}
+          />
+          {errors.mounting && (
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
+        </div>
+        <div className="md:col-span-1 col-span-2 pb-4">
+          <DropdownInput
+            name="tableNumber"
+            label="Número de mesas"
+            options={tableNumber}
+            pattern={/^(?!- Selecciona -).*/}
+          />
+          {errors.tableNumber && (
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
+        </div>
 
         {/* Shared Between Evento and Exposición Specific Questions */}
-        {(typeEvent === "Evento" || typeEvent === "Exposición") && (
-          <>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="text"
-                name="requiredSpace"
-                label={`Espacio requerido para el ${
-                  typeEvent === "Evento" ? "evento" : "exposición"
-                }`}
-                placeholder="50 mts"
-                defaultValue=""
-              />
-            </div>
-          </>
-        )}
-
-        {/* Questions of Exposicion */}
-        {typeEvent === "Exposición" && (
-          <>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="date"
-                name="openingDayDate"
-                label="Fecha de inauguración"
-                defaultValue=""
-                min={currentDate}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <InputForm
-                type="time"
-                name="openingDayTime"
-                label="Hora de inauguración (Formato 24hrs)"
-                placeholder="13:00"
-                defaultValue=""
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"Requiere sonido"}
-                options={soundOptions}
-              />
-            </div>
-            <div className="md:col-span-1 col-span-2">
-              <RadioButtonForm
-                question={"Requiere microfono"}
-                options={microphoneOptions}
-              />
-            </div>
-          </>
-        )}
+        <div className="md:col-span-1 col-span-2 pb-4">
+          <DropdownInput
+            name="requiredSpace"
+            label="Espacio requerido para el evento"
+            options={requiredSpace}
+            pattern={/^(?!- Selecciona -).*/}
+          />
+          {errors.requiredSpace && (
+            <p className="text-red-500">
+              Por favor, selecciona una opción de la lista.
+            </p>
+          )}
+        </div>
 
         {/* Form Navigation */}
         <div className="col-span-2 flex justify-end gap-5">
@@ -278,7 +260,7 @@ const SpecificForm = () => {
             colorBg="bg-light-blue-500"
             colorHoverBg="bg-light-blue-700"
             action={() => {
-              dispatch(setFormState("SendForm"));
+              handleNext();
             }}
           />
         </div>

@@ -36,6 +36,7 @@ const RequestAll = () => {
           folio={row.folio}
           estatus={row.estatus}
           userId={userId}
+          userPtr = {row.userPtr}
         />
       ),
     },
@@ -63,6 +64,7 @@ const RequestAll = () => {
       id: item._id,
       fecha: item.requestDate,
       folio: item.folio,
+      userPtr : item.userPtr,
       tipo: item.membretatedLetterDoc ? "Persona moral" : "Persona física",
       evento: item.membretatedLetterDoc ? "-" : item.typeEvent,
       nombre: item.membretatedLetterDoc
