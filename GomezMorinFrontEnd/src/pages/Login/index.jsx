@@ -83,7 +83,7 @@ const Login = () => {
               </div>
             </div>
             <div className="flex justify-center mt-6">
-              <div className="w-full max-w-xs flex justify-center">
+              <div className="w-full max-w-s flex justify-center">
                 <TextButton
                   text="¿Olvidaste tu contraseña?"
                   path={"/retrievepass"}
